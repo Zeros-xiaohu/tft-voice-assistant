@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { Mic, MicOff, ArrowUp, Sparkles, Database } from "lucide-react"
 
 interface QueryResult {
-  type: "hero_build" | "comp_tier" | "error" | "unknown"
+  type: "item_tier" | "comp_tier" | "hero_build" | "error" | "unknown"
   data: any
   message?: string
 }
@@ -17,7 +17,7 @@ interface Message {
 
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", text: "你好！说出你想查的内容\n比如「最强阵容」或「装备排行」" },
+    { role: "assistant", text: "你好！语音或输入查询\n试试「装备排行」「最强阵容」" },
   ])
   const [input, setInput] = useState("")
   const [listening, setListening] = useState(false)
@@ -25,15 +25,12 @@ export default function Home() {
   const bottomRef = useRef<HTMLDivElement>(null)
   const recognitionRef = useRef<any>(null)
 
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [messages])
+  useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }) }, [messages])
 
   const sendQuery = async (text: string) => {
     if (!text.trim()) return
     setMessages(prev => [...prev, { role: "user", text }])
     setLoading(true)
-
     try {
       const res = await fetch("/api/query", {
         method: "POST",
@@ -47,28 +44,19 @@ export default function Home() {
         role: "assistant", text,
         result: { type: "error", data: null, message: "网络开小差了，再试一次？" }
       }])
-    } finally {
-      setLoading(false)
-    }
+    } finally { setLoading(false) }
   }
 
   const toggleMic = () => {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
-    if (!SpeechRecognition) { sendQuery("语音识别"); return }
+    const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    if (!SR) { sendQuery("语音识别"); return }
     if (listening) { recognitionRef.current?.stop(); setListening(false); return }
-    const recognition = new SpeechRecognition()
-    recognition.lang = "zh-CN"
-    recognition.interimResults = false
-    recognition.maxAlternatives = 1
-    recognition.onstart = () => setListening(true)
-    recognition.onend = () => setListening(false)
-    recognition.onerror = (e: any) => { setListening(false); if (e.error === "no-speech") sendQuery("没听清") }
-    recognition.onresult = (e: any) => {
-      const t = e.results[0][0].transcript.trim()
-      if (t) sendQuery(t)
-    }
-    recognitionRef.current = recognition
-    recognition.start()
+    const r = new SR(); r.lang = "zh-CN"; r.interimResults = false; r.maxAlternatives = 1
+    r.onstart = () => setListening(true)
+    r.onend = () => setListening(false)
+    r.onerror = (e: any) => { setListening(false); if (e.error === "no-speech") sendQuery("没听清") }
+    r.onresult = (e: any) => { const t = e.results[0][0].transcript.trim(); if (t) sendQuery(t) }
+    recognitionRef.current = r; r.start()
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -77,66 +65,85 @@ export default function Home() {
   }
 
   const renderResult = (result: QueryResult) => {
-    if (result.type === "hero_build") {
-      const d = result.data
+    const patchInfo = result.data?.patch ? (
+      <p className="text-[10px] text-textSecondary/60 mt-3 flex items-center gap-1">
+        <Database className="w-2.5 h-2.5" /> {result.data.patch}
+      </p>
+    ) : null
+
+    if (result.type === "item_tier") {
       return (
         <div className="bg-warmGray rounded-2xl p-4 animate-slide-up">
-          <p className="text-[15px] font-medium text-textPrimary mb-3">热门装备排行</p>
-          <div className="space-y-2">
-            {d.topItems?.map((item: any, i: number) => (
-              <div key={i} className="flex items-center justify-between py-2 border-b border-divider last:border-0">
-                <span className="text-[14px] text-textPrimary flex items-center gap-2">
-                  <span className="text-textSecondary text-[12px]">#{i + 1}</span>
-                  {item.name}
-                </span>
-                <span className="text-[13px] font-medium text-accent">{item.score}</span>
-              </div>
-            ))}
-          </div>
-          <p className="text-[11px] text-textSecondary mt-3 flex items-center gap-1">
-            <Database className="w-3 h-3" /> {d.tip}
-          </p>
+          <p className="text-[15px] font-medium text-textPrimary mb-3">装备排行</p>
+          {result.data.items?.slice(0, 10).map((item: any, i: number) => (
+            <div key={i} className="flex items-center justify-between py-2.5 border-b border-divider last:border-0">
+              <span className="text-[14px] text-textPrimary">
+                <span className="text-textSecondary text-[12px] w-5 inline-block">#{i + 1}</span>
+                {item.name}
+              </span>
+              <span className="text-[13px] font-medium text-accent">{item.score}</span>
+            </div>
+          ))}
+          {patchInfo}
         </div>
       )
     }
 
     if (result.type === "comp_tier") {
-      const d = result.data
+      return (
+        <div className="bg-warmGray rounded-2xl p-4 animate-slide-up">
+          <p className="text-[15px] font-medium text-textPrimary mb-3">强势阵容</p>
+          {result.data.comps?.slice(0, 10).map((comp: any, i: number) => (
+            <div key={i} className="py-2.5 border-b border-divider last:border-0">
+              <div className="flex items-center justify-between">
+                <span className="text-[14px] font-medium text-textPrimary">
+                  <span className="text-textSecondary text-[12px] mr-1">#{i + 1}</span>
+                  {comp.name}
+                </span>
+                <span className="text-[14px] font-semibold text-success">平均 {comp.avg} 名</span>
+              </div>
+              {comp.traits && (
+                <p className="text-[11px] text-textSecondary mt-1">
+                  {comp.units || comp.traits}
+                </p>
+              )}
+            </div>
+          ))}
+          {patchInfo}
+        </div>
+      )
+    }
+
+    if (result.type === "hero_build") {
       return (
         <div className="bg-warmGray rounded-2xl p-4 animate-slide-up">
           <p className="text-[15px] font-medium text-textPrimary mb-3">
-            {d.comps[0]?.winRate ? "装备排行" : "强势阵容"}
+            {result.data.heroName} · 推荐装备
           </p>
-          {d.comps?.slice(0, 10).map((item: any, i: number) => (
-            <div key={i} className="flex items-center justify-between py-2.5 border-b border-divider last:border-0">
-              <span className="text-[14px] text-textPrimary flex items-center gap-2">
-                <span className="text-textSecondary text-[12px] w-5">#{i + 1}</span>
-                {item.name.length > 20 ? item.name.slice(0, 20) + "…" : item.name}
-              </span>
-              <span className={`text-[14px] font-semibold ${i === 0 ? "text-success" : "text-textPrimary"}`}>
-                {item.winRate || item.avg}
-                {item.count ? <span className="text-textSecondary font-normal text-[11px] ml-1">({item.count.toLocaleString()})</span> : null}
-              </span>
-            </div>
-          ))}
-          {d.updated && (
-            <p className="text-[11px] text-textSecondary mt-3 flex items-center gap-1">
-              <Database className="w-3 h-3" /> MetaTFT · {d.updated}
-            </p>
+          <div className="flex gap-2 mb-2">
+            {result.data.items?.map((item: string, i: number) => (
+              <div key={i} className="flex-1 bg-white rounded-xl p-2.5 text-center text-[13px] font-medium text-textPrimary shadow-card">
+                {item}
+              </div>
+            ))}
+          </div>
+          {result.data.tip && (
+            <p className="text-[12px] text-textSecondary">💡 {result.data.tip}</p>
           )}
         </div>
       )
     }
 
     if (result.type === "error") {
-      return <div className="text-center py-6 animate-slide-up"><p className="text-[14px] text-textSecondary">{result.message}</p></div>
+      return <div className="text-center py-6"><p className="text-[14px] text-textSecondary">{result.message}</p></div>
     }
 
+    // unknown
     return (
       <div className="text-center py-6 animate-slide-up">
-        <p className="text-[14px] text-textSecondary">{result.message}</p>
-        <div className="flex flex-wrap justify-center gap-2 mt-3">
-          {["最强阵容", "装备排行", "热门装备"].map(ex => (
+        <p className="text-[14px] text-textSecondary">{result.message || "试试说「装备排行」或「最强阵容」"}</p>
+        <div className="flex gap-2 justify-center mt-3">
+          {["装备排行", "最强阵容", "剑圣装备"].map(ex => (
             <button key={ex} onClick={() => sendQuery(ex)}
               className="px-3.5 py-1.5 rounded-full bg-accentLight text-[13px] text-accent font-medium active:scale-95 transition-transform">
               {ex}
@@ -146,8 +153,6 @@ export default function Home() {
       </div>
     )
   }
-
-  const quickExamples = ["最强阵容", "装备排行", "剑圣装备"]
 
   return (
     <div className="min-h-dvh flex flex-col bg-white">
@@ -161,9 +166,7 @@ export default function Home() {
             ) : (
               <div>
                 {!msg.result && (
-                  <div className="text-[14px] text-textSecondary whitespace-pre-line px-1 animate-fade-in">
-                    {msg.text}
-                  </div>
+                  <div className="text-[14px] text-textSecondary whitespace-pre-line px-1 animate-fade-in">{msg.text}</div>
                 )}
                 {msg.result && renderResult(msg.result)}
               </div>
@@ -172,15 +175,12 @@ export default function Home() {
         ))}
 
         {loading && (
-          <div className="flex items-center gap-2 px-1 animate-fade-in">
-            <div className="flex gap-1">
-              <div className="w-2 h-2 rounded-full bg-accent/30 animate-bounce" style={{ animationDelay: "0ms" }} />
-              <div className="w-2 h-2 rounded-full bg-accent/30 animate-bounce" style={{ animationDelay: "150ms" }} />
-              <div className="w-2 h-2 rounded-full bg-accent/30 animate-bounce" style={{ animationDelay: "300ms" }} />
-            </div>
+          <div className="flex gap-1 px-1 animate-fade-in">
+            <div className="w-2 h-2 rounded-full bg-accent/30 animate-bounce" style={{ animationDelay: "0ms" }} />
+            <div className="w-2 h-2 rounded-full bg-accent/30 animate-bounce" style={{ animationDelay: "150ms" }} />
+            <div className="w-2 h-2 rounded-full bg-accent/30 animate-bounce" style={{ animationDelay: "300ms" }} />
           </div>
         )}
-
         <div ref={bottomRef} />
       </div>
 
@@ -205,7 +205,7 @@ export default function Home() {
 
         <form onSubmit={handleSubmit} className="flex items-center gap-2 bg-warmGray rounded-full px-4 h-[52px]">
           <input type="text" value={input} onChange={e => setInput(e.target.value)}
-            placeholder="输入文字查询，或点击上方麦克风"
+            placeholder="输入查询，或点击麦克风说话"
             className="flex-1 bg-transparent text-[15px] text-textPrimary placeholder:text-textSecondary outline-none"
             disabled={loading} />
           {input.trim() && (
@@ -218,7 +218,7 @@ export default function Home() {
 
         {messages.length <= 1 && (
           <div className="flex flex-wrap justify-center gap-2 mt-4">
-            {quickExamples.map(ex => (
+            {["装备排行", "最强阵容", "剑圣装备"].map(ex => (
               <button key={ex} onClick={() => sendQuery(ex)}
                 className="px-4 py-2 rounded-full bg-warmGray text-[13px] text-textSecondary active:scale-95 active:bg-accentLight active:text-accent transition-all">
                 {ex}
@@ -228,7 +228,7 @@ export default function Home() {
         )}
 
         <p className="text-center text-[11px] text-textSecondary/50 mt-3 flex items-center justify-center gap-1">
-          <Database className="w-2.5 h-2.5" /> MetaTFT 实时数据 · AI 驱动
+          <Database className="w-2.5 h-2.5" /> MetaTFT 实时数据 · DeepSeek AI
         </p>
       </div>
     </div>

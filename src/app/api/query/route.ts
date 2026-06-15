@@ -1,196 +1,104 @@
-﻿import { NextRequest, NextResponse } from "next/server"
+﻿export const dynamic = "force-dynamic"
 
-const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || ""
-const METATFT_ITEMS_API = "https://api-hc.metatft.com/tft-stat-api/items"
-const METATFT_COMPS_API = "https://api-hc.metatft.com/tft-comps-api/comp_options"
-
-// 缓存：5分钟有效期
-let cache: { timestamp: number; items: any; comps: any } | null = null
-const CACHE_TTL = 5 * 60 * 1000
-
-async function fetchMetaTFT() {
-  if (cache && Date.now() - cache.timestamp < CACHE_TTL) return cache
-
-  const [itemsRes, compsRes] = await Promise.all([
-    fetch(METATFT_ITEMS_API).then(r => r.json()),
-    fetch(METATFT_COMPS_API).then(r => r.json()),
-  ])
-
-  cache = {
-    timestamp: Date.now(),
-    items: itemsRes,
-    comps: compsRes,
-  }
-  return cache
-}
-
-// 装备名简化映射
-function simplifyItemName(raw: string): string {
-  const map: Record<string, string> = {
-    TFT_Item_BFSword: "暴风大剑",
-    TFT_Item_RecurveBow: "反曲之弓",
-    TFT_Item_NeedlesslyLargeRod: "无用大棒",
-    TFT_Item_TearOfTheGoddess: "女神之泪",
-    TFT_Item_ChainVest: "锁子甲",
-    TFT_Item_NegatronCloak: "负极斗篷",
-    TFT_Item_GiantsBelt: "巨人腰带",
-    TFT_Item_SparringGloves: "拳套",
-    TFT_Item_Spatula: "金铲铲",
-    TFT_Item_FryingPan: "煎锅",
-    TFT_Item_InfinityEdge: "无尽之刃",
-    TFT_Item_JeweledGauntlet: "珠光护手",
-    TFT_Item_Deathblade: "死亡之刃",
-    TFT_Item_GuinsoosRageblade: "鬼索的狂暴之刃",
-    TFT_Item_SpearOfShojin: "朔极之矛",
-    TFT_Item_BlueBuff: "蓝霸符",
-    TFT_Item_ArchangelsStaff: "大天使之杖",
-    TFT_Item_RabadonsDeathcap: "灭世者的死亡之帽",
-    TFT_Item_Morellonomicon: "莫雷洛秘典",
-    TFT_Item_HextechGunblade: "海克斯科技枪刃",
-    TFT_Item_IonicSpark: "离子火花",
-    TFT_Item_StatikkShiv: "斯塔缇克电刃",
-    TFT_Item_LastWhisper: "最后的轻语",
-    TFT_Item_RapidFireCannon: "疾射火炮",
-    TFT_Item_RunaansHurricane: "卢安娜的飓风",
-    TFT_Item_MadredsBloodrazor: "鬼索之刃",
-    TFT_Item_RedBuff: "红霸符",
-    TFT_Item_Bloodthirster: "饮血剑",
-    TFT_Item_SteraksGage: "斯特拉克的挑战护手",
-    TFT_Item_GuardianAngel: "守护天使",
-    TFT_Item_TitansResolve: "泰坦的坚决",
-    TFT_Item_Quicksilver: "水银",
-    TFT_Item_ThiefsGloves: "窃贼手套",
-    TFT_Item_HandOfJustice: "正义之手",
-    TFT_Item_GargoyleStoneplate: "石像鬼石板甲",
-    TFT_Item_BrambleVest: "棘刺背心",
-    TFT_Item_DragonsClaw: "巨龙之爪",
-    TFT_Item_WarmogsArmor: "狂徒铠甲",
-    TFT_Item_Crownguard: "冕卫",
-    TFT_Item_Redemption: "救赎",
-    TFT_Item_SunfireCape: "日炎斗篷",
-    TFT_Item_FrozenHeart: "冰霜之心",
-    TFT_Item_NightHarvester: "暗夜收割者",
-    TFT_Item_SpectralGauntlet: "灵风",
-    TFT_Item_UnstableConcoction: "不稳定炼金罐",
-    TFT_Item_PowerGauntlet: "能量圣杯",
-    TFT_Item_Leviathan: "利维坦之甲",
-    TFT_Item_AdaptiveHelm: "适应性头盔",
-  }
-  return map[raw] || raw
-    .replace("TFT_Item_", "")
-    .replace("TFT5_Item_", "")
-    .replace("TFT9_Item_", "")
-    .replace("_Radiant", "（光明）")
-    .replace("TFT17_Item_", "")
-    .replace(/([A-Z])/g, " $1")
-    .trim()
-}
-
-// places 数组索引0-7 = 排名1-8的使用次数，按排名越靠前越好排序
-function calcScore(places: number[]): number {
-  // 排名1=8分, 排名2=7分... 排名8=1分 的加权
-  let score = 0
-  let total = 0
-  for (let i = 0; i < 8; i++) {
-    score += places[i] * (8 - i)
-    total += places[i]
-  }
-  return total > 0 ? score / total : 0
-}
-
-function getTopItems(itemsData: any, limit = 5) {
-  const results = itemsData.results as any[]
-  const items = results
-    .filter((r: any) => !r.itemName.includes("_Radiant") && !r.itemName.includes("_Emblem") && !r.itemName.includes("_Consumable") && !r.itemName.includes("_Artifact"))
-    .map((r: any) => ({
-      name: simplifyItemName(r.itemName),
-      score: calcScore(r.places),
-      usage: r.places.reduce((a: number, b: number) => a + b, 0),
-    }))
-    .sort((a: any, b: any) => b.score - a.score)
-    .slice(0, limit)
-  return items
-}
-
-async function parseIntent(query: string, data: any) {
-  const q = query.toLowerCase().trim()
-
-  // 阵容排名
-  if (/阵容|最强|强势|排行|版本|tier|什么厉害|吃鸡/.test(q)) {
-    const comps = Object.entries(data.comps.results.options)
-      .flatMap(([_, levels]: any) =>
-        Object.values(levels).flat()
-      )
-      .filter((c: any) => c.avg > 0 && c.count > 100)
-      .sort((a: any, b: any) => a.avg - b.avg)
-      .slice(0, 5)
-
-    if (comps.length > 0) {
-      return {
-        type: "comp_tier",
-        data: {
-          comps: comps.map((c: any) => ({
-            name: `阵容 ${c.cluster?.slice(-3) || ""}`,
-            avg: (c.avg || 0).toFixed(1),
-            count: c.count,
-          })),
-          updated: new Date(data.items.updated).toLocaleString("zh-CN"),
-        },
-      }
-    }
-  }
-
-  // 英雄配装（从 DeepSeek 或规则匹配拿到英雄名后查装备）
-  if (/装备|出装|带什么|build/.test(q) || q.length <= 8) {
-    const topItems = getTopItems(data.items)
-    return {
-      type: "hero_build",
-      data: {
-        heroName: "当前版本",
-        items: topItems.map((i: any) => i.name),
-        winRate: null,
-        playRate: null,
-        tip: `数据来源 MetaTFT · 更新于 ${new Date(data.items.updated).toLocaleString("zh-CN")}`,
-        topItems: topItems.map((i: any) => ({ name: i.name, score: i.score.toFixed(1) })),
-      },
-    }
-  }
-
-  // 装备排行
-  if (/装备|item/.test(q)) {
-    const topItems = getTopItems(data.items, 10)
-    return {
-      type: "comp_tier",
-      data: {
-        comps: topItems.map((i: any) => ({ name: i.name, winRate: i.score.toFixed(1), count: i.usage })),
-        updated: new Date(data.items.updated).toLocaleString("zh-CN"),
-      },
-    }
-  }
-
-  return { type: "unknown", data: null, message: `试试说「最强阵容」或「装备排行」查看实时数据` }
-}
-
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
     const { query } = await req.json()
     if (!query || typeof query !== "string") {
-      return NextResponse.json({ type: "error", data: null, message: "请描述你想查的内容" })
+      return Response.json({ type: "error", data: null, message: "请描述你想查的内容" })
     }
 
-    // 1. 获取 MetaTFT 实时数据
-    let mftData
-    try {
-      mftData = await fetchMetaTFT()
-    } catch {
-      return NextResponse.json({ type: "error", data: null, message: "数据源暂时不可用，请稍后重试" })
+    const apiKey = process.env.DEEPSEEK_API_KEY!
+
+    // 并行拉 MetaTFT 数据
+    const [itemsRes, compsRes] = await Promise.all([
+      fetch("https://api-hc.metatft.com/tft-stat-api/items"),
+      fetch("https://api-hc.metatft.com/tft-comps-api/comp_options"),
+    ])
+    const itemsData = await itemsRes.json()
+    const compsData = await compsRes.json()
+
+    // 提取装备 Top 50
+    const itemsRaw = itemsData.results
+      .filter((r: any) =>
+        r.itemName.startsWith("TFT_Item_") &&
+        !r.itemName.includes("Artifact") &&
+        !r.itemName.includes("Emblem") &&
+        !r.itemName.includes("_Radiant") &&
+        !r.itemName.includes("Consumable") &&
+        !r.itemName.includes("Spatula") &&
+        !r.itemName.includes("FryingPan") &&
+        !r.itemName.includes("ForceOfNature") &&
+        !r.itemName.includes("ThiefsGloves") &&
+        !r.itemName.includes("Tacticians")
+      )
+      .slice(0, 50)
+
+    // 提取阵容 Top 10
+    const allComps: any[] = []
+    for (const [_, levels] of Object.entries(compsData.results.options)) {
+      for (const comps of Object.values(levels as any)) {
+        for (const c of comps as any[]) {
+          if (c.count > 100 && c.avg > 0) {
+            allComps.push({
+              count: c.count,
+              avg: +c.avg.toFixed(2),
+              units: c.units_list.split("&").map((u: string) => u.replace("TFT17_", "").replace("TFT_", "")).slice(0, 6).join(","),
+            })
+          }
+        }
+      }
     }
+    const topComps = allComps.sort((a, b) => a.avg - b.avg).slice(0, 8)
 
-    // 2. 意图理解
-    let result = await parseIntent(query, mftData)
+    // 发给 DeepSeek
+    const res = await fetch("https://api.deepseek.com/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "deepseek-chat",
+        messages: [
+          {
+            role: "system",
+            content: `你是云顶之弈国服助手。把英文ID翻译成国服中文名后，根据用户查询返回JSON：
 
-    return NextResponse.json(result)
-  } catch {
-    return NextResponse.json({ type: "error", data: null, message: "出了点问题，再试一次？" })
+装备：GuinsoosRageblade→鬼索的狂暴之刃, InfinityEdge→无尽之刃, SpearOfShojin→朔极之矛, JeweledGauntlet→珠光护手, Deathblade→死亡之刃, BlueBuff→蓝霸符, GiantSlayer→巨人杀手, RedBuff→红霸符, LastWhisper→最后的轻语, Bloodthirster→饮血剑, RabadonsDeathcap→灭世者的死亡之帽, ArchangelsStaff→大天使之杖, WarmogsArmor→狂徒铠甲, GargoyleStoneplate→石像鬼石板甲, DragonsClaw→巨龙之爪, BrambleVest→棘刺背心, Redemption→救赎, Quicksilver→水银, TitansResolve→泰坦的坚决, GuardianAngel→守护天使, SteraksGage→斯特拉克的挑战护手, Morellonomicon→莫雷洛秘典, HextechGunblade→海克斯科技枪刃, IonicSpark→离子火花, StatikkShiv→斯塔缇克电刃, Crownguard→冕卫, UnstableConcoction→正义之手, MadredsBloodrazor→巨人杀手, RapidFireCannon→疾射火炮, RunaansHurricane→卢安娜的飓风, SpectralGauntlet→薄暮法袍, NightHarvester→坚定之心, FrozenHeart→冰霜之心, PowerGauntlet→强袭转职, Leviathan→纳什之牙, SunfireCape→日炎斗篷, AdaptiveHelm→适应性头盔
+
+英雄：MasterYi→易大师, Yasuo→亚索, Aatrox→亚托克斯, Mordekaiser→莫德凯撒, Fiora→菲奥娜, Riven→锐雯, Jhin→烬, Shen→慎, Lulu→璐璐, Zed→劫, Vex→薇古丝
+
+返回格式：
+{"type":"item_tier","data":{"items":[{"name":"中文名","score":"评分(1-8)","usage":"使用次数(数字)"}],"patch":"17.5b(1680万局)"}}
+{"type":"comp_tier","data":{"comps":[{"name":"阵容简称","avg":4.2,"count":1234,"units":"英雄中文列表"}],"patch":"17.5b(1680万局)"}}
+{"type":"hero_build","data":{"heroName":"英雄中文名","items":["装1","装2","装3"],"tip":"一句话建议"}}`,
+          },
+          {
+            role: "user",
+            content: `用户查询: "${query}"
+
+装备数据(top50): ${JSON.stringify(itemsRaw)}
+
+阵容数据(top8): ${JSON.stringify(topComps)}
+
+请翻译并返回结果。Items 的places数组的加权分计算方法: places[0]*8+places[1]*7+...+places[7]*1 / total. 如果用户问装备，也解释一下计算逻辑。`,
+          },
+        ],
+        temperature: 0.3,
+        max_tokens: 800,
+      }),
+    })
+
+    const json = await res.json()
+    const rawContent = json.choices[0].message.content
+    const cleanContent = rawContent.replace(/```json\n?/g, "").replace(/```/g, "").trim()
+    const result = JSON.parse(cleanContent)
+    return Response.json(result)
+  } catch (err: any) {
+    return Response.json({
+      type: "error",
+      data: null,
+      message: err.message?.length < 100 ? "出了点问题: " + err.message : "出了点问题，再试一次？",
+    })
   }
 }
