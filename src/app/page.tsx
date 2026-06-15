@@ -1,7 +1,7 @@
 ﻿"use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Mic, MicOff, ArrowUp, Database } from "lucide-react"
+import { Mic, MicOff, ArrowUp, Database, TrendingUp, TrendingDown, Minus } from "lucide-react"
 
 interface Message {
   role: "user" | "assistant"
@@ -50,7 +50,7 @@ export default function Home() {
 
   const renderResult = (result: any) => {
     const patch = result.data?.patch ? (
-      <p className="text-[10px] text-textSecondary/60 mt-3 flex items-center gap-1"><Database className="w-2.5 h-2.5" /> {result.data.patch}</p>
+      <p className="text-[10px] text-textSecondary/60 mt-3 flex items-center gap-1"><Database className="w-2.5 h-2.5" /> Set 17 · Patch {result.data.patch}</p>
     ) : null
 
     if (result.type === "item_tier") {
@@ -67,8 +67,8 @@ export default function Home() {
               )}
               <span className="flex-1 text-[14px] text-textPrimary truncate">{item.name}</span>
               <div className="text-right">
-                <span className="text-[13px] font-semibold text-accent">{item.score}</span>
-                {item.usage && <span className="text-[10px] text-textSecondary block">{item.usage}</span>}
+                <span className="text-[13px] font-semibold text-accent">{item.avg}名</span>
+                {item.top4 != null && <span className="text-[10px] text-textSecondary block">前四{item.top4}%</span>}
               </div>
             </div>
           ))}
@@ -98,19 +98,69 @@ export default function Home() {
     }
 
     if (result.type === "hero_build") {
+      const data = result.data
+      const heroAvg = data.heroAvg
+      const heroWin = data.heroWin
+      const heroCount = data.heroCount
+
       return (
         <div className="bg-warmGray rounded-2xl p-4 animate-slide-up">
-          <p className="text-[15px] font-medium text-textPrimary mb-3">{result.data.heroName} · 推荐装备</p>
-          <div className="flex gap-2">
-            {result.data.items?.map((item: any, i: number) => (
-              <div key={i} className="flex-1 bg-white rounded-xl p-2.5 text-center shadow-card">
-                {item.icon && <img src={item.icon} alt="" className="w-10 h-10 mx-auto mb-1 rounded-lg" loading="lazy"
-                  onError={e => (e.currentTarget.style.display = "none")} />}
-                <p className="text-[12px] text-textPrimary leading-tight">{typeof item === "string" ? item : item.name}</p>
-              </div>
-            ))}
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-[15px] font-medium text-textPrimary">{data.heroName} · 近三天 · 大师宗师王者 · 大数据</p>
+            <span className="text-[10px] text-textSecondary/60">Patch {data.patch}</span>
           </div>
-          {result.data.tip && <p className="text-[12px] text-textSecondary mt-2">💡 {result.data.tip}</p>}
+
+          {/* 英雄统计概览 */}
+          <div className="flex gap-2 mb-4">
+            <div className="flex-1 bg-white rounded-xl p-2 text-center shadow-card">
+              <p className="text-[10px] text-textSecondary">英雄平均排名</p>
+              <p className="text-[15px] font-semibold text-accent">{heroAvg}名</p>
+            </div>
+            <div className="flex-1 bg-white rounded-xl p-2 text-center shadow-card">
+              <p className="text-[10px] text-textSecondary">英雄胜率</p>
+              <p className="text-[15px] font-semibold text-success">{heroWin != null ? heroWin + "%" : "-"}</p>
+            </div>
+            <div className="flex-1 bg-white rounded-xl p-2 text-center shadow-card">
+              <p className="text-[10px] text-textSecondary">英雄对局数</p>
+              <p className="text-[15px] font-semibold text-textPrimary">{(heroCount||0).toLocaleString()}</p>
+            </div>
+          </div>
+
+          {/* 装备表格 — 按平均排名排序 */}
+          <p className="text-[12px] text-textSecondary mb-2">推荐装备（按英雄出场率）</p>
+          {/* 表头 */}
+          <div className="flex items-center gap-1 text-[10px] text-textSecondary/50 px-1 mb-1">
+            <span className="w-5"></span>
+            <span className="w-7"></span>
+            <span className="flex-1"></span>
+            <span className="w-[52px] text-center">平均名次</span>
+            <span className="w-10 text-center">前四率</span>
+            <span className="w-9 text-center">胜率</span>
+            <span className="w-14 text-center">选取次数</span>
+
+          </div>
+          {data.items?.map((item: any, i: number) => {
+            const avgDiff = item.avgDiff
+            const diffColor = avgDiff == null ? "" : avgDiff < 0 ? "text-green-500 font-semibold" : avgDiff > 0 ? "text-red-400" : "text-textSecondary"
+
+            return (
+              <div key={i} className="flex items-center gap-1 py-2 border-b border-divider last:border-0 text-[12px]">
+                <span className="text-textSecondary/40 w-5 text-right text-[11px]">{i + 1}</span>
+                {item.icon && (
+                  <img src={item.icon} alt="" className="w-6 h-6 rounded-md bg-white p-0.5 flex-shrink-0" loading="lazy"
+                    onError={e => (e.currentTarget.style.display = "none")} />
+                )}
+                <span className="flex-1 text-[13px] text-textPrimary truncate px-0.5">{item.name}</span>
+                <span className={"w-[52px] text-center " + diffColor}>{item.avg != null ? item.avg + "名" : "-"}</span>
+                <span className="w-10 text-center text-textSecondary/80">{item.top4 != null ? item.top4 + "%" : "-"}</span>
+                <span className="w-9 text-center text-textSecondary/80">{item.win != null ? item.win + "%" : "-"}</span>
+                <span className="w-14 text-center text-textSecondary/80">{item.count ? (item.count/10000).toFixed(1) + "万" : "-"}</span>
+
+              </div>
+            )
+          })}
+
+          {patch}
         </div>
       )
     }

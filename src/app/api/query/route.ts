@@ -1,5 +1,7 @@
 ﻿export const dynamic = "force-dynamic"
 
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || ""
+
 const ITEM_NAMES: Record<string,string> = {
   GuinsoosRageblade:"鬼索的狂暴之刃",InfinityEdge:"无尽之刃",SpearOfShojin:"朔极之矛",
   JeweledGauntlet:"珠光护手",Deathblade:"死亡之刃",BlueBuff:"蓝霸符",
@@ -16,20 +18,8 @@ const ITEM_NAMES: Record<string,string> = {
   SpectralGauntlet:"薄暮法袍",NightHarvester:"坚定之心",
   FrozenHeart:"冰霜之心",Leviathan:"龙骨盾",AdaptiveHelm:"适应性头盔",
   PowerGauntlet:"强袭转职",SunfireCape:"日炎斗篷",
+  EdgeOfNight:"夜之锋刃",Evenshroud:"薄暮法袍",ThiefsGloves:"窃贼手套",
 }
-
-function iname(id: string): string {
-  const key = id.replace("TFT_Item_","").replace("TFT5_Item_","").replace("_Radiant","")
-  return ITEM_NAMES[key] || key
-}
-
-function iicon(id: string): string {
-  const key = id.replace("TFT_Item_","").replace("TFT5_Item_","").replace("TFT17_Item_","").replace("_Radiant","").toLowerCase()
-  return `https://cdn.metatft.com/file/metatft/items/${key}.png`
-}
-
-let unitCache: any = null; let unitCacheTs = 0
-let itemsCache: any = null; let itemsCacheTs = 0
 
 const HERO_DISPLAY: Record<string,string> = {
   Jinx:"金克斯",Yasuo:"亚索",MasterYi:"易大师",Aatrox:"亚托克斯",
@@ -46,125 +36,229 @@ const HERO_DISPLAY: Record<string,string> = {
   Sona:"娑娜",Nami:"娜美",Jax:"贾克斯",Blitzcrank:"布里茨",
   Maokai:"茂凯",Nunu:"努努",Viktor:"维克托",Aurora:"奥罗拉",
   Briar:"布莱尔",Pyke:"派克",RekSai:"雷克塞",MissFortune:"厄运小姐",
-  Lissandra:"丽桑卓",Kennen:"凯南",Gragas:"古拉加斯",Teemo:"提莫",
+  Lissandra:"丽桑卓",Gragas:"古拉加斯",Teemo:"提莫",
   Corki:"库奇",Illaoi:"俄洛伊",Chogath:"科加斯",Morgana:"莫甘娜",
-  Leblanc:"乐芙兰",Volibear:"沃利贝尔",Zac:"扎克",JarvanIV:"嘉文四世",
-  Swain:"斯维因",Syndra:"辛德拉",Braum:"布隆",LeeSin:"李青",
-  Seraphine:"萨勒芬妮",Zyra:"婕拉",Ryze:"瑞兹",Malphite:"墨菲特",
-  XinZhao:"赵信",Vi:"蔚",Smolder:"斯莫德",KogMaw:"克格莫",
-  Rell:"芮尔",Rakan:"洛",Lucian:"卢锡安",Kayle:"凯尔",
-  Jayce:"杰斯",Kalista:"卡莉丝塔",Gangplank:"普朗克",
-  Naafiri:"纳亚菲利",Udyr:"乌迪尔",Sett:"瑟提",Katarina:"卡特琳娜",
-  Ksante:"奎桑提",Renekton:"雷克顿",Ziggs:"吉格斯",Sivir:"希维尔",
-  Yuumi:"悠米",TahmKench:"塔姆",Sejuani:"瑟庄妮",
-  Varus:"韦鲁斯",Draven:"德莱文",Ekko:"艾克",Kobuko:"可布可",
-  IvernMinion:"艾翁",Wukong:"孙悟空",Malzahar:"玛尔扎哈",
-  Zeri:"泽丽",Sylas:"塞拉斯",Nidalee:"奈德丽",Warwick:"沃里克",
-  Ambessa:"安蓓萨",Mel:"梅尔",AurelionSol:"奥瑞利安·索尔",
+  Leblanc:"乐芙兰",TahmKench:"塔姆",LeeSin:"李青",
 }
 
-const HERO_ALIAS: Record<string,string> = {
-  "剑圣":"MasterYi","易":"MasterYi","易大师":"MasterYi",
-  "亚索":"Yasuo","剑豪":"Yasuo","yasuo":"Yasuo",
-  "金克斯":"Jinx","金克丝":"Jinx","jinx":"Jinx",
-  "瞎子":"LeeSin","盲僧":"LeeSin","李青":"LeeSin",
-  "亚托克斯":"Aatrox","aatrox":"Aatrox",
-  "烬":"Jhin","jhin":"Jhin",
-  "劫":"Zed","zed":"Zed",
-  "薇古丝":"Vex","vex":"Vex",
-  "莫德凯撒":"Mordekaiser","铁男":"Mordekaiser",
-  "菲奥娜":"Fiora","剑姬":"Fiora","fiora":"Fiora",
-  "锐雯":"Riven","riven":"Riven",
-  "慎":"Shen","shen":"Shen",
-  "盖伦":"Garen","garen":"Garen",
-  "凯隐":"Rhaast","拉亚斯特":"Rhaast","红凯":"Rhaast",
-  "璐璐":"Lulu","lulu":"Lulu",
-  "小法":"Veigar","维迦":"Veigar",
-  "阿狸":"Ahri","ahri":"Ahri",
-  "伊泽瑞尔":"Ezreal","ez":"Ezreal",
-  "波比":"Poppy","poppy":"Poppy",
-  "凯特琳":"Caitlyn","女警":"Caitlyn",
-  "赛娜":"Senna","senna":"Senna",
-  "艾希":"Ashe","寒冰":"Ashe",
-  "诺手":"Darius","德莱厄斯":"Darius",
-  "卡莎":"Kaisa","kaisa":"Kaisa",
-  "永恩":"Yone","yone":"Yone",
-  "拉克丝":"Lux","lux":"Lux",
-  "格温":"Gwen","gwen":"Gwen",
-  "金铲铲":"Jinx","云顶":"Jinx",
+function iname(id: string): string {
+  const key = id.replace("TFT_Item_","").replace("TFT5_Item_","").replace("_Radiant","")
+  return ITEM_NAMES[key] || key
+}
+
+function iicon(id: string): string {
+  const key = id.replace("TFT17_","").replace("TFT5_","").toLowerCase()
+  return `https://cdn.metatft.com/file/metatft/items/${key}.png`
+}
+
+let unitCache: any = null; let unitCacheTs = 0
+let itemsCache: any = null; let itemsCacheTs = 0
+let heroItemCache = new Map<string, {data: any[], ts: number}>()
+
+async function parseIntent(query: string) {
+  const res = await fetch("https://api.deepseek.com/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type":"application/json", "Authorization":`Bearer ${DEEPSEEK_API_KEY}` },
+    body: JSON.stringify({
+      model: "deepseek-chat",
+      messages: [{
+        role: "system",
+        content: `You are a TFT intent parser. Extract intent and hero name from Chinese query.
+Intent types: hero_build (hero items), item_tier (item rankings), comp_tier (comp rankings), unknown.
+Hero name mapping (return English key only):
+MasterYi,Yasuo,Jinx,Graves,LeeSin,Mordekaiser,Fiora,Riven,Jhin,Shen,
+Zed,Vex,Garen,Rhaast,Veigar,Ahri,Ezreal,Poppy,Caitlyn,Senna,Ashe,Darius,
+Kaisa,Yone,Lux,Gwen,Diana,Akali,Samira,Nasus,Milio,Xayah,Gnar,Kindred,
+Urgot,Fizz,Bard,Zoe,Leona,Ornn,Belveth,Pantheon,Talon,Galio,Rammus,
+TwistedFate,Karma,Sona,Nami,Jax,Blitzcrank,Maokai,Nunu,Viktor,Aurora,
+Briar,Pyke,RekSai,MissFortune,Lissandra,Gragas,Teemo,Corki,Illaoi,
+Chogath,Morgana,Leblanc,TahmKench
+
+Return ONLY JSON: {"intent":"hero_build","hero":"Graves"}`,
+      }, { role:"user", content: query }],
+      temperature: 0.01, max_tokens: 80,
+    }),
+  })
+  if (!res.ok) throw new Error("DS error")
+  const json = await res.json()
+  const raw = json.choices[0].message.content.replace(/```json\n?|```/g,"").trim()
+  return JSON.parse(raw)
+}
+
+type PlaceArray = [number,number,number,number,number,number,number,number]
+
+function calcStats(places: PlaceArray) {
+  const total = places.reduce((a,b)=>a+b,0)
+  if (total === 0) return { avg:0,top4:0,win:0,total:0 }
+  const avg = +(places.reduce((s,c,i)=>s+c*(i+1),0)/total).toFixed(2)
+  const top4 = +((places[0]+places[1]+places[2]+places[3])/total*100).toFixed(1)
+  const win = +(places[0]/total*100).toFixed(1)
+  return { avg, top4, win, total }
+}
+
+function avgChangeForItem(stats: {avg:number, top4:number, win:number}, baseline: {avg:number, top4:number, win:number}) {
+  const avgDiff = +(stats.avg - baseline.avg).toFixed(2)
+  return {
+    avgLabel: `平均 ${stats.avg} 名`,
+    avgDiff,
+    top4Label: `前四 ${stats.top4}%`,
+    winLabel: `吃鸡 ${stats.win}%`,
+  }
+}
+
+async function getUnitData() {
+  if (!unitCache || Date.now() - unitCacheTs > 300_000) {
+    const res = await fetch("https://api-hc.metatft.com/tft-comps-api/unit_items_processed")
+    unitCache = await res.json(); unitCacheTs = Date.now()
+  }
+  return unitCache
+}
+
+async function getItemsData() {
+  if (!itemsCache || Date.now() - itemsCacheTs > 300_000) {
+    const res = await fetch("https://api-hc.metatft.com/tft-stat-api/items")
+    itemsCache = await res.json(); itemsCacheTs = Date.now()
+  }
+  return itemsCache
 }
 
 export async function POST(req: Request) {
   try {
     const { query } = await req.json()
-    const q = (query||"").toLowerCase().trim()
+    const q = (query||"").trim()
     if (!q) return Response.json({ type:"error",message:"请描述你想查的内容" })
 
-    // 装备排行
-    if (/装备排行|装备排名|item.*tier/.test(q)) {
-      if (!itemsCache || Date.now() - itemsCacheTs > 300_000) {
-        const res = await fetch("https://api-hc.metatft.com/tft-stat-api/items")
-        itemsCache = await res.json(); itemsCacheTs = Date.now()
-      }
-      const items = itemsCache.results
+    let intent: any
+    try { intent = await parseIntent(q) }
+    catch { return Response.json({ type:"error",message:"AI 服务暂时不可用" }) }
+
+    if (intent.intent === "item_tier") {
+      const itemsData = await getItemsData()
+      const items = itemsData.results
         .filter((r:any) => r.itemName.startsWith("TFT_Item_") && !r.itemName.includes("Artifact") && !r.itemName.includes("Emblem") && !r.itemName.includes("_Radiant") && !r.itemName.includes("Consumable") && !r.itemName.includes("Spatula") && !r.itemName.includes("FryingPan") && !r.itemName.includes("ForceOfNature") && !r.itemName.includes("ThiefsGloves") && !r.itemName.includes("Tacticians") && !r.itemName.includes("BFSword") && !r.itemName.includes("RecurveBow") && !r.itemName.includes("GiantsBelt") && !r.itemName.includes("ChainVest") && !r.itemName.includes("NeedlesslyLargeRod") && !r.itemName.includes("NegatronCloak") && !r.itemName.includes("TearOfTheGoddess") && !r.itemName.includes("SparringGloves"))
         .map((r:any) => {
-          const total = r.places.reduce((a:number,b:number)=>a+b,0)
-          const score = +(r.places.reduce((s:number,c:number,i:number)=>s+c*(8-i),0)/total).toFixed(2)
-          const name = iname(r.itemName)
-          return { name, score, total, icon: iicon(r.itemName) }
+          const stats = calcStats(r.places)
+          return { name: iname(r.itemName), icon: iicon(r.itemName), ...stats }
         })
         .filter((i:any) => i.name !== i.icon && i.total > 1000)
-        .sort((a:any,b:any)=>b.score-a.score)
-        .slice(0,12)
-      const patch = itemsCache.games?.[0]?.patch || "17.5"
-      return Response.json({ type:"item_tier",data:{items,patch:`Set 17 · Patch ${patch}`} })
+        .sort((a:any,b:any)=>a.avg-b.avg).slice(0,12)
+      const patch = itemsData.games?.[0]?.patch || "17.5"
+      return Response.json({ type:"item_tier",data:{ items, patch:`Set 17 \u00b7 Patch ${patch}` } })
     }
 
-    // 英雄配装
-    if (!unitCache || Date.now() - unitCacheTs > 300_000) {
-      const res = await fetch("https://api-hc.metatft.com/tft-comps-api/unit_items_processed")
-      unitCache = await res.json(); unitCacheTs = Date.now()
-    }
+    if (intent.intent === "hero_build" && intent.hero) {
+      const [unitData] = await Promise.all([getUnitData()])
 
-    // 找英雄
-    let unitKey = ""
-    for (const [alias, name] of Object.entries(HERO_ALIAS)) {
-      if (q.includes(alias.toLowerCase())) {
-        for (const [ukey] of Object.entries(unitCache.units)) {
-          if (ukey.toLowerCase().includes(name.toLowerCase())) { unitKey = ukey; break }
+      const heroKey = intent.hero
+      let unitKey = ""
+      for (const [ukey] of Object.entries(unitData.units)) {
+        if (ukey.toLowerCase().includes(heroKey.toLowerCase())) { unitKey = ukey; break }
+      }
+      if (!unitKey) return Response.json({ type:"unknown",message:`没找到 ${heroKey} 的装备数据` })
+
+      const unit = unitData.units[unitKey]
+      if (!unit?.items) return Response.json({ type:"unknown",message:"暂无该英雄的装备数据" })
+
+      const heroAvg = +unit.avg.toFixed(2)
+      const heroPick = +(unit.pick*100).toFixed(1)
+      const heroCount = unit.count
+
+      // Get hero win/top4 rate from explorer total API
+      let heroWin = 0, heroTop4Rate = 0, heroCountTotal = 0
+      try {
+        const totalUrl = `https://api-hc.metatft.com/tft-explorer-api/total?formatnoarray=true&compact=true&queue=1100&patch=current&days=3&unit_unique=${unitKey}-1`
+        const totalRes = await fetch(totalUrl)
+        if (totalRes.ok) {
+          const totalJson = await totalRes.json()
+          const td = totalJson.data?.[0]
+          if (td?.placement_count) {
+            const t = td.placement_count.reduce((a,b)=>a+b,0)
+            heroWin = t > 0 ? +(td.placement_count[0]/t*100).toFixed(1) : 0
+            heroTop4Rate = t > 0 ? +((td.placement_count[0]+td.placement_count[1]+td.placement_count[2]+td.placement_count[3])/t*100).toFixed(1) : 0
+            heroCountTotal = t
+          }
         }
-        if (unitKey) break
+      } catch(e) {}
+
+      // Use explorer API for hero-specific item stats
+      let heroItemStats: any[] = []
+      const cacheKey = `hero_items_${unitKey}`
+      const cached = heroItemCache.get(cacheKey)
+      if (cached && Date.now() - cached.ts < 300_000) {
+        heroItemStats = cached.data
+      } else {
+        try {
+          const expUrl = `https://api-hc.metatft.com/tft-explorer-api/items?formatnoarray=true&compact=true&queue=1100&patch=current&days=3&rank=CHALLENGER,GRANDMASTER,MASTER&unit_unique=${unitKey}-1`
+          const expRes = await fetch(expUrl)
+          if (expRes.ok) {
+            const expJson = await expRes.json()
+            heroItemStats = (expJson.data || []).filter((r:any) =>
+              r.items && r.items.startsWith("TFT_Item_") &&
+              !r.items.includes("Artifact") && !r.items.includes("Emblem") &&
+              !r.items.includes("_Radiant") && !r.items.includes("Consumable") &&
+              !r.items.includes("Spatula") && !r.items.includes("FryingPan") &&
+              !r.items.includes("ForceOfNature") && !r.items.includes("ThiefsGloves") &&
+              !r.items.includes("AnimaSquad")
+            ).map((r:any) => {
+              const stats = calcStats(r.placement_count)
+              return { itemName: r.items, ...stats }
+            })
+            heroItemCache.set(cacheKey, { data: heroItemStats, ts: Date.now() })
+          }
+        } catch(e) {}
       }
+
+      const heroItemMap = new Map<string, {avg:number,top4:number,win:number,total:number}>()
+      for (const r of heroItemStats) heroItemMap.set(r.itemName, r)
+
+      const allHeroItems = heroItemStats.filter((r:any) => r.total > 100)
+      let bTotal = 0, bAvg = 0
+      for (const r of allHeroItems) { bTotal += r.total; bAvg += r.avg * r.total }
+      const baselineAvg = bTotal > 0 ? +(bAvg/bTotal).toFixed(2) : 0
+
+      // Use unit_items_processed for item order (hero-specific pick rate),
+      // then match with explorer API for hero-specific avg/top4/win stats
+      const seen = new Set<string>()
+      const allMapped = unit.items
+        .filter((i:any) => i.itemName.startsWith("TFT_Item_") && !i.itemName.includes("Artifact") && !i.itemName.includes("Emblem") && !i.itemName.includes("_Radiant") && !i.itemName.includes("Consumable") && !i.itemName.includes("Spatula") && !i.itemName.includes("FryingPan") && !i.itemName.includes("ForceOfNature") && !i.itemName.includes("ThiefsGloves"))
+        .filter((i:any) => { const k = iname(i.itemName); if (seen.has(k)) return false; seen.add(k); return true })
+        .map((i:any) => {
+        const name = iname(i.itemName)
+        const icon = iicon(i.itemName)
+        const stats = heroItemMap.get(i.itemName)
+        if (!stats) return { name, icon }
+        const avgDiff = +(stats.avg - baselineAvg).toFixed(2)
+        return {
+          name, icon,
+          avg: stats.avg,
+          top4: stats.top4,
+          win: stats.win,
+          avgDiff,
+          count: stats.total,
+        }
+      })
+
+      // Sort by avg (ascending = better) and take top 5
+      const topItems = allMapped
+        .filter((i:any) => i.avg != null)
+        .slice(0, 5)
+
+      const displayName = HERO_DISPLAY[heroKey] || heroKey
+      return Response.json({
+        type:"hero_build",
+        data: {
+          heroName: displayName,
+          heroAvg,
+          heroWin,
+          heroTop4Rate,
+          heroCount: heroCountTotal > 0 ? heroCountTotal : heroCount,
+          items: topItems,
+          tip: `登场率 ${heroPick}% | 平均 ${heroAvg} 名 | 对局 ${(heroCount||0).toLocaleString()}`,
+        }
+      })
     }
 
-    if (!unitKey) {
-      return Response.json({ type:"unknown", message:'没找到对应英雄，试试说「金克斯装备」或「亚索装备」' })
-    }
-
-    const unit = unitCache.units[unitKey]
-    if (!unit?.items) return Response.json({ type:"unknown", message:"暂无该英雄的装备数据" })
-
-    const seen = new Set<string>()
-    const topItems = unit.items
-      .filter((i:any) => i.itemName.startsWith("TFT_Item_") && !i.itemName.includes("Artifact") && !i.itemName.includes("Emblem") && !i.itemName.includes("_Radiant") && !i.itemName.includes("Consumable") && !i.itemName.includes("Spatula") && !i.itemName.includes("ForceOfNature") && !i.itemName.includes("ThiefsGloves"))
-      .filter((i:any) => { const k = iname(i.itemName); if (seen.has(k)) return false; seen.add(k); return true })
-      .slice(0,5)
-      .map((i:any) => ({ name: iname(i.itemName), icon: iicon(i.itemName) }))
-
-    const heroKey = unitKey.replace("TFT17_","").replace("TFT_","")
-    const displayName = HERO_DISPLAY[heroKey] || heroKey
-
-    return Response.json({
-      type:"hero_build",
-      data:{
-        heroName: displayName,
-        items: topItems,
-        avg: unit.avg.toFixed(1),
-        pick: (unit.pick * 100).toFixed(1),
-        tip: `登场率 ${(unit.pick*100).toFixed(1)}% · 平均排名 ${unit.avg.toFixed(1)}`,
-      }
-    })
+return Response.json({ type:"unknown", message:"试试说「金克斯装备」或「装备排行」" })
   } catch (err: any) {
     return Response.json({ type:"error", message: err.message || "出了点问题" })
   }
