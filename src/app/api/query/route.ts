@@ -166,7 +166,7 @@ export async function POST(req: Request) {
       // Get hero win/top4 rate from explorer total API
       let heroWin = 0, heroTop4Rate = 0, heroCountTotal = 0
       try {
-        const totalUrl = `https://api-hc.metatft.com/tft-explorer-api/total?formatnoarray=true&compact=true&queue=1100&patch=current&days=3&unit_unique=${unitKey}-1`
+        const totalUrl = `https://api-hc.metatft.com/tft-explorer-api/total?formatnoarray=true&compact=true&queue=1100&patch=current&days=3&rank=CHALLENGER,GRANDMASTER,MASTER&unit_unique=${unitKey}-1`
         const totalRes = await fetch(totalUrl)
         if (totalRes.ok) {
           const totalJson = await totalRes.json()
