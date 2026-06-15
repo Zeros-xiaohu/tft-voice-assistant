@@ -1,0 +1,9 @@
+﻿{
+  "name": "TFT 语音助手",
+  "short_name": "TFT助手",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#F2F2F7",
+  "background_color": "#F2F2F7",
+  "icons": []
+}

@@ -1,0 +1,19 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #FFFFFF;
+  color: #1D1D1F;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 打字光标闪烁 */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
