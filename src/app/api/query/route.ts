@@ -88,7 +88,7 @@ Return ONLY JSON: {"intent":"hero_build","hero":"Graves"}`,
 type PlaceArray = [number,number,number,number,number,number,number,number]
 
 function calcStats(places: PlaceArray) {
-  const total = places.reduce((a,b)=>a+b,0)
+  const total = places.reduce((a:number,b:number)=>a+b,0)
   if (total === 0) return { avg:0,top4:0,win:0,total:0 }
   const avg = +(places.reduce((s,c,i)=>s+c*(i+1),0)/total).toFixed(2)
   const top4 = +((places[0]+places[1]+places[2]+places[3])/total*100).toFixed(1)
@@ -172,7 +172,7 @@ export async function POST(req: Request) {
           const totalJson = await totalRes.json()
           const td = totalJson.data?.[0]
           if (td?.placement_count) {
-            const t = td.placement_count.reduce((a,b)=>a+b,0)
+            const t = td.placement_count.reduce((a:number,b:number)=>a+b,0)
             heroWin = t > 0 ? +(td.placement_count[0]/t*100).toFixed(1) : 0
             heroTop4Rate = t > 0 ? +((td.placement_count[0]+td.placement_count[1]+td.placement_count[2]+td.placement_count[3])/t*100).toFixed(1) : 0
             heroCountTotal = t
