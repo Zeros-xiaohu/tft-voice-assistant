@@ -1,0 +1,2024 @@
+{
+  "meta": {
+    "setName": "Set17",
+    "setNumber": 17,
+    "mutator": "TFTSet17",
+    "generatedAt": "2026-06-16T13:24:23.096Z"
+  },
+  "basic": [
+    {
+      "apiName": "TFT_Item_BFSword",
+      "name": "暴风之剑",
+      "desc": "+@AD*100@%物理加成",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bfsword.tft_set13.png",
+      "effects": {
+        "AD": 0.10000000149011612
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_RecurveBow",
+      "name": "反曲之弓",
+      "desc": "+{AS}%攻击速度",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_recurvebow.tft_set13.png",
+      "effects": {
+        "AS": 10
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_NeedlesslyLargeRod",
+      "name": "无用大棒",
+      "desc": "+{AP}法术加成",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_needlesslylargerod.tft_set13.png",
+      "effects": {
+        "AP": 10
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_TearOfTheGoddess",
+      "name": "女神之泪",
+      "desc": "+{ManaRegen}法力回复",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tearofthegoddess.tft_set13.png",
+      "effects": {
+        "ManaRegen": 1
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_ChainVest",
+      "name": "锁子甲",
+      "desc": "+{Armor}护甲",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_chainvest.tft_set13.png",
+      "effects": {
+        "Armor": 20
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_NegatronCloak",
+      "name": "负极斗篷",
+      "desc": "+{MagicResist}魔法抗性",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_negatroncloak.tft_set13.png",
+      "effects": {
+        "MagicResist": 20
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_GiantsBelt",
+      "name": "巨人腰带",
+      "desc": "+{Health}生命值",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_giantsbelt.tft_set13.png",
+      "effects": {
+        "Health": 150
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_Spatula",
+      "name": "金铲铲",
+      "desc": "它必须做点什么...",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spatula.tft_set13.png",
+      "effects": {
+        "{fe9818ef}": 5
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_SparringGloves",
+      "name": "拳套",
+      "desc": "+{CritChance}%暴击几率",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_sparringgloves.tft_set13.png",
+      "effects": {
+        "CritChance": 20
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_FryingPan",
+      "name": "金锅锅",
+      "desc": ".……不然它怎么会在这里？",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_fryingpan.tft_set13.png",
+      "effects": {},
+      "unique": false
+    }
+  ],
+  "completed": [
+    {
+      "apiName": "TFT17_Item_DarkStarEmblemItem",
+      "name": "暗星纹章",
+      "desc": "携带者获得【暗星】羁绊。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_darkstar.tft_set17.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_BFSword"
+      ],
+      "effects": {
+        "AD": 0.18000000715255737,
+        "AP": 18
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_SpectralGauntlet",
+      "name": "薄暮法袍",
+      "desc": "{HexRange}格内的敌人们会被施加{ARReductionAmount}%护甲削减。在战斗的最初{BonusResistDuration}秒获得{BonusResists}护甲和魔抗。\n\n护甲击碎：降低护甲值",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spectralgauntlet.tft_set13.png",
+      "composition": [
+        "TFT_Item_NegatronCloak",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "ARReductionAmount": 30,
+        "BonusResistDuration": 15,
+        "BonusResists": 15,
+        "Health": 250,
+        "HexRange": 2,
+        "MagicResist": 20
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_ResistTankEmblemItem",
+      "name": "堡垒卫士纹章",
+      "desc": "携带者获得【堡垒卫士】羁绊。在战斗开始的最初{Delay}秒之后，携带者获得@AttackSpeed*100@%攻击速度。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_bastion.tft_set17.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_ChainVest"
+      ],
+      "effects": {
+        "Armor": 30,
+        "AttackSpeed": 0.699999988079071,
+        "Delay": 10,
+        "MagicResist": 30
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_ArchangelsStaff",
+      "name": "大天使之杖",
+      "desc": "战斗开始时：在战斗期间，每{IntervalSeconds}秒获得{APPerInterval}%法术加成。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_archangelsstaff.tft_set13.png",
+      "composition": [
+        "TFT_Item_NeedlesslyLargeRod",
+        "TFT_Item_TearOfTheGoddess"
+      ],
+      "effects": {
+        "AP": 30,
+        "APPerInterval": 20,
+        "IntervalSeconds": 5,
+        "ManaRegen": 1
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_HPTankEmblemItem",
+      "name": "斗士纹章",
+      "desc": "携带者获得【斗士】羁绊。攻击会造成相当于携带者@PercentHPAttack*100@%最大生命值的魔法伤害。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_brawler.tft_set17.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "Health": 250,
+        "PercentHPAttack": 0.029999999329447746
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT17_Item_FavoredEmblemItem",
+      "name": "法官纹章",
+      "desc": "携带者获得【法官】羁绊。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_arbiter.tft_set17.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_NegatronCloak"
+      ],
+      "effects": {
+        "AS": 30,
+        "Armor": 20,
+        "MagicResist": 20
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT17_Item_StargazerEmblemItem",
+      "name": "观星者纹章",
+      "desc": "携带者获得【观星者】羁绊。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_stargazer.tft_set17.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_NeedlesslyLargeRod"
+      ],
+      "effects": {
+        "AD": 0.15000000596046448,
+        "AP": 15
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_GuinsoosRageblade",
+      "name": "鬼索的狂暴之刃",
+      "desc": "每秒获得{AttackSpeedPerStack}%可叠加的攻击速度。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.tft_set13.png",
+      "composition": [
+        "TFT_Item_RecurveBow",
+        "TFT_Item_NeedlesslyLargeRod"
+      ],
+      "effects": {
+        "AP": 10,
+        "AS": 10,
+        "AttackSpeedPerStack": 7
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_HextechGunblade",
+      "name": "海克斯科技枪刃",
+      "desc": "为生命值百分比最低的友军提供相当于@AllyHealing*100@%造成伤害值的治疗。\n\n友军治疗： @TFTUnitProperty.item:TFT_Tracker_Value1@",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_hextechgunblade.tft_set13.png",
+      "composition": [
+        "TFT_Item_BFSword",
+        "TFT_Item_NeedlesslyLargeRod"
+      ],
+      "effects": {
+        "AD": 0.20000000298023224,
+        "AP": 20,
+        "AllyHealing": 0.20000000298023224,
+        "ManaRegen": 1,
+        "Omnivamp": 18,
+        "StatOmnivamp": 0.15000000596046448
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_PrimordianEmblemItem",
+      "name": "海魔人纹章",
+      "desc": "携带者获得【海魔人】羁绊。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_primordian.tft_set17.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "Health": 450
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_RunaansHurricane",
+      "name": "海妖之怒",
+      "desc": "攻击提供@ADOnAttack*100@%可叠加的物理加成，至多至{MaxStacks}次攻击。在{MaxStacks}次攻击后，获得@ASCapstone*100@%攻击速度。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_krakenslayer.png",
+      "composition": [
+        "TFT_Item_NegatronCloak",
+        "TFT_Item_RecurveBow"
+      ],
+      "effects": {
+        "AD": 0.10000000149011612,
+        "ADOnAttack": 0.03500000014901161,
+        "AS": 10,
+        "ASCapstone": 0.15000000596046448,
+        "MagicResist": 20,
+        "MaxStacks": 15
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_RapidFireCannon",
+      "name": "红霸符",
+      "desc": "攻击和技能的伤害对敌人们造成持续{Duration}秒的{BurnPercent}%灼烧效果和{HealingReductionPct}%重伤效果。\n\n灼烧：每秒造成目标一部分最大生命值的真实伤害\n重伤：降低受到的治疗效果",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_rapidfirecannon.tft_set13.png",
+      "composition": [
+        "TFT_Item_RecurveBow",
+        "TFT_Item_RecurveBow"
+      ],
+      "effects": {
+        "AS": 45,
+        "BonusDamage": 0.05999999865889549,
+        "BurnPercent": 1,
+        "Duration": 5,
+        "HealingReductionPct": 33,
+        "HexRangeIncrease": 1,
+        "{1543aa48}": 0.029999999329447746,
+        "{9f5117db}": 100
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_BrambleVest",
+      "name": "棘刺背心",
+      "desc": "获得@PercentMaxHP*100@%最大生命值。\n\n使来自攻击的伤害降低@AutoDamageReduction*100@%。在被任一攻击命中时，对邻格所有敌人造成{1StarAoEDamage}魔法伤害。\n\n冷却时间：{ICD}秒",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bramblevest.tft_set13.png",
+      "composition": [
+        "TFT_Item_ChainVest",
+        "TFT_Item_ChainVest"
+      ],
+      "effects": {
+        "1StarAoEDamage": 100,
+        "2StarAoEDamage": 100,
+        "3StarAoEDamage": 100,
+        "4StarAoEDamage": 100,
+        "Armor": 50,
+        "AutoDamageReduction": 0.05000000074505806,
+        "ICD": 2,
+        "PercentMaxHP": 0.05999999865889549,
+        "{6688a0d5}": 100
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_NightHarvester",
+      "name": "坚定之心",
+      "desc": "获得@BaseDurability*100@%伤害减免。在高于@ThresholdForEmpower*100@%生命值时，转而获得@EmpoweredDurability*100@%伤害减免。\n\n@TFTUnitProperty.:TFT_Augment_WarmogsBuckle_TRAKey@",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_nightharvester.tft_set13.png",
+      "composition": [
+        "TFT_Item_ChainVest",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "Armor": 20,
+        "BaseDurability": 0.05000000074505806,
+        "CritChance": 20,
+        "EmpoweredDurability": 0.15000000596046448,
+        "Health": 250,
+        "ThresholdForEmpower": 0.5
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_ForceOfNature",
+      "name": "金铲铲冠冕",
+      "desc": "你的队伍获得+{MaxArmySizeIncrease}最大队伍规模。\n\n在你赢下战斗时，有{PercentGoldChance}%几率掉落1金币。\n\n“……某位英雄的心……”",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_forceofnature.tft_set13.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_Spatula"
+      ],
+      "effects": {
+        "MaxArmySizeIncrease": 1,
+        "PercentGoldChance": 10
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_TacticiansRing",
+      "name": "金锅铲冠冕",
+      "desc": "你的队伍获得+{MaxArmySizeIncrease}最大队伍规模。\n\n在战斗{Timer}秒后，有{PercentGoldChance}%几率掉落1金币。\n\n“……以及一点运气。”",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tacticiansring.tft_set13.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_FryingPan"
+      ],
+      "effects": {
+        "MaxArmySizeIncrease": 1,
+        "PercentGoldChance": 10,
+        "Timer": 10
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_TacticiansScepter",
+      "name": "金锅锅冠冕",
+      "desc": "你的队伍获得+{MaxArmySizeIncrease}最大队伍规模。\n\n在携带者阵亡时，有{PercentGoldChance}%几率掉落1金币。\n\n“充满了某位哲学家的智慧……”",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tacticiansscepter.tft_set13.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_FryingPan"
+      ],
+      "effects": {
+        "MaxArmySizeIncrease": 1,
+        "PercentGoldChance": 10
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_DragonsClaw",
+      "name": "巨龙之爪",
+      "desc": "获得@PercentMaxHP*100@%最大生命值。\n\n每{HealthRegenInterval}秒治疗{PercentHealthDamage}%最大生命值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_dragonsclaw.tft_set13.png",
+      "composition": [
+        "TFT_Item_NegatronCloak",
+        "TFT_Item_NegatronCloak"
+      ],
+      "effects": {
+        "HealthRegenInterval": 2,
+        "ICD": 0.5,
+        "MagicResist": 60,
+        "PercentHealthDamage": 2.5,
+        "PercentMaxHP": 0.05999999865889549
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_MadredsBloodrazor",
+      "name": "巨人杀手",
+      "desc": "对抗坦克时获得@DamageAmp*100@%额外伤害增幅。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_madredsbloodrazor.tft_set13.png",
+      "composition": [
+        "TFT_Item_BFSword",
+        "TFT_Item_RecurveBow"
+      ],
+      "effects": {
+        "AD": 0.15000000596046448,
+        "AP": 15,
+        "AS": 15,
+        "DamageAmp": 0.15000000596046448,
+        "{1543aa48}": 0.15000000596046448,
+        "{abb9f4ce}": 25
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_WarmogsArmor",
+      "name": "狂徒铠甲",
+      "desc": "获得@BonusPercentHP*100@%最大生命值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_warmogsarmor.tft_set13.png",
+      "composition": [
+        "TFT_Item_GiantsBelt",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "BonusPercentHP": 0.18000000715255737,
+        "Health": 500
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_MeleeTraitEmblemItem",
+      "name": "狂战士纹章",
+      "desc": "携带者获得【狂战士】羁绊，并且在击杀时有{GoldDropChance}%几率获得{GoldAmount}金币。\n\n本局游戏中已获得的金币数：@TFTUnitProperty.item:TFT_Item_GoldGenerated@",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_marauder.tft_set17.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_BFSword"
+      ],
+      "effects": {
+        "AD": 0.20000000298023224,
+        "GoldAmount": 1,
+        "GoldDropChance": 33,
+        "StatOmnivamp": 0.10000000149011612
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_BlueBuff",
+      "name": "蓝霸符",
+      "desc": "从所有来源中获得@ModifiedADAP*100@%额外物理加成和法术加成。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bluebuff.tft_set13.png",
+      "composition": [
+        "TFT_Item_TearOfTheGoddess",
+        "TFT_Item_TearOfTheGoddess"
+      ],
+      "effects": {
+        "AD": 0.15000000596046448,
+        "AP": 15,
+        "ManaRegen": 5,
+        "ModifiedADAP": 0.10000000149011612
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_IonicSpark",
+      "name": "离子火花",
+      "desc": "对{HexRange}格内的敌人们施加{MRShred}%魔抗击碎。在敌人施放一次技能时，对该敌人造成相当于该敌人{ManaRatio}%法力值消耗的魔法伤害。\n魔抗击碎：降低魔抗值",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_ionicspark.tft_set13.png",
+      "composition": [
+        "TFT_Item_NeedlesslyLargeRod",
+        "TFT_Item_NegatronCloak"
+      ],
+      "effects": {
+        "AP": 15,
+        "Damage": 250,
+        "Health": 250,
+        "HexRange": 2,
+        "MRShred": 30,
+        "MagicResist": 35,
+        "ManaRatio": 150
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_FlexTraitEmblemItem",
+      "name": "旅人纹章",
+      "desc": "携带者获得【旅人】羁绊。\n\n对战开始时：携带者和同一排1格内的友军们获得一个加成，该加成基于携带者的角色定位。\n- 坦克：{BonusArmorMR}护甲和魔抗\n- 战士/刺客：@BonusOmnivamp*100@%全能吸血\n- 其他角色：@BonusAttackSpeed*100@%攻击速度",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_voyager.tft_set17.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_NeedlesslyLargeRod"
+      ],
+      "effects": {
+        "AD": 0.20000000298023224,
+        "AP": 20,
+        "BonusArmorMR": 10,
+        "BonusAttackSpeed": 0.10000000149011612,
+        "BonusOmnivamp": 0.10000000149011612
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_Crownguard",
+      "name": "冕卫",
+      "desc": "战斗开始时：获得持续{ShieldDuration}秒的相当于{ShieldSize}%最大生命值的护盾值。\n\n在护盾到期时，获得{ShieldBonusAP}%法术加成。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_crownguard.tft_set13.png",
+      "composition": [
+        "TFT_Item_NeedlesslyLargeRod",
+        "TFT_Item_ChainVest"
+      ],
+      "effects": {
+        "AP": 20,
+        "Armor": 20,
+        "Health": 100,
+        "ShieldBonusAP": 25,
+        "ShieldDuration": 8,
+        "ShieldSize": 25
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_RabadonsDeathcap",
+      "name": "灭世者的死亡之帽",
+      "desc": "这顶不起眼的帽子可以帮助你创造，或毁灭，这个世界本身。\n\n@TFTUnitProperty.:TFT_Augment_DeadlierCaps_TRAKey@",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_rabadonsdeathcap.tft_set13.png",
+      "composition": [
+        "TFT_Item_NeedlesslyLargeRod",
+        "TFT_Item_NeedlesslyLargeRod"
+      ],
+      "effects": {
+        "AP": 55,
+        "BonusDamage": 0.15000000596046448,
+        "{1543aa48}": 0.15000000596046448
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_Morellonomicon",
+      "name": "莫雷洛秘典",
+      "desc": "攻击和技能的伤害对敌人们造成持续{BurnDuration}秒的{BurnPercent}%灼烧效果和{GrievousWoundsPercent}%重伤效果。\n\n灼烧：每秒造成目标一部分最大生命值的真实伤害\n重伤：降低受到的治疗效果",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_morellonomicon.tft_set13.png",
+      "composition": [
+        "TFT_Item_NeedlesslyLargeRod",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "AP": 20,
+        "BurnDuration": 10,
+        "BurnPercent": 1,
+        "GrievousWoundsPercent": 33,
+        "Health": 150,
+        "ManaRegen": 1,
+        "MonsterCap": 100,
+        "TicksPerSecond": 1
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_AstronautEmblemItem",
+      "name": "木灵族纹章",
+      "desc": "携带者获得【木灵族】羁绊，并且每获得@DamageAmpPerMeep*100@%伤害增幅和{HealthPerMeep}生命值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_meeple.tft_set17.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_ChainVest"
+      ],
+      "effects": {
+        "Armor": 20,
+        "MagicResist": 20,
+        "ManaRegen": 2,
+        "{1fe5d039}": 50,
+        "{76842f8a}": 0.03999999910593033
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT17_Item_SummonTraitEmblemItem",
+      "name": "牧羊人纹章",
+      "desc": "携带者获得【牧羊人】羁绊。在施放技能时，提供@ManaSharePercent*100@%最大法力值至【群星誓约】。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_sheperd.tft_set17.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_TearOfTheGoddess"
+      ],
+      "effects": {
+        "ManaRegen": 2,
+        "ManaSharePercent": 0.07999999821186066
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_Leviathan",
+      "name": "纳什之牙",
+      "desc": "每次普攻提供{BaseManaOnHit}额外法力值，如果暴击则提升至{ManaOnCrit}额外法力值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_leviathan.tft_set13.png",
+      "composition": [
+        "TFT_Item_RecurveBow",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "AP": 15,
+        "AS": 10,
+        "BaseManaOnHit": 2,
+        "CritChance": 20,
+        "Health": 150,
+        "ManaOnCrit": 4
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_PowerGauntlet",
+      "name": "强袭者的链枷",
+      "desc": "暴击提供持续{Duration}秒的@BuffDamageAmp*100@%伤害增幅，可叠加至多{MaxStacks}次。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_powergauntlet.tft_set13.png",
+      "composition": [
+        "TFT_Item_GiantsBelt",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "AS": 10,
+        "BuffDamageAmp": 0.05000000074505806,
+        "CritChance": 20,
+        "Duration": 5,
+        "Health": 150,
+        "MaxStacks": 4,
+        "{1543aa48}": 0.10000000149011612
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_ThiefsGloves",
+      "name": "窃贼手套",
+      "desc": "每一回合：装备2件随机装备。\n\n[需要用掉3个装备格。]\n@TFTUnitProperty.:TFT_BindOnEquipTRA@",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_thiefsgloves.tft_set13.png",
+      "composition": [
+        "TFT_Item_SparringGloves",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "CritChance": 20,
+        "Health": 150
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_RedBuff",
+      "name": "日炎斗篷",
+      "desc": "获得@BonusPercentHP*100@%最大生命值。\n\n每过{ICD}秒，对{HexRange}格内的一名敌人施加持续{BurnDuration}秒的{BurnPercent}%灼烧效果和{GrievousWoundsPercent}%重伤效果。\n\n灼烧：每秒造成目标一部分最大生命值的真实伤害\n重伤：降低受到的治疗效果",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_redbuff.tft_set13.png",
+      "composition": [
+        "TFT_Item_ChainVest",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "Armor": 20,
+        "BonusPercentHP": 0.07999999821186066,
+        "BurnDuration": 10,
+        "BurnPercent": 1,
+        "GrievousWoundsPercent": 33,
+        "Health": 150,
+        "HexRange": 2,
+        "ICD": 2,
+        "MonsterCap": 100
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_FrozenHeart",
+      "name": "圣盾使的誓约",
+      "desc": "战斗开始时：获得{CombatStartMana}法力值。\n\n在{HealthThreshold}%生命值时，获得{TriggerMana}法力值和相当于{ShieldHealthPercent}%最大生命值的护盾值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_frozenheart.tft_set13.png",
+      "composition": [
+        "TFT_Item_TearOfTheGoddess",
+        "TFT_Item_ChainVest"
+      ],
+      "effects": {
+        "Armor": 25,
+        "CombatStartMana": 20,
+        "HealthThreshold": 40,
+        "MagicResist": 25,
+        "ManaRegen": 1,
+        "ShieldDuration": 60,
+        "ShieldHealthPercent": 20,
+        "TriggerMana": 15
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_GargoyleStoneplate",
+      "name": "石像鬼石板甲",
+      "desc": "每有一个敌人正在以携带者为目标，携带者就会获得{ArmorPerEnemy}护甲和{MRPerEnemy}魔抗。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_gargoylestoneplate.tft_set13.png",
+      "composition": [
+        "TFT_Item_ChainVest",
+        "TFT_Item_NegatronCloak"
+      ],
+      "effects": {
+        "Armor": 25,
+        "ArmorPerEnemy": 10,
+        "Health": 100,
+        "MRPerEnemy": 10,
+        "MagicResist": 25,
+        "SizeIncrease": 0.07500000298023224,
+        "{4dc0582f}": 20
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_AdaptiveHelm",
+      "name": "适应性头盔",
+      "desc": "从所有来源中获得额外的@ManaPercIncrease*100@%法力值。携带者获得基于角色定位的一个额外加成：\n\n坦克和战士：获得{FrontlineResists}护甲和魔抗。\n\n其它角色定位：获得{BacklineADAP}%物理加成和法术加成。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_adaptivehelm.tft_set13.png",
+      "composition": [
+        "TFT_Item_NegatronCloak",
+        "TFT_Item_TearOfTheGoddess"
+      ],
+      "effects": {
+        "BacklineADAP": 10,
+        "FrontlineResists": 30,
+        "MagicResist": 20,
+        "ManaPercIncrease": 0.15000000596046448,
+        "ManaRegen": 3
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_Quicksilver",
+      "name": "水银",
+      "desc": "战斗开始时：获得持续{SpellShieldDuration}秒的控制免疫效果。\n\n每秒获得@ProcAttackSpeed*100@%可叠加的攻击速度。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_quicksilver.tft_set13.png",
+      "composition": [
+        "TFT_Item_SparringGloves",
+        "TFT_Item_NegatronCloak"
+      ],
+      "effects": {
+        "AS": 15,
+        "CritChance": 20,
+        "MagicResist": 20,
+        "ProcAttackSpeed": 0.029999999329447746,
+        "SpellShieldDuration": 18
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_SpearOfShojin",
+      "name": "朔极之矛",
+      "desc": "每次普攻提供{FlatManaRestore}额外法力值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spearofshojin.tft_set13.png",
+      "composition": [
+        "TFT_Item_BFSword",
+        "TFT_Item_TearOfTheGoddess"
+      ],
+      "effects": {
+        "AD": 0.15000000596046448,
+        "AP": 15,
+        "FlatManaRestore": 5,
+        "ManaRegen": 1
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_SteraksGage",
+      "name": "斯特拉克的挑战护手",
+      "desc": "在{HealthThreshold}%生命值时，获得相当于携带者@PercentHealthShield*100@%最大生命值的护盾值，在{ShieldDuration}秒内快速衰减。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_steraksgage.tft_set13.png",
+      "composition": [
+        "TFT_Item_BFSword",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "AD": 0.44999998807907104,
+        "Health": 300,
+        "HealthThreshold": 60,
+        "PercentHealthShield": 0.4000000059604645,
+        "ShieldDuration": 4
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_Deathblade",
+      "name": "死亡之刃",
+      "desc": "将完美的安宁和平静带给携带者——和所有面对它的人。\n\n\n@TFTUnitProperty.:TFT_Augment_TragicalBlade_TRAKey@",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_deathblade.tft_set13.png",
+      "composition": [
+        "TFT_Item_BFSword",
+        "TFT_Item_BFSword"
+      ],
+      "effects": {
+        "AD": 0.550000011920929,
+        "BonusDamage": 0.10000000149011612,
+        "{1543aa48}": 0.10000000149011612
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_SpaceGrooveEmblemItem",
+      "name": "太空律动纹章",
+      "desc": "持有者获得【太空律动】羁绊。施放技能时，持有者进入{{TFT17_SpaceGroove_TheGroove}}状态，持续{GrooveDuration}秒。\n\n这个效果每{ICD}秒仅触发一次。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_spacegroove.tft_set17.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_TearOfTheGoddess"
+      ],
+      "effects": {
+        "GrooveDuration": 2.5,
+        "Health": 200,
+        "ICD": 4
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_TitansResolve",
+      "name": "泰坦的坚决",
+      "desc": "在攻击或承受伤害时获得@StackingAD*100@%物理加成和{StackingSP}%法术加成，至多可叠加{StackCap}次。\n\n在叠满层数后，获得@StackedAmp*100@%伤害增幅，并获得控制免疫。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_titansresolve.tft_set13.png",
+      "composition": [
+        "TFT_Item_ChainVest",
+        "TFT_Item_RecurveBow"
+      ],
+      "effects": {
+        "AS": 10,
+        "Armor": 20,
+        "StackCap": 25,
+        "StackedAmp": 0.10000000149011612,
+        "StackingAD": 0.019999999552965164,
+        "StackingSP": 2
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_ASTraitEmblemItem",
+      "name": "挑战者纹章",
+      "desc": "携带者获得【挑战者】羁绊。参与击杀后，携带者的下{NumAttacks}次攻击每次会治疗其@PercentHealthHeal*100@%最大生命值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_challenger.tft_set17.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_RecurveBow"
+      ],
+      "effects": {
+        "AS": 30,
+        "NumAttacks": 3,
+        "PercentHealthHeal": 0.05000000074505806
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT17_Item_PulsefireEmblemItem",
+      "name": "未来战士纹章",
+      "desc": "携带者获得【未来战士】羁绊。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_timebreaker.tft_set17.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_RecurveBow"
+      ],
+      "effects": {
+        "AS": 15,
+        "Health": 200
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_InfinityEdge",
+      "name": "无尽之刃",
+      "desc": "获得【技能暴击】。\n\n{{TFT_Keyword_Precision}}",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.tft_set13.png",
+      "composition": [
+        "TFT_Item_BFSword",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "AD": 0.3499999940395355,
+        "CritChance": 35,
+        "CritDamageToGive": null
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_DRXEmblemItem",
+      "name": "新星特攻队纹章",
+      "desc": "携带者获得【新星特攻队】羁绊。\n\n新星特攻：获得@ASStriker*100@%攻击速度和{ArmorStriker}护甲与魔抗。其他友军获得@ASTeam*100@%攻击速度和{ArmorTeam}护甲与魔抗。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_nova.tft_set17.png",
+      "composition": [
+        "TFT_Item_Spatula",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "ASStriker": 0.25,
+        "ASTeam": 0.10000000149011612,
+        "ArmorStriker": 10,
+        "ArmorTeam": 10,
+        "CritChance": 20,
+        "Health": 200
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_StatikkShiv",
+      "name": "虚空之杖",
+      "desc": "来自攻击和技能的伤害会对目标施加持续{MRShredDuration}秒的{MRShred}%魔抗击碎。这个效果不会叠加。\n\n魔抗击碎：降低魔抗值",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_voidstaff.png",
+      "composition": [
+        "TFT_Item_RecurveBow",
+        "TFT_Item_TearOfTheGoddess"
+      ],
+      "effects": {
+        "AP": 35,
+        "AS": 15,
+        "MRShred": 30,
+        "MRShredDuration": 5,
+        "ManaRegen": 1
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_GuardianAngel",
+      "name": "夜之锋刃",
+      "desc": "在{HealthThreshold}%生命值时，短暂变为不可被选取状态、摆脱负面效果、并治疗@MissingHealthRestore*100@%已损失生命值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_guardianangel.tft_set13.png",
+      "composition": [
+        "TFT_Item_BFSword",
+        "TFT_Item_ChainVest"
+      ],
+      "effects": {
+        "AD": 0.10000000149011612,
+        "AP": 10,
+        "AS": 15,
+        "Armor": 20,
+        "DamageReduction": 100,
+        "HealthThreshold": 60,
+        "MissingHealthRestore": 0.20000000298023224,
+        "StealthDuration": 1
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_Bloodthirster",
+      "name": "饮血剑",
+      "desc": "每场战斗仅触发1次：在{HealthThreshold}%生命值时，获得一个护盾，护盾值相当于携带者{ShieldHealthPercent}%的最大生命值，至多持续{ShieldDuration}秒。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bloodthirster.tft_set13.png",
+      "composition": [
+        "TFT_Item_BFSword",
+        "TFT_Item_NegatronCloak"
+      ],
+      "effects": {
+        "AD": 0.15000000596046448,
+        "AP": 15,
+        "HealthThreshold": 40,
+        "LifeSteal": 20,
+        "MagicResist": 20,
+        "ShieldDuration": 5,
+        "ShieldHealthPercent": 25,
+        "StatOmnivamp": 0.20000000298023224
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_AssassinTraitEmblemItem",
+      "name": "游侠纹章",
+      "desc": "携带者获得【游侠】羁绊。在@HealthThreshold*100@%生命值时，获得@Omnivamp*100@%全能吸血和控制免疫效果，持续{BuffDuration}秒。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_rogue.tft_set17.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "BuffDuration": 5,
+        "CritChance": 20,
+        "HealthThreshold": 0.5,
+        "Omnivamp": 0.25,
+        "{1543aa48}": 0.10000000149011612
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_Redemption",
+      "name": "振奋盔甲",
+      "desc": "每秒回复@MissingHealthHeal*100@%已损失生命值。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spiritvisagerr.png",
+      "composition": [
+        "TFT_Item_TearOfTheGoddess",
+        "TFT_Item_GiantsBelt"
+      ],
+      "effects": {
+        "HealTickRate": 1,
+        "Health": 300,
+        "ManaRegen": 2,
+        "MaxHeal": 250,
+        "MissingHealthHeal": 0.019999999552965164,
+        "{cd951938}": 0.07999999821186066
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_UnstableConcoction",
+      "name": "正义之手",
+      "desc": "获得2个效果：@AD_NotStatBar*100@%物理加成和{AP_NotStatBar}%法术加成。@StatOmnivamp_NotStatBar*100@%全能吸血。\n\n生命值高于@HealthThreshold*100@%时，物理加成和法术加成翻倍。生命值低于@HealthThreshold*100@%时，全能吸血效果翻倍。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_unstableconcoction.tft_set13.png",
+      "composition": [
+        "TFT_Item_TearOfTheGoddess",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "AD_NotStatBar": 0.15000000596046448,
+        "AP_NotStatBar": 15,
+        "CritChance": 20,
+        "HealthThreshold": 0.5,
+        "ManaRegen": 1,
+        "StatOmnivamp_NotStatBar": 0.11999999731779099,
+        "{f23e83fc}": 2
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT17_Item_ShieldTankEmblemItem",
+      "name": "重装战士纹章",
+      "desc": "携带者获得【重装战士】羁绊。每当1名友军获得护盾时，获得{APGain}%法术加成。",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_vanguard.tft_set17.png",
+      "composition": [
+        "TFT_Item_FryingPan",
+        "TFT_Item_NegatronCloak"
+      ],
+      "effects": {
+        "APGain": 2,
+        "Armor": 20,
+        "MagicResist": 20
+      },
+      "unique": true
+    },
+    {
+      "apiName": "TFT_Item_JeweledGauntlet",
+      "name": "珠光护手",
+      "desc": "获得【技能暴击】。\n\n{{TFT_Keyword_Precision}}",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_jeweledgauntlet.tft_set13.png",
+      "composition": [
+        "TFT_Item_NeedlesslyLargeRod",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "AP": 35,
+        "CritChance": 35,
+        "CritDamageToGive": null
+      },
+      "unique": false
+    },
+    {
+      "apiName": "TFT_Item_LastWhisper",
+      "name": "最后的轻语",
+      "desc": "来自攻击和技能的伤害会对目标施加持续{ArmorBreakDuration}秒的{ArmorReductionPercent}%护甲击碎。这个效果不会叠加。\n\n护甲击碎：降低护甲值",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_lastwhisper.tft_set13.png",
+      "composition": [
+        "TFT_Item_RecurveBow",
+        "TFT_Item_SparringGloves"
+      ],
+      "effects": {
+        "AD": 0.15000000596046448,
+        "AS": 20,
+        "ArmorBreakDuration": 3,
+        "ArmorReductionPercent": 30,
+        "CritChance": 20
+      },
+      "unique": false
+    }
+  ],
+  "recipeIndex": {
+    "TFT_Item_BFSword+TFT_Item_Spatula": {
+      "apiName": "TFT17_Item_DarkStarEmblemItem",
+      "name": "暗星纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_darkstar.tft_set17.png"
+    },
+    "TFT_Item_GiantsBelt+TFT_Item_NegatronCloak": {
+      "apiName": "TFT_Item_SpectralGauntlet",
+      "name": "薄暮法袍",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spectralgauntlet.tft_set13.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_FryingPan": {
+      "apiName": "TFT17_Item_ResistTankEmblemItem",
+      "name": "堡垒卫士纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_bastion.tft_set17.png"
+    },
+    "TFT_Item_NeedlesslyLargeRod+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT_Item_ArchangelsStaff",
+      "name": "大天使之杖",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_archangelsstaff.tft_set13.png"
+    },
+    "TFT_Item_FryingPan+TFT_Item_GiantsBelt": {
+      "apiName": "TFT17_Item_HPTankEmblemItem",
+      "name": "斗士纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_brawler.tft_set17.png"
+    },
+    "TFT_Item_NegatronCloak+TFT_Item_Spatula": {
+      "apiName": "TFT17_Item_FavoredEmblemItem",
+      "name": "法官纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_arbiter.tft_set17.png"
+    },
+    "TFT_Item_NeedlesslyLargeRod+TFT_Item_Spatula": {
+      "apiName": "TFT17_Item_StargazerEmblemItem",
+      "name": "观星者纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_stargazer.tft_set17.png"
+    },
+    "TFT_Item_NeedlesslyLargeRod+TFT_Item_RecurveBow": {
+      "apiName": "TFT_Item_GuinsoosRageblade",
+      "name": "鬼索的狂暴之刃",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.tft_set13.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_NeedlesslyLargeRod": {
+      "apiName": "TFT_Item_HextechGunblade",
+      "name": "海克斯科技枪刃",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_hextechgunblade.tft_set13.png"
+    },
+    "TFT_Item_GiantsBelt+TFT_Item_Spatula": {
+      "apiName": "TFT17_Item_PrimordianEmblemItem",
+      "name": "海魔人纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_primordian.tft_set17.png"
+    },
+    "TFT_Item_NegatronCloak+TFT_Item_RecurveBow": {
+      "apiName": "TFT_Item_RunaansHurricane",
+      "name": "海妖之怒",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_krakenslayer.png"
+    },
+    "TFT_Item_RecurveBow+TFT_Item_RecurveBow": {
+      "apiName": "TFT_Item_RapidFireCannon",
+      "name": "红霸符",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_rapidfirecannon.tft_set13.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_ChainVest": {
+      "apiName": "TFT_Item_BrambleVest",
+      "name": "棘刺背心",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bramblevest.tft_set13.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_SparringGloves": {
+      "apiName": "TFT_Item_NightHarvester",
+      "name": "坚定之心",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_nightharvester.tft_set13.png"
+    },
+    "TFT_Item_Spatula+TFT_Item_Spatula": {
+      "apiName": "TFT_Item_ForceOfNature",
+      "name": "金铲铲冠冕",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_forceofnature.tft_set13.png"
+    },
+    "TFT_Item_FryingPan+TFT_Item_Spatula": {
+      "apiName": "TFT_Item_TacticiansRing",
+      "name": "金锅铲冠冕",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tacticiansring.tft_set13.png"
+    },
+    "TFT_Item_FryingPan+TFT_Item_FryingPan": {
+      "apiName": "TFT_Item_TacticiansScepter",
+      "name": "金锅锅冠冕",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tacticiansscepter.tft_set13.png"
+    },
+    "TFT_Item_NegatronCloak+TFT_Item_NegatronCloak": {
+      "apiName": "TFT_Item_DragonsClaw",
+      "name": "巨龙之爪",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_dragonsclaw.tft_set13.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_RecurveBow": {
+      "apiName": "TFT_Item_MadredsBloodrazor",
+      "name": "巨人杀手",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_madredsbloodrazor.tft_set13.png"
+    },
+    "TFT_Item_GiantsBelt+TFT_Item_GiantsBelt": {
+      "apiName": "TFT_Item_WarmogsArmor",
+      "name": "狂徒铠甲",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_warmogsarmor.tft_set13.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_FryingPan": {
+      "apiName": "TFT17_Item_MeleeTraitEmblemItem",
+      "name": "狂战士纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_marauder.tft_set17.png"
+    },
+    "TFT_Item_TearOfTheGoddess+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT_Item_BlueBuff",
+      "name": "蓝霸符",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bluebuff.tft_set13.png"
+    },
+    "TFT_Item_NeedlesslyLargeRod+TFT_Item_NegatronCloak": {
+      "apiName": "TFT_Item_IonicSpark",
+      "name": "离子火花",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_ionicspark.tft_set13.png"
+    },
+    "TFT_Item_FryingPan+TFT_Item_NeedlesslyLargeRod": {
+      "apiName": "TFT17_Item_FlexTraitEmblemItem",
+      "name": "旅人纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_voyager.tft_set17.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_NeedlesslyLargeRod": {
+      "apiName": "TFT_Item_Crownguard",
+      "name": "冕卫",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_crownguard.tft_set13.png"
+    },
+    "TFT_Item_NeedlesslyLargeRod+TFT_Item_NeedlesslyLargeRod": {
+      "apiName": "TFT_Item_RabadonsDeathcap",
+      "name": "灭世者的死亡之帽",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_rabadonsdeathcap.tft_set13.png"
+    },
+    "TFT_Item_GiantsBelt+TFT_Item_NeedlesslyLargeRod": {
+      "apiName": "TFT_Item_Morellonomicon",
+      "name": "莫雷洛秘典",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_morellonomicon.tft_set13.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_Spatula": {
+      "apiName": "TFT17_Item_AstronautEmblemItem",
+      "name": "木灵族纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_meeple.tft_set17.png"
+    },
+    "TFT_Item_FryingPan+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT17_Item_SummonTraitEmblemItem",
+      "name": "牧羊人纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_sheperd.tft_set17.png"
+    },
+    "TFT_Item_GiantsBelt+TFT_Item_RecurveBow": {
+      "apiName": "TFT_Item_Leviathan",
+      "name": "纳什之牙",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_leviathan.tft_set13.png"
+    },
+    "TFT_Item_GiantsBelt+TFT_Item_SparringGloves": {
+      "apiName": "TFT_Item_PowerGauntlet",
+      "name": "强袭者的链枷",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_powergauntlet.tft_set13.png"
+    },
+    "TFT_Item_SparringGloves+TFT_Item_SparringGloves": {
+      "apiName": "TFT_Item_ThiefsGloves",
+      "name": "窃贼手套",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_thiefsgloves.tft_set13.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_GiantsBelt": {
+      "apiName": "TFT_Item_RedBuff",
+      "name": "日炎斗篷",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_redbuff.tft_set13.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT_Item_FrozenHeart",
+      "name": "圣盾使的誓约",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_frozenheart.tft_set13.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_NegatronCloak": {
+      "apiName": "TFT_Item_GargoyleStoneplate",
+      "name": "石像鬼石板甲",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_gargoylestoneplate.tft_set13.png"
+    },
+    "TFT_Item_NegatronCloak+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT_Item_AdaptiveHelm",
+      "name": "适应性头盔",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_adaptivehelm.tft_set13.png"
+    },
+    "TFT_Item_NegatronCloak+TFT_Item_SparringGloves": {
+      "apiName": "TFT_Item_Quicksilver",
+      "name": "水银",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_quicksilver.tft_set13.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT_Item_SpearOfShojin",
+      "name": "朔极之矛",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spearofshojin.tft_set13.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_GiantsBelt": {
+      "apiName": "TFT_Item_SteraksGage",
+      "name": "斯特拉克的挑战护手",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_steraksgage.tft_set13.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_BFSword": {
+      "apiName": "TFT_Item_Deathblade",
+      "name": "死亡之刃",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_deathblade.tft_set13.png"
+    },
+    "TFT_Item_Spatula+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT17_Item_SpaceGrooveEmblemItem",
+      "name": "太空律动纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_spacegroove.tft_set17.png"
+    },
+    "TFT_Item_ChainVest+TFT_Item_RecurveBow": {
+      "apiName": "TFT_Item_TitansResolve",
+      "name": "泰坦的坚决",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_titansresolve.tft_set13.png"
+    },
+    "TFT_Item_FryingPan+TFT_Item_RecurveBow": {
+      "apiName": "TFT17_Item_ASTraitEmblemItem",
+      "name": "挑战者纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_challenger.tft_set17.png"
+    },
+    "TFT_Item_RecurveBow+TFT_Item_Spatula": {
+      "apiName": "TFT17_Item_PulsefireEmblemItem",
+      "name": "未来战士纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_timebreaker.tft_set17.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_SparringGloves": {
+      "apiName": "TFT_Item_InfinityEdge",
+      "name": "无尽之刃",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.tft_set13.png"
+    },
+    "TFT_Item_SparringGloves+TFT_Item_Spatula": {
+      "apiName": "TFT17_Item_DRXEmblemItem",
+      "name": "新星特攻队纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_nova.tft_set17.png"
+    },
+    "TFT_Item_RecurveBow+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT_Item_StatikkShiv",
+      "name": "虚空之杖",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_voidstaff.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_ChainVest": {
+      "apiName": "TFT_Item_GuardianAngel",
+      "name": "夜之锋刃",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_guardianangel.tft_set13.png"
+    },
+    "TFT_Item_BFSword+TFT_Item_NegatronCloak": {
+      "apiName": "TFT_Item_Bloodthirster",
+      "name": "饮血剑",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bloodthirster.tft_set13.png"
+    },
+    "TFT_Item_FryingPan+TFT_Item_SparringGloves": {
+      "apiName": "TFT17_Item_AssassinTraitEmblemItem",
+      "name": "游侠纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_rogue.tft_set17.png"
+    },
+    "TFT_Item_GiantsBelt+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT_Item_Redemption",
+      "name": "振奋盔甲",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spiritvisagerr.png"
+    },
+    "TFT_Item_SparringGloves+TFT_Item_TearOfTheGoddess": {
+      "apiName": "TFT_Item_UnstableConcoction",
+      "name": "正义之手",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_unstableconcoction.tft_set13.png"
+    },
+    "TFT_Item_FryingPan+TFT_Item_NegatronCloak": {
+      "apiName": "TFT17_Item_ShieldTankEmblemItem",
+      "name": "重装战士纹章",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_vanguard.tft_set17.png"
+    },
+    "TFT_Item_NeedlesslyLargeRod+TFT_Item_SparringGloves": {
+      "apiName": "TFT_Item_JeweledGauntlet",
+      "name": "珠光护手",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_jeweledgauntlet.tft_set13.png"
+    },
+    "TFT_Item_RecurveBow+TFT_Item_SparringGloves": {
+      "apiName": "TFT_Item_LastWhisper",
+      "name": "最后的轻语",
+      "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_lastwhisper.tft_set13.png"
+    }
+  },
+  "componentToCompleted": {
+    "TFT_Item_BFSword": [
+      {
+        "apiName": "TFT17_Item_DarkStarEmblemItem",
+        "name": "暗星纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_darkstar.tft_set17.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT_Item_HextechGunblade",
+        "name": "海克斯科技枪刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_hextechgunblade.tft_set13.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT_Item_MadredsBloodrazor",
+        "name": "巨人杀手",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_madredsbloodrazor.tft_set13.png",
+        "with": "TFT_Item_RecurveBow"
+      },
+      {
+        "apiName": "TFT17_Item_MeleeTraitEmblemItem",
+        "name": "狂战士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_marauder.tft_set17.png",
+        "with": "TFT_Item_FryingPan"
+      },
+      {
+        "apiName": "TFT_Item_SpearOfShojin",
+        "name": "朔极之矛",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spearofshojin.tft_set13.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      },
+      {
+        "apiName": "TFT_Item_SteraksGage",
+        "name": "斯特拉克的挑战护手",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_steraksgage.tft_set13.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT_Item_Deathblade",
+        "name": "死亡之刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_deathblade.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_Deathblade",
+        "name": "死亡之刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_deathblade.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_InfinityEdge",
+        "name": "无尽之刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.tft_set13.png",
+        "with": "TFT_Item_SparringGloves"
+      },
+      {
+        "apiName": "TFT_Item_GuardianAngel",
+        "name": "夜之锋刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_guardianangel.tft_set13.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT_Item_Bloodthirster",
+        "name": "饮血剑",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bloodthirster.tft_set13.png",
+        "with": "TFT_Item_NegatronCloak"
+      }
+    ],
+    "TFT_Item_RecurveBow": [
+      {
+        "apiName": "TFT_Item_GuinsoosRageblade",
+        "name": "鬼索的狂暴之刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.tft_set13.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT_Item_RunaansHurricane",
+        "name": "海妖之怒",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_krakenslayer.png",
+        "with": "TFT_Item_NegatronCloak"
+      },
+      {
+        "apiName": "TFT_Item_RapidFireCannon",
+        "name": "红霸符",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_rapidfirecannon.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_RapidFireCannon",
+        "name": "红霸符",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_rapidfirecannon.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_MadredsBloodrazor",
+        "name": "巨人杀手",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_madredsbloodrazor.tft_set13.png",
+        "with": "TFT_Item_BFSword"
+      },
+      {
+        "apiName": "TFT_Item_Leviathan",
+        "name": "纳什之牙",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_leviathan.tft_set13.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT_Item_TitansResolve",
+        "name": "泰坦的坚决",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_titansresolve.tft_set13.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT17_Item_ASTraitEmblemItem",
+        "name": "挑战者纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_challenger.tft_set17.png",
+        "with": "TFT_Item_FryingPan"
+      },
+      {
+        "apiName": "TFT17_Item_PulsefireEmblemItem",
+        "name": "未来战士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_timebreaker.tft_set17.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT_Item_StatikkShiv",
+        "name": "虚空之杖",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_voidstaff.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      },
+      {
+        "apiName": "TFT_Item_LastWhisper",
+        "name": "最后的轻语",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_lastwhisper.tft_set13.png",
+        "with": "TFT_Item_SparringGloves"
+      }
+    ],
+    "TFT_Item_NeedlesslyLargeRod": [
+      {
+        "apiName": "TFT_Item_ArchangelsStaff",
+        "name": "大天使之杖",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_archangelsstaff.tft_set13.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      },
+      {
+        "apiName": "TFT17_Item_StargazerEmblemItem",
+        "name": "观星者纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_stargazer.tft_set17.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT_Item_GuinsoosRageblade",
+        "name": "鬼索的狂暴之刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.tft_set13.png",
+        "with": "TFT_Item_RecurveBow"
+      },
+      {
+        "apiName": "TFT_Item_HextechGunblade",
+        "name": "海克斯科技枪刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_hextechgunblade.tft_set13.png",
+        "with": "TFT_Item_BFSword"
+      },
+      {
+        "apiName": "TFT_Item_IonicSpark",
+        "name": "离子火花",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_ionicspark.tft_set13.png",
+        "with": "TFT_Item_NegatronCloak"
+      },
+      {
+        "apiName": "TFT17_Item_FlexTraitEmblemItem",
+        "name": "旅人纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_voyager.tft_set17.png",
+        "with": "TFT_Item_FryingPan"
+      },
+      {
+        "apiName": "TFT_Item_Crownguard",
+        "name": "冕卫",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_crownguard.tft_set13.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT_Item_RabadonsDeathcap",
+        "name": "灭世者的死亡之帽",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_rabadonsdeathcap.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_RabadonsDeathcap",
+        "name": "灭世者的死亡之帽",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_rabadonsdeathcap.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_Morellonomicon",
+        "name": "莫雷洛秘典",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_morellonomicon.tft_set13.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT_Item_JeweledGauntlet",
+        "name": "珠光护手",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_jeweledgauntlet.tft_set13.png",
+        "with": "TFT_Item_SparringGloves"
+      }
+    ],
+    "TFT_Item_TearOfTheGoddess": [
+      {
+        "apiName": "TFT_Item_ArchangelsStaff",
+        "name": "大天使之杖",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_archangelsstaff.tft_set13.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT_Item_BlueBuff",
+        "name": "蓝霸符",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bluebuff.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_BlueBuff",
+        "name": "蓝霸符",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bluebuff.tft_set13.png"
+      },
+      {
+        "apiName": "TFT17_Item_SummonTraitEmblemItem",
+        "name": "牧羊人纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_sheperd.tft_set17.png",
+        "with": "TFT_Item_FryingPan"
+      },
+      {
+        "apiName": "TFT_Item_FrozenHeart",
+        "name": "圣盾使的誓约",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_frozenheart.tft_set13.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT_Item_AdaptiveHelm",
+        "name": "适应性头盔",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_adaptivehelm.tft_set13.png",
+        "with": "TFT_Item_NegatronCloak"
+      },
+      {
+        "apiName": "TFT_Item_SpearOfShojin",
+        "name": "朔极之矛",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spearofshojin.tft_set13.png",
+        "with": "TFT_Item_BFSword"
+      },
+      {
+        "apiName": "TFT17_Item_SpaceGrooveEmblemItem",
+        "name": "太空律动纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_spacegroove.tft_set17.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT_Item_StatikkShiv",
+        "name": "虚空之杖",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_voidstaff.png",
+        "with": "TFT_Item_RecurveBow"
+      },
+      {
+        "apiName": "TFT_Item_Redemption",
+        "name": "振奋盔甲",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spiritvisagerr.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT_Item_UnstableConcoction",
+        "name": "正义之手",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_unstableconcoction.tft_set13.png",
+        "with": "TFT_Item_SparringGloves"
+      }
+    ],
+    "TFT_Item_ChainVest": [
+      {
+        "apiName": "TFT17_Item_ResistTankEmblemItem",
+        "name": "堡垒卫士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_bastion.tft_set17.png",
+        "with": "TFT_Item_FryingPan"
+      },
+      {
+        "apiName": "TFT_Item_BrambleVest",
+        "name": "棘刺背心",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bramblevest.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_BrambleVest",
+        "name": "棘刺背心",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bramblevest.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_NightHarvester",
+        "name": "坚定之心",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_nightharvester.tft_set13.png",
+        "with": "TFT_Item_SparringGloves"
+      },
+      {
+        "apiName": "TFT_Item_Crownguard",
+        "name": "冕卫",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_crownguard.tft_set13.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT17_Item_AstronautEmblemItem",
+        "name": "木灵族纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_meeple.tft_set17.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT_Item_RedBuff",
+        "name": "日炎斗篷",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_redbuff.tft_set13.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT_Item_FrozenHeart",
+        "name": "圣盾使的誓约",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_frozenheart.tft_set13.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      },
+      {
+        "apiName": "TFT_Item_GargoyleStoneplate",
+        "name": "石像鬼石板甲",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_gargoylestoneplate.tft_set13.png",
+        "with": "TFT_Item_NegatronCloak"
+      },
+      {
+        "apiName": "TFT_Item_TitansResolve",
+        "name": "泰坦的坚决",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_titansresolve.tft_set13.png",
+        "with": "TFT_Item_RecurveBow"
+      },
+      {
+        "apiName": "TFT_Item_GuardianAngel",
+        "name": "夜之锋刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_guardianangel.tft_set13.png",
+        "with": "TFT_Item_BFSword"
+      }
+    ],
+    "TFT_Item_NegatronCloak": [
+      {
+        "apiName": "TFT_Item_SpectralGauntlet",
+        "name": "薄暮法袍",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spectralgauntlet.tft_set13.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT17_Item_FavoredEmblemItem",
+        "name": "法官纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_arbiter.tft_set17.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT_Item_RunaansHurricane",
+        "name": "海妖之怒",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_krakenslayer.png",
+        "with": "TFT_Item_RecurveBow"
+      },
+      {
+        "apiName": "TFT_Item_DragonsClaw",
+        "name": "巨龙之爪",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_dragonsclaw.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_DragonsClaw",
+        "name": "巨龙之爪",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_dragonsclaw.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_IonicSpark",
+        "name": "离子火花",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_ionicspark.tft_set13.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT_Item_GargoyleStoneplate",
+        "name": "石像鬼石板甲",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_gargoylestoneplate.tft_set13.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT_Item_AdaptiveHelm",
+        "name": "适应性头盔",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_adaptivehelm.tft_set13.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      },
+      {
+        "apiName": "TFT_Item_Quicksilver",
+        "name": "水银",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_quicksilver.tft_set13.png",
+        "with": "TFT_Item_SparringGloves"
+      },
+      {
+        "apiName": "TFT_Item_Bloodthirster",
+        "name": "饮血剑",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_bloodthirster.tft_set13.png",
+        "with": "TFT_Item_BFSword"
+      },
+      {
+        "apiName": "TFT17_Item_ShieldTankEmblemItem",
+        "name": "重装战士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_vanguard.tft_set17.png",
+        "with": "TFT_Item_FryingPan"
+      }
+    ],
+    "TFT_Item_GiantsBelt": [
+      {
+        "apiName": "TFT_Item_SpectralGauntlet",
+        "name": "薄暮法袍",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spectralgauntlet.tft_set13.png",
+        "with": "TFT_Item_NegatronCloak"
+      },
+      {
+        "apiName": "TFT17_Item_HPTankEmblemItem",
+        "name": "斗士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_brawler.tft_set17.png",
+        "with": "TFT_Item_FryingPan"
+      },
+      {
+        "apiName": "TFT17_Item_PrimordianEmblemItem",
+        "name": "海魔人纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_primordian.tft_set17.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT_Item_WarmogsArmor",
+        "name": "狂徒铠甲",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_warmogsarmor.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_WarmogsArmor",
+        "name": "狂徒铠甲",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_warmogsarmor.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_Morellonomicon",
+        "name": "莫雷洛秘典",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_morellonomicon.tft_set13.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT_Item_Leviathan",
+        "name": "纳什之牙",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_leviathan.tft_set13.png",
+        "with": "TFT_Item_RecurveBow"
+      },
+      {
+        "apiName": "TFT_Item_PowerGauntlet",
+        "name": "强袭者的链枷",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_powergauntlet.tft_set13.png",
+        "with": "TFT_Item_SparringGloves"
+      },
+      {
+        "apiName": "TFT_Item_RedBuff",
+        "name": "日炎斗篷",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_redbuff.tft_set13.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT_Item_SteraksGage",
+        "name": "斯特拉克的挑战护手",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_steraksgage.tft_set13.png",
+        "with": "TFT_Item_BFSword"
+      },
+      {
+        "apiName": "TFT_Item_Redemption",
+        "name": "振奋盔甲",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_spiritvisagerr.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      }
+    ],
+    "TFT_Item_Spatula": [
+      {
+        "apiName": "TFT17_Item_DarkStarEmblemItem",
+        "name": "暗星纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_darkstar.tft_set17.png",
+        "with": "TFT_Item_BFSword"
+      },
+      {
+        "apiName": "TFT17_Item_FavoredEmblemItem",
+        "name": "法官纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_arbiter.tft_set17.png",
+        "with": "TFT_Item_NegatronCloak"
+      },
+      {
+        "apiName": "TFT17_Item_StargazerEmblemItem",
+        "name": "观星者纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_stargazer.tft_set17.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT17_Item_PrimordianEmblemItem",
+        "name": "海魔人纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_primordian.tft_set17.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT_Item_ForceOfNature",
+        "name": "金铲铲冠冕",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_forceofnature.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_ForceOfNature",
+        "name": "金铲铲冠冕",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_forceofnature.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_TacticiansRing",
+        "name": "金锅铲冠冕",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tacticiansring.tft_set13.png",
+        "with": "TFT_Item_FryingPan"
+      },
+      {
+        "apiName": "TFT17_Item_AstronautEmblemItem",
+        "name": "木灵族纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_meeple.tft_set17.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT17_Item_SpaceGrooveEmblemItem",
+        "name": "太空律动纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_spacegroove.tft_set17.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      },
+      {
+        "apiName": "TFT17_Item_PulsefireEmblemItem",
+        "name": "未来战士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_timebreaker.tft_set17.png",
+        "with": "TFT_Item_RecurveBow"
+      },
+      {
+        "apiName": "TFT17_Item_DRXEmblemItem",
+        "name": "新星特攻队纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_nova.tft_set17.png",
+        "with": "TFT_Item_SparringGloves"
+      }
+    ],
+    "TFT_Item_SparringGloves": [
+      {
+        "apiName": "TFT_Item_NightHarvester",
+        "name": "坚定之心",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_nightharvester.tft_set13.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT_Item_PowerGauntlet",
+        "name": "强袭者的链枷",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_powergauntlet.tft_set13.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT_Item_ThiefsGloves",
+        "name": "窃贼手套",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_thiefsgloves.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_ThiefsGloves",
+        "name": "窃贼手套",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_thiefsgloves.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_Quicksilver",
+        "name": "水银",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_quicksilver.tft_set13.png",
+        "with": "TFT_Item_NegatronCloak"
+      },
+      {
+        "apiName": "TFT_Item_InfinityEdge",
+        "name": "无尽之刃",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.tft_set13.png",
+        "with": "TFT_Item_BFSword"
+      },
+      {
+        "apiName": "TFT17_Item_DRXEmblemItem",
+        "name": "新星特攻队纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_nova.tft_set17.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT17_Item_AssassinTraitEmblemItem",
+        "name": "游侠纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_rogue.tft_set17.png",
+        "with": "TFT_Item_FryingPan"
+      },
+      {
+        "apiName": "TFT_Item_UnstableConcoction",
+        "name": "正义之手",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_unstableconcoction.tft_set13.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      },
+      {
+        "apiName": "TFT_Item_JeweledGauntlet",
+        "name": "珠光护手",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_jeweledgauntlet.tft_set13.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT_Item_LastWhisper",
+        "name": "最后的轻语",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_lastwhisper.tft_set13.png",
+        "with": "TFT_Item_RecurveBow"
+      }
+    ],
+    "TFT_Item_FryingPan": [
+      {
+        "apiName": "TFT17_Item_ResistTankEmblemItem",
+        "name": "堡垒卫士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_bastion.tft_set17.png",
+        "with": "TFT_Item_ChainVest"
+      },
+      {
+        "apiName": "TFT17_Item_HPTankEmblemItem",
+        "name": "斗士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_brawler.tft_set17.png",
+        "with": "TFT_Item_GiantsBelt"
+      },
+      {
+        "apiName": "TFT_Item_TacticiansRing",
+        "name": "金锅铲冠冕",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tacticiansring.tft_set13.png",
+        "with": "TFT_Item_Spatula"
+      },
+      {
+        "apiName": "TFT_Item_TacticiansScepter",
+        "name": "金锅锅冠冕",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tacticiansscepter.tft_set13.png"
+      },
+      {
+        "apiName": "TFT_Item_TacticiansScepter",
+        "name": "金锅锅冠冕",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_tacticiansscepter.tft_set13.png"
+      },
+      {
+        "apiName": "TFT17_Item_MeleeTraitEmblemItem",
+        "name": "狂战士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_marauder.tft_set17.png",
+        "with": "TFT_Item_BFSword"
+      },
+      {
+        "apiName": "TFT17_Item_FlexTraitEmblemItem",
+        "name": "旅人纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_voyager.tft_set17.png",
+        "with": "TFT_Item_NeedlesslyLargeRod"
+      },
+      {
+        "apiName": "TFT17_Item_SummonTraitEmblemItem",
+        "name": "牧羊人纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_sheperd.tft_set17.png",
+        "with": "TFT_Item_TearOfTheGoddess"
+      },
+      {
+        "apiName": "TFT17_Item_ASTraitEmblemItem",
+        "name": "挑战者纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_challenger.tft_set17.png",
+        "with": "TFT_Item_RecurveBow"
+      },
+      {
+        "apiName": "TFT17_Item_AssassinTraitEmblemItem",
+        "name": "游侠纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_rogue.tft_set17.png",
+        "with": "TFT_Item_SparringGloves"
+      },
+      {
+        "apiName": "TFT17_Item_ShieldTankEmblemItem",
+        "name": "重装战士纹章",
+        "icon": "https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/traits/spatula/set17/tft17_emblem_vanguard.tft_set17.png",
+        "with": "TFT_Item_NegatronCloak"
+      }
+    ]
+  }
+}
