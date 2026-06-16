@@ -1,14 +1,45 @@
-﻿// 从 raw/tft-zh_cn.json 提取当前赛季（TFTSet17）的装备合成表
+// 从 raw/tft-zh_cn.json 提取当前赛季（TFTSet17）的装备合成表
 // 用法：node scripts/build-data.mjs
 // 数据源：Community Dragon (https://raw.communitydragon.org/latest/cdragon/tft/zh_cn.json)
 
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 
+
+// 如果 raw 数据不存在，自动从 Community Dragon 下载
+const RAW_FILE = resolve(ROOT, "raw/tft-zh_cn.json");
+const RAW_URL = "https://raw.communitydragon.org/latest/cdragon/tft/zh_cn.json";
+
+if (!existsSync(RAW_FILE)) {
+  console.log("正在下载 Community Dragon 数据（约 23MB）...");
+  console.log("  来源: " + RAW_URL);
+  mkdirSync(resolve(ROOT, "raw"), { recursive: true });
+  const res = await fetch(RAW_URL);
+  if (!res.ok) {
+    console.error("下载失败: HTTP " + res.status);
+    process.exit(1);
+  }
+  const total = parseInt(res.headers.get("content-length") || "0", 10);
+  let downloaded = 0;
+  const reader = res.body.getReader();
+  const chunks = [];
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value);
+    downloaded += value.length;
+    if (total > 0) {
+      process.stdout.write("\r  下载进度: " + Math.round(downloaded / total * 100) + "%");
+    }
+  }
+  const buffer = Buffer.concat(chunks);
+  writeFileSync(RAW_FILE, buffer);
+  console.log("\r  下载完成: " + (buffer.length / 1024 / 1024).toFixed(1) + " MB");
+}
 const CURRENT_SET_MUTATOR = "TFTSet17";
 const CDRAGON_BASE = "https://raw.communitydragon.org/latest/game/";
 
