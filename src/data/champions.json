@@ -1,0 +1,696 @@
+[
+  {
+    "id": "TFT_BlueGolem",
+    "name": "魔像",
+    "cost": 1,
+    "traits": []
+  },
+  {
+    "id": "TFT9_SLIME_Crab",
+    "name": "峡谷迅捷蟹",
+    "cost": 1,
+    "traits": []
+  },
+  {
+    "id": "TFT_TrainingDummy",
+    "name": "训练假人",
+    "cost": 1,
+    "traits": []
+  },
+  {
+    "id": "TFT5_EmblemArmoryKey",
+    "name": "纹章之书",
+    "cost": 8,
+    "traits": []
+  },
+  {
+    "id": "TFT_ArmoryKeyCompleted",
+    "name": "成装锻造器",
+    "cost": 8,
+    "traits": []
+  },
+  {
+    "id": "TFT_ArmoryKeyComponent",
+    "name": "基础装备锻造器",
+    "cost": 8,
+    "traits": []
+  },
+  {
+    "id": "TFT_ArmoryKeyOrnn",
+    "name": "神器装备锻造器",
+    "cost": 8,
+    "traits": []
+  },
+  {
+    "id": "TFT_ArmoryKeySupport",
+    "name": "辅助装锻造器",
+    "cost": 8,
+    "traits": []
+  },
+  {
+    "id": "TFT6_MercenaryChest",
+    "name": "赏金猎人宝箱",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT17_Briar",
+    "name": "贝蕾亚",
+    "cost": 1,
+    "traits": [
+      "幻灵战队",
+      "海魔人",
+      "游侠"
+    ]
+  },
+  {
+    "id": "TFT17_Belveth",
+    "name": "卑尔维斯",
+    "cost": 2,
+    "traits": [
+      "海魔人",
+      "挑战者",
+      "狂战士"
+    ]
+  },
+  {
+    "id": "TFT17_MissFortune",
+    "name": "厄运小姐",
+    "cost": 3,
+    "traits": [
+      "武装战姬",
+      "选择羁绊"
+    ]
+  },
+  {
+    "id": "TFT17_Akali",
+    "name": "阿卡丽",
+    "cost": 2,
+    "traits": [
+      "新星特攻队",
+      "狂战士"
+    ]
+  },
+  {
+    "id": "TFT17_Bard",
+    "name": "巴德",
+    "cost": 5,
+    "traits": [
+      "木灵族",
+      "神谕"
+    ]
+  },
+  {
+    "id": "TFT17_Jinx",
+    "name": "金克丝",
+    "cost": 2,
+    "traits": [
+      "幻灵战队",
+      "挑战者"
+    ]
+  },
+  {
+    "id": "TFT17_Illaoi",
+    "name": "俄洛伊",
+    "cost": 3,
+    "traits": [
+      "幻灵战队",
+      "重装战士",
+      "牧羊人"
+    ]
+  },
+  {
+    "id": "TFT17_Aurora",
+    "name": "阿萝拉",
+    "cost": 3,
+    "traits": [
+      "幻灵战队",
+      "旅人"
+    ]
+  },
+  {
+    "id": "TFT17_Fiora",
+    "name": "菲奥娜",
+    "cost": 5,
+    "traits": [
+      "斗神",
+      "幻灵战队",
+      "狂战士"
+    ]
+  },
+  {
+    "id": "TFT17_Gnar",
+    "name": "纳尔",
+    "cost": 2,
+    "traits": [
+      "木灵族",
+      "狙神"
+    ]
+  },
+  {
+    "id": "TFT17_Fizz",
+    "name": "菲兹",
+    "cost": 3,
+    "traits": [
+      "木灵族",
+      "游侠"
+    ]
+  },
+  {
+    "id": "TFT17_Rammus",
+    "name": "拉莫斯",
+    "cost": 4,
+    "traits": [
+      "木灵族",
+      "堡垒卫士"
+    ]
+  },
+  {
+    "id": "TFT17_Poppy",
+    "name": "波比",
+    "cost": 1,
+    "traits": [
+      "木灵族",
+      "堡垒卫士"
+    ]
+  },
+  {
+    "id": "TFT17_Corki",
+    "name": "库奇",
+    "cost": 4,
+    "traits": [
+      "木灵族",
+      "织命人"
+    ]
+  },
+  {
+    "id": "TFT17_Veigar",
+    "name": "维迦",
+    "cost": 1,
+    "traits": [
+      "木灵族",
+      "魔术师"
+    ]
+  },
+  {
+    "id": "TFT17_Aatrox",
+    "name": "亚托克斯",
+    "cost": 1,
+    "traits": [
+      "新星特攻队",
+      "堡垒卫士"
+    ]
+  },
+  {
+    "id": "TFT17_Caitlyn",
+    "name": "凯特琳",
+    "cost": 1,
+    "traits": [
+      "新星特攻队",
+      "织命人"
+    ]
+  },
+  {
+    "id": "TFT17_Maokai",
+    "name": "茂凯",
+    "cost": 3,
+    "traits": [
+      "新星特攻队",
+      "斗士"
+    ]
+  },
+  {
+    "id": "TFT17_Kindred",
+    "name": "千珏",
+    "cost": 4,
+    "traits": [
+      "新星特攻队",
+      "挑战者"
+    ]
+  },
+  {
+    "id": "TFT17_Kaisa",
+    "name": "卡莎",
+    "cost": 3,
+    "traits": [
+      "暗星",
+      "游侠"
+    ]
+  },
+  {
+    "id": "TFT17_Karma",
+    "name": "卡尔玛",
+    "cost": 4,
+    "traits": [
+      "暗星",
+      "旅人"
+    ]
+  },
+  {
+    "id": "TFT17_Jhin",
+    "name": "烬",
+    "cost": 5,
+    "traits": [
+      "暗星",
+      "灭星尊",
+      "狙神"
+    ]
+  },
+  {
+    "id": "TFT17_Urgot",
+    "name": "厄加特",
+    "cost": 3,
+    "traits": [
+      "霸天机甲",
+      "斗士",
+      "狂战士"
+    ]
+  },
+  {
+    "id": "TFT17_AurelionSol",
+    "name": "奥瑞利安·索尔",
+    "cost": 4,
+    "traits": [
+      "霸天机甲",
+      "神谕"
+    ]
+  },
+  {
+    "id": "TFT17_Galio",
+    "name": "超级机甲",
+    "cost": 4,
+    "traits": [
+      "霸天机甲",
+      "旅人"
+    ]
+  },
+  {
+    "id": "TFT17_Viktor",
+    "name": "维克托",
+    "cost": 3,
+    "traits": [
+      "灵能特工",
+      "神谕"
+    ]
+  },
+  {
+    "id": "TFT17_Pyke",
+    "name": "派克",
+    "cost": 2,
+    "traits": [
+      "灵能特工",
+      "旅人"
+    ]
+  },
+  {
+    "id": "TFT17_MasterYi",
+    "name": "易",
+    "cost": 4,
+    "traits": [
+      "灵能特工",
+      "狂战士"
+    ]
+  },
+  {
+    "id": "TFT17_Gragas",
+    "name": "古拉加斯",
+    "cost": 2,
+    "traits": [
+      "灵能特工",
+      "斗士"
+    ]
+  },
+  {
+    "id": "TFT17_Teemo",
+    "name": "提莫",
+    "cost": 1,
+    "traits": [
+      "太空律动",
+      "牧羊人"
+    ]
+  },
+  {
+    "id": "TFT17_Nasus",
+    "name": "内瑟斯",
+    "cost": 1,
+    "traits": [
+      "太空律动",
+      "重装战士"
+    ]
+  },
+  {
+    "id": "TFT17_Gwen",
+    "name": "格温",
+    "cost": 2,
+    "traits": [
+      "太空律动",
+      "游侠"
+    ]
+  },
+  {
+    "id": "TFT17_Samira",
+    "name": "莎弥拉",
+    "cost": 3,
+    "traits": [
+      "太空律动",
+      "狙神"
+    ]
+  },
+  {
+    "id": "TFT17_Ornn",
+    "name": "奥恩",
+    "cost": 3,
+    "traits": [
+      "太空律动",
+      "堡垒卫士"
+    ]
+  },
+  {
+    "id": "TFT17_Nami",
+    "name": "娜美",
+    "cost": 4,
+    "traits": [
+      "太空律动",
+      "魔术师"
+    ]
+  },
+  {
+    "id": "TFT17_Blitzcrank",
+    "name": "布里茨",
+    "cost": 5,
+    "traits": [
+      "汪星机器人",
+      "太空律动",
+      "重装战士"
+    ]
+  },
+  {
+    "id": "TFT17_Sona",
+    "name": "娑娜",
+    "cost": 5,
+    "traits": [
+      "最高指挥官",
+      "灵能特工",
+      "牧羊人"
+    ]
+  },
+  {
+    "id": "TFT17_TwistedFate",
+    "name": "崔斯特",
+    "cost": 1,
+    "traits": [
+      "观星者",
+      "织命人"
+    ]
+  },
+  {
+    "id": "TFT17_Talon",
+    "name": "泰隆",
+    "cost": 1,
+    "traits": [
+      "观星者",
+      "游侠"
+    ]
+  },
+  {
+    "id": "TFT17_Jax",
+    "name": "贾克斯",
+    "cost": 2,
+    "traits": [
+      "观星者",
+      "堡垒卫士"
+    ]
+  },
+  {
+    "id": "TFT17_Lulu",
+    "name": "璐璐",
+    "cost": 3,
+    "traits": [
+      "观星者",
+      "魔术师"
+    ]
+  },
+  {
+    "id": "TFT17_Nunu",
+    "name": "努努和威朗普",
+    "cost": 4,
+    "traits": [
+      "观星者",
+      "重装战士"
+    ]
+  },
+  {
+    "id": "TFT17_Vex",
+    "name": "薇古丝",
+    "cost": 5,
+    "traits": [
+      "末日使者"
+    ]
+  },
+  {
+    "id": "TFT17_Riven",
+    "name": "锐雯",
+    "cost": 4,
+    "traits": [
+      "未来战士",
+      "游侠"
+    ]
+  },
+  {
+    "id": "TFT17_Shen",
+    "name": "慎",
+    "cost": 5,
+    "traits": [
+      "暮光铁壁",
+      "堡垒卫士"
+    ]
+  },
+  {
+    "id": "TFT17_Milio",
+    "name": "米利欧",
+    "cost": 2,
+    "traits": [
+      "未来战士",
+      "织命人"
+    ]
+  },
+  {
+    "id": "TFT17_Ezreal",
+    "name": "伊泽瑞尔",
+    "cost": 1,
+    "traits": [
+      "未来战士",
+      "狙神"
+    ]
+  },
+  {
+    "id": "TFT17_Leona",
+    "name": "蕾欧娜",
+    "cost": 1,
+    "traits": [
+      "法官",
+      "重装战士"
+    ]
+  },
+  {
+    "id": "TFT17_Zoe",
+    "name": "佐伊",
+    "cost": 2,
+    "traits": [
+      "法官",
+      "神谕"
+    ]
+  },
+  {
+    "id": "TFT17_Diana",
+    "name": "黛安娜",
+    "cost": 3,
+    "traits": [
+      "法官",
+      "挑战者"
+    ]
+  },
+  {
+    "id": "TFT17_Leblanc",
+    "name": "乐芙兰",
+    "cost": 4,
+    "traits": [
+      "法官",
+      "牧羊人"
+    ]
+  },
+  {
+    "id": "TFT17_Chogath",
+    "name": "科加斯",
+    "cost": 1,
+    "traits": [
+      "暗星",
+      "斗士"
+    ]
+  },
+  {
+    "id": "TFT17_Lissandra",
+    "name": "丽桑卓",
+    "cost": 1,
+    "traits": [
+      "暗星",
+      "牧羊人",
+      "魔术师"
+    ]
+  },
+  {
+    "id": "TFT17_Zed",
+    "name": "劫",
+    "cost": 5,
+    "traits": [
+      "天煞"
+    ]
+  },
+  {
+    "id": "TFT17_Summon",
+    "name": "羊咩咩 & 咩咩羊",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT17_IvernMinion",
+    "name": "小木灵",
+    "cost": 2,
+    "traits": [
+      "木灵族",
+      "牧羊人",
+      "旅人"
+    ]
+  },
+  {
+    "id": "TFT17_Mordekaiser",
+    "name": "莫德凯撒",
+    "cost": 2,
+    "traits": [
+      "暗星",
+      "神谕",
+      "重装战士"
+    ]
+  },
+  {
+    "id": "TFT17_Xayah",
+    "name": "霞",
+    "cost": 4,
+    "traits": [
+      "观星者",
+      "狙神"
+    ]
+  },
+  {
+    "id": "TFT17_Graves",
+    "name": "格雷福斯",
+    "cost": 5,
+    "traits": [
+      "军工1号"
+    ]
+  },
+  {
+    "id": "TFT17_TahmKench",
+    "name": "塔姆",
+    "cost": 4,
+    "traits": [
+      "命运祭司",
+      "斗士"
+    ]
+  },
+  {
+    "id": "TFT17_Rhaast",
+    "name": "拉亚斯特",
+    "cost": 3,
+    "traits": [
+      "救世主"
+    ]
+  },
+  {
+    "id": "TFT17_TimebreakerCore",
+    "name": "未来战士核心",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT17_RekSai",
+    "name": "雷克塞",
+    "cost": 1,
+    "traits": [
+      "海魔人",
+      "斗士"
+    ]
+  },
+  {
+    "id": "TFT17_Pantheon",
+    "name": "潘森",
+    "cost": 2,
+    "traits": [
+      "未来战士",
+      "斗士",
+      "魔术师"
+    ]
+  },
+  {
+    "id": "TFT17_Morgana",
+    "name": "莫甘娜",
+    "cost": 4,
+    "traits": [
+      "黑暗魔女"
+    ]
+  },
+  {
+    "id": "TFT17_PVE_Minion",
+    "name": "星界鱿鱼",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT17_PVE_Raptor",
+    "name": "星界拆拆怪",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT17_PVE_Krug",
+    "name": "星界格斗怪",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT17_PVE_Pix",
+    "name": "星界蝶灵",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT17_PVE_Gromp",
+    "name": "星界魔沼蛙",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT17_PVE_ElderDragon",
+    "name": "星界远古巨龙",
+    "cost": 11,
+    "traits": []
+  },
+  {
+    "id": "TFT14_EmblemArmoryKey",
+    "name": "纹章之书",
+    "cost": 8,
+    "traits": []
+  },
+  {
+    "id": "TFT17_DarkStar_FakeUnit",
+    "name": "迷你黑洞",
+    "cost": 1,
+    "traits": []
+  },
+  {
+    "id": "TFT17_Enemy_Aatrox",
+    "name": "海魔至尊",
+    "cost": 5,
+    "traits": []
+  }
+]

@@ -1,0 +1,501 @@
+{
+  "timestamp": "2026-06-17T07:21:26.172Z",
+  "stateParser": {
+    "avgAccuracy": 0.98125,
+    "passed": "20/20",
+    "results": [
+      {
+        "id": "state-01",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1474,
+        "input": "我3-2，反曲弓大剑锁子甲，海克斯战士之心，2星诺手1星德莱文，72血，想玩赌狗"
+      },
+      {
+        "id": "state-02",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1162,
+        "input": "开局2-1了，我有反曲弓和无用大棒，想玩运营"
+      },
+      {
+        "id": "state-03",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1345,
+        "input": "现在4-2，血量只有28了，金币还有15块，装备有巨人杀手和石像鬼石板甲"
+      },
+      {
+        "id": "state-04",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 815,
+        "input": "我打到5-1了，想玩上9阵容"
+      },
+      {
+        "id": "state-05",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 956,
+        "input": "我已经拿了战士之心和装备强化两个海克斯，目标阵容是诅咒战士"
+      },
+      {
+        "id": "state-06",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1358,
+        "input": "场上2星金克斯、2星蔚、1星艾克"
+      },
+      {
+        "id": "state-07",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1304,
+        "input": "3-2了，我诺手差一张3星，德莱文已经2星了"
+      },
+      {
+        "id": "state-08",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1055,
+        "input": "2-1海克斯有战士之心、法师之心、装备强化，选哪个？"
+      },
+      {
+        "id": "state-09",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1268,
+        "input": "我选了战士之心，现在3-2了"
+      },
+      {
+        "id": "state-10",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1389,
+        "input": "反曲弓大剑锁子甲女神之泪负极斗篷"
+      },
+      {
+        "id": "state-11",
+        "accuracy": 0.875,
+        "matched": "7/8",
+        "latency": 1399,
+        "input": "我有反曲弓、暴风大剑，还有一把羊刀和无尽，想玩随缘"
+      },
+      {
+        "id": "state-12",
+        "accuracy": 0.875,
+        "matched": "7/8",
+        "latency": 881,
+        "input": "现在第七阶段了，第三个海克斯刷了珠光莲花和窃贼手套"
+      },
+      {
+        "id": "state-13",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1062,
+        "input": "4-1，我德莱文3星了，诺手也是3星，金币有32块"
+      },
+      {
+        "id": "state-14",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 995,
+        "input": "帮我看下现在什么装备强"
+      },
+      {
+        "id": "state-15",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1217,
+        "input": "我血量100，金币50，场上什么都没有"
+      },
+      {
+        "id": "state-16",
+        "accuracy": 0.875,
+        "matched": "7/8",
+        "latency": 1823,
+        "input": "我现在有六个装备：反曲弓、大剑、锁子甲、巨人杀手、羊刀、石像鬼"
+      },
+      {
+        "id": "state-17",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 12690,
+        "input": "3-2，我德莱文差一张2星，装备有巨人杀手和暴风大剑"
+      },
+      {
+        "id": "state-18",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1285,
+        "input": "打完了结束对局"
+      },
+      {
+        "id": "state-19",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1280,
+        "input": ""
+      },
+      {
+        "id": "state-20",
+        "accuracy": 1,
+        "matched": "8/8",
+        "latency": 1610,
+        "input": "哈哈哈哈我今天运气真好德莱文一下子就3星了"
+      }
+    ]
+  },
+  "functionCall": {
+    "avgF1": 0.9777777777777779,
+    "passed": "14/15",
+    "results": [
+      {
+        "id": "tool-01",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "latency": 1898,
+        "actualTools": [
+          "search_comps",
+          "search_item_recipes"
+        ],
+        "expected": [
+          "search_comps",
+          "search_item_recipes"
+        ]
+      },
+      {
+        "id": "tool-02",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "latency": 1354,
+        "actualTools": [
+          "search_hero_build"
+        ],
+        "expected": [
+          "search_hero_build"
+        ]
+      },
+      {
+        "id": "tool-03",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "latency": 2271,
+        "actualTools": [
+          "search_comps",
+          "search_item_recipes"
+        ],
+        "expected": [
+          "search_comps",
+          "search_item_recipes"
+        ]
+      },
+      {
+        "id": "tool-04",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "latency": 1113,
+        "actualTools": [
+          "search_item_tier"
+        ],
+        "expected": [
+          "search_item_tier"
+        ]
+      },
+      {
+        "id": "tool-05",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "latency": 1622,
+        "actualTools": [
+          "search_item_recipes"
+        ],
+        "expected": [
+          "search_item_recipes"
+        ]
+      },
+      {
+        "id": "tool-06",
+        "recall": 0,
+        "precision": 0,
+        "f1": 1,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "latency": 1663,
+        "actualTools": [],
+        "expected": []
+      },
+      {
+        "id": "tool-07",
+        "recall": 1,
+        "precision": 0.5,
+        "f1": 0.6666666666666666,
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "latency": 3380,
+        "actualTools": [
+          "search_hero_build",
+          "search_comps"
+        ],
+        "expected": [
+          "search_hero_build"
+        ]
+      },
+      {
+        "id": "tool-08",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "latency": 2275,
+        "actualTools": [
+          "search_comps",
+          "search_item_recipes"
+        ],
+        "expected": [
+          "search_comps",
+          "search_item_recipes"
+        ]
+      },
+      {
+        "id": "tool-09",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "latency": 1951,
+        "actualTools": [
+          "search_hero_build",
+          "search_item_recipes"
+        ],
+        "expected": [
+          "search_hero_build",
+          "search_item_recipes"
+        ]
+      },
+      {
+        "id": "tool-10",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "latency": 2079,
+        "actualTools": [
+          "search_comps"
+        ],
+        "expected": [
+          "search_comps"
+        ]
+      },
+      {
+        "id": "tool-11",
+        "recall": 0,
+        "precision": 0,
+        "f1": 1,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "latency": 1342,
+        "actualTools": [],
+        "expected": []
+      },
+      {
+        "id": "tool-12",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "latency": 2312,
+        "actualTools": [
+          "search_item_recipes"
+        ],
+        "expected": [
+          "search_item_recipes"
+        ]
+      },
+      {
+        "id": "tool-13",
+        "recall": 0,
+        "precision": 0,
+        "f1": 1,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "latency": 1899,
+        "actualTools": [],
+        "expected": []
+      },
+      {
+        "id": "tool-14",
+        "recall": 0,
+        "precision": 0,
+        "f1": 1,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "latency": 2275,
+        "actualTools": [],
+        "expected": []
+      },
+      {
+        "id": "tool-15",
+        "recall": 1,
+        "precision": 1,
+        "f1": 1,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "latency": 3287,
+        "actualTools": [
+          "search_item_recipes",
+          "search_hero_build"
+        ],
+        "expected": [
+          "search_hero_build",
+          "search_item_recipes"
+        ]
+      }
+    ]
+  },
+  "endToEnd": {
+    "passed": "14/15",
+    "avgLatencyMs": 7415.466666666666,
+    "results": [
+      {
+        "id": "e2e-01",
+        "passed": true,
+        "checks": "hasFollowup:true followupAboutEquipment:true",
+        "latency": 7857,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-02",
+        "passed": true,
+        "checks": "confidenceAbove:true hasCompDirection:true hasEquipmentAllocation:true hasActions:true hasFollowup:true",
+        "latency": 6751,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-03",
+        "passed": true,
+        "checks": "confidenceAbove:true recommendsAugment:true hasFollowup:true",
+        "latency": 7955,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-04",
+        "passed": true,
+        "checks": "confidenceAbove:true hasEquipmentAllocation:true hasActions:true hasFollowup:true",
+        "latency": 7793,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-05",
+        "passed": true,
+        "checks": "confidenceAbove:true hasRisks:true hasFollowup:true",
+        "latency": 5877,
+        "confidence": 0.8
+      },
+      {
+        "id": "e2e-06",
+        "passed": true,
+        "checks": "confidenceAbove:true recommendsAugment:true hasFollowup:true",
+        "latency": 7742,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-07",
+        "passed": true,
+        "checks": "confidenceAbove:true hasRisks:true riskMentionsLowHealth:true hasFollowup:true",
+        "latency": 8332,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-08",
+        "passed": true,
+        "checks": "confidenceAbove:true hasCompDirection:true hasFollowup:true",
+        "latency": 4918,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-09",
+        "passed": true,
+        "checks": "confidenceAbove:true hasCompDirection:true hasActions:true hasFollowup:true",
+        "latency": 9778,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-10",
+        "passed": true,
+        "checks": "confidenceAbove:true hasEquipmentAllocation:true hasFollowup:true",
+        "latency": 7604,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-11",
+        "passed": true,
+        "checks": "confidenceAbove:true hasRisks:true riskMentionsNoItems:true hasFollowup:true",
+        "latency": 8919,
+        "confidence": 0.85
+      },
+      {
+        "id": "e2e-12",
+        "passed": true,
+        "checks": "confidenceAbove:true hasCompDirection:true hasFollowup:true",
+        "latency": 5585,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-13",
+        "passed": false,
+        "checks": "confidenceAbove:true hasRisks:true riskMentionsLowHealth:true hasActions:true actionsIncludeRollOrAllIn:false",
+        "latency": 6726,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-14",
+        "passed": true,
+        "checks": "confidenceAbove:true hasCompDirection:true hasActions:true hasFollowup:true",
+        "latency": 7703,
+        "confidence": 0.75
+      },
+      {
+        "id": "e2e-15",
+        "passed": true,
+        "checks": "confidenceAbove:true hasCompDirection:true hasEquipmentAllocation:true hasActions:true hasRisks:true hasFollowup:true",
+        "latency": 7692,
+        "confidence": 0.75
+      }
+    ]
+  }
+}

@@ -1,7 +1,10 @@
-﻿"use client"
+"use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Mic, MicOff, ArrowUp, Database, TrendingUp, TrendingDown, Minus } from "lucide-react"
+import { Mic, MicOff, ArrowUp, Database, Swords, Trophy, ArrowLeft } from "lucide-react"
+import GameMode from "@/components/GameMode"
+
+type PageMode = "home" | "battle" | "game"
 
 interface Message {
   role: "user" | "assistant"
@@ -10,8 +13,9 @@ interface Message {
 }
 
 export default function Home() {
+  const [mode, setMode] = useState<PageMode>("home")
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", text: "语音或输入查询\n试试「装备排行」「最强阵容」" },
+    { role: "assistant", text: "语音或输入查询。试试「装备排行」「最强阵容」" },
   ])
   const [input, setInput] = useState("")
   const [listening, setListening] = useState(false)
@@ -110,7 +114,6 @@ export default function Home() {
             <span className="text-[10px] text-textSecondary/60">Patch {data.patch}</span>
           </div>
 
-          {/* 英雄统计概览 */}
           <div className="flex gap-2 mb-4">
             <div className="flex-1 bg-white rounded-xl p-2 text-center shadow-card">
               <p className="text-[10px] text-textSecondary">英雄平均排名</p>
@@ -126,9 +129,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 装备表格 — 按平均排名排序 */}
           <p className="text-[12px] text-textSecondary mb-2">推荐装备（按英雄出场率）</p>
-          {/* 表头 */}
           <div className="flex items-center gap-1 text-[10px] text-textSecondary/50 px-1 mb-1">
             <span className="w-5"></span>
             <span className="w-7"></span>
@@ -137,12 +138,10 @@ export default function Home() {
             <span className="w-10 text-center">前四率</span>
             <span className="w-9 text-center">胜率</span>
             <span className="w-14 text-center">选取次数</span>
-
           </div>
           {data.items?.map((item: any, i: number) => {
             const avgDiff = item.avgDiff
             const diffColor = avgDiff == null ? "" : avgDiff < 0 ? "text-green-500 font-semibold" : avgDiff > 0 ? "text-red-400" : "text-textSecondary"
-
             return (
               <div key={i} className="flex items-center gap-1 py-2 border-b border-divider last:border-0 text-[12px]">
                 <span className="text-textSecondary/40 w-5 text-right text-[11px]">{i + 1}</span>
@@ -155,11 +154,9 @@ export default function Home() {
                 <span className="w-10 text-center text-textSecondary/80">{item.top4 != null ? item.top4 + "%" : "-"}</span>
                 <span className="w-9 text-center text-textSecondary/80">{item.win != null ? item.win + "%" : "-"}</span>
                 <span className="w-14 text-center text-textSecondary/80">{item.count ? (item.count/10000).toFixed(1) + "万" : "-"}</span>
-
               </div>
             )
           })}
-
           {patch}
         </div>
       )
@@ -181,9 +178,83 @@ export default function Home() {
     )
   }
 
+  // ─── Game Mode ───
+  if (mode === "game") {
+    return <GameMode />
+  }
+
+  // ─── Home Screen ───
+  if (mode === "home") {
+    return (
+      <div className="min-h-dvh flex flex-col bg-white">
+        <div className="flex-1 flex flex-col items-center justify-center px-6 space-y-8">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-textPrimary mb-2">云顶语音助手</h1>
+            <p className="text-sm text-textSecondary">你说，它查，你只需做决策</p>
+          </div>
+
+          <div className="w-full max-w-sm space-y-3">
+            {/* Battle mode card */}
+            <button
+              onClick={() => setMode("battle")}
+              className="w-full bg-warmGray rounded-2xl p-5 text-left border border-divider hover:border-accent/30 active:scale-[0.98] transition-all shadow-card"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-accentLight flex items-center justify-center flex-shrink-0">
+                  <Swords className="w-6 h-6 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-lg font-semibold text-textPrimary">对战模式</h2>
+                  <p className="text-sm text-textSecondary mt-1">版本强势阵容 · 装备排行 · 英雄配装</p>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {["阵容推荐", "装备合成", "英雄配装", "装备排行"].map(tag => (
+                      <span key={tag} className="px-2 py-0.5 rounded-full bg-white text-xs text-textSecondary border border-divider">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </button>
+
+            {/* Game mode card */}
+            <button
+              onClick={() => setMode("game")}
+              className="w-full bg-warmGray rounded-2xl p-5 text-left border border-divider hover:border-accent/30 active:scale-[0.98] transition-all shadow-card"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+                  <Trophy className="w-6 h-6 text-amber-500" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-lg font-semibold text-textPrimary">吃鸡模式</h2>
+                  <p className="text-sm text-textSecondary mt-1">实时对局追踪 · AI 决策建议 · 装备合成推荐</p>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {["实时决策", "AI 教练", "装备管理", "状态追踪"].map(tag => (
+                      <span key={tag} className="px-2 py-0.5 rounded-full bg-white text-xs text-textSecondary border border-divider">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // ─── Battle Mode (existing) ───
   return (
     <div className="min-h-dvh flex flex-col bg-white">
-      <div className="flex-1 overflow-y-auto px-5 pt-6 pb-4 space-y-4">
+      {/* Back button */}
+      <div className="px-5 pt-4">
+        <button
+          onClick={() => setMode("home")}
+          className="flex items-center gap-1.5 text-sm text-textSecondary hover:text-accent transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" /> 返回
+        </button>
+      </div>
+
+      <div className="flex-1 overflow-y-auto px-5 pt-2 pb-4 space-y-4">
         {messages.map((msg, i) => (
           <div key={i} className={msg.role === "user" ? "flex justify-end" : ""}>
             {msg.role === "user" ? (
@@ -215,9 +286,9 @@ export default function Home() {
             </>
           )}
           <button onClick={toggleMic} disabled={loading}
-            className={`relative z-10 w-[72px] h-[72px] rounded-full flex items-center justify-center transition-all duration-300 active:scale-90
-              ${listening ? "bg-accent text-white shadow-micActive" : "bg-warmGray text-textSecondary hover:bg-accentLight hover:text-accent"}
-              ${loading ? "opacity-50" : ""}`}>
+            className={"relative z-10 w-[72px] h-[72px] rounded-full flex items-center justify-center transition-all duration-300 active:scale-90" +
+              (listening ? " bg-accent text-white shadow-micActive" : " bg-warmGray text-textSecondary hover:bg-accentLight hover:text-accent") +
+              (loading ? " opacity-50" : "")}>
             {listening ? <Mic className="w-8 h-8" /> : <MicOff className="w-8 h-8" />}
           </button>
         </div>

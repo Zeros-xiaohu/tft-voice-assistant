@@ -1,0 +1,900 @@
+{
+  "downloaded": "2026-06-17T07:00:40.976Z",
+  "source": "CDragon",
+  "totalItems": 3655,
+  "recipes": 223,
+  "composition": {
+    "小奖": [
+      "TFT6_Merc_Coin",
+      "TFT6_Merc_Soldier"
+    ],
+    "大奖": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Soldier"
+    ],
+    "金箱": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "金书": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "金剑": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "金袋": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "金士兵": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "头奖": [
+      "TFT6_Merc_Kraken",
+      "TFT6_Merc_Spatula"
+    ],
+    "金船": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "没中奖": [
+      "TFT6_Merc_X",
+      "TFT6_Merc_X"
+    ],
+    "金海妖": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "金铲铲": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "金壳": [
+      "TFT6_Merc_Bag",
+      "TFT6_Merc_Bag"
+    ],
+    "灭世者的死亡之帽": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "刀锋领主纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_BFSword"
+    ],
+    "法师纹章": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_FryingPan"
+    ],
+    "护卫纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_ChainVest"
+    ],
+    "天才纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "战斗学院纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "重量级斗士纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_GiantsBelt"
+    ],
+    "主宰纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_NegatronCloak"
+    ],
+    "水晶玫瑰纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_GiantsBelt"
+    ],
+    "决斗大师纹章": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_FryingPan"
+    ],
+    "裁决使者纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_SparringGloves"
+    ],
+    "斗魂战士纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_BFSword"
+    ],
+    "兵王纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_RecurveBow"
+    ],
+    "至高天纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_ChainVest"
+    ],
+    "司令纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NegatronCloak"
+    ],
+    "假面摔角手纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_SparringGloves"
+    ],
+    "星之守护者纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "黎明使者纹章": [
+      "TFT_Item_GiantsBelt",
+      "TFT_Item_Spatula"
+    ],
+    "破败军团纹章": [
+      "TFT_Item_BFSword",
+      "TFT_Item_FryingPan"
+    ],
+    "tft_item_name_Set5Cavalier_RadiantSpat": [
+      "TFT5_Item_ChainVestShadow",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "tft_item_name_Set5Nightbringer_RadiantSpat": [
+      "TFT5_Item_SpatulaRadiant",
+      "TFT5_Item_GiantsBeltShadow"
+    ],
+    "刺客纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_RecurveBow"
+    ],
+    "光明哨兵纹章": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_FryingPan"
+    ],
+    "tft_item_name_Set5Abomination_RadiantSpat": [
+      "TFT5_Item_SparringGlovesShadow",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "tft_item_name_Set5Spellweaver_RadiantSpat": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "tft_item_name_Set5Skirmisher_RadiantSpat": [
+      "TFT5_Item_SpatulaRadiant",
+      "TFT_Item_BFSword"
+    ],
+    "tft_item_name_Set5Dawnbringer_RadiantSpat": [
+      "TFT_Item_GiantsBelt",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "龙族纹章": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_FryingPan"
+    ],
+    "复苏者纹章": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_Spatula"
+    ],
+    "tft_item_name_Set5Assassin_RadiantSpat": [
+      "TFT_Item_SparringGloves",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "tft_item_name_Set5Coven_RadiantSpat": [
+      "TFT5_Item_TearOfTheGoddessShadow",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "tft_item_name_Set5Redeemed_RadiantSpat": [
+      "TFT_Item_NegatronCloak",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "tft_item_name_Set5Hellion_RadiantSpat": [
+      "TFT5_Item_RecurveBowShadow",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "黑夜使者纹章": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_FryingPan"
+    ],
+    "小恶魔纹章": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_Spatula"
+    ],
+    "复生亡魂纹章": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_FryingPan"
+    ],
+    "圣光卫士纹章": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_Spatula"
+    ],
+    "重骑兵纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_ChainVest"
+    ],
+    "征服者纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_SparringGloves"
+    ],
+    "tft_item_name_Set5Forgotten_RadiantSpat": [
+      "TFT5_Item_SpatulaRadiant",
+      "TFT5_Item_BFSwordShadow"
+    ],
+    "tft_item_name_Set5Renewer_RadiantSpat": [
+      "TFT5_Item_SpatulaRadiant",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "丧尸纹章": [
+      "TFT_Item_SparringGloves",
+      "TFT_Item_FryingPan"
+    ],
+    "神盾战士纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_BFSword"
+    ],
+    "斗士纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_GiantsBelt"
+    ],
+    "tft_item_name_Set5Revenant_RadiantSpat": [
+      "TFT5_Item_NegatronCloakShadow",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "tft_item_name_Set5Legionnaire_RadiantSpat": [
+      "TFT_Item_RecurveBow",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "屠龙勇士纹章": [
+      "TFT5_Item_NeedlesslyLargeRodShadow",
+      "TFT5_Item_SpatulaShadow"
+    ],
+    "tft_item_name_Set5Ironclad_RadiantSpat": [
+      "TFT_Item_ChainVest",
+      "TFT5_Item_SpatulaRadiant"
+    ],
+    "无尽之刃": [
+      "TFT_Item_BFSword",
+      "TFT_Item_SparringGloves"
+    ],
+    "圣盾使的誓约": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_ChainVest"
+    ],
+    "源计划纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_SparringGloves"
+    ],
+    "幻灵战队纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "杀手纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_NegatronCloak"
+    ],
+    "强袭射手纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_BFSword"
+    ],
+    "战略分析师纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_BFSword"
+    ],
+    "高级工程师纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "人造人纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "战地机甲纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "街头恶魔纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "圣灵使者纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_RecurveBow"
+    ],
+    "堡垒卫士纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_ChainVest"
+    ],
+    "迅捷射手纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_RecurveBow"
+    ],
+    "辛迪加纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NegatronCloak"
+    ],
+    "福牛守护者纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_GiantsBelt"
+    ],
+    "裁决使纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_SparringGloves"
+    ],
+    "神龙尊者纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "金鳞龙纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_BFSword"
+    ],
+    "狂刃战士纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_NegatronCloak"
+    ],
+    "格斗家纹章": [
+      "TFT_Item_GiantsBelt",
+      "TFT_Item_FryingPan"
+    ],
+    "冒险家纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "黯灵龙纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_ChainVest"
+    ],
+    "幽影龙纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_GiantsBelt"
+    ],
+    "风暴龙纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_RecurveBow"
+    ],
+    "强袭炮手纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_BFSword"
+    ],
+    "幻镜龙纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NegatronCloak"
+    ],
+    "碧波龙纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_SparringGloves"
+    ],
+    "玉龙纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "振奋盔甲": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_GiantsBelt"
+    ],
+    "神谕者纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "裁决战士纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_BFSword"
+    ],
+    "迅击战士纹章": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_FryingPan"
+    ],
+    "约德尔人纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NegatronCloak"
+    ],
+    "虚空纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_RecurveBow"
+    ],
+    "比尔吉沃特纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "弗雷尔卓德纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_GiantsBelt"
+    ],
+    "诺克萨斯纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_BFSword"
+    ],
+    "祖安纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_SparringGloves"
+    ],
+    "艾欧尼亚纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "德玛西亚纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_ChainVest"
+    ],
+    "永恒之森纹章": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_Spatula"
+    ],
+    "天神纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_BFSword"
+    ],
+    "三国猛将纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_GiantsBelt"
+    ],
+    "神盾使纹章": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_FryingPan"
+    ],
+    "福星纹章": [
+      "TFT_Item_SparringGloves",
+      "TFT_Item_Spatula"
+    ],
+    "腥红之月纹章": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_Spatula"
+    ],
+    "龙魂纹章": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_Spatula"
+    ],
+    "摄魂使纹章": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_FryingPan"
+    ],
+    "玉剑仙纹章": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_Spatula"
+    ],
+    "战神纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_BFSword"
+    ],
+    "灵魂莲华明昼纹章": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_Spatula"
+    ],
+    "重装战士纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_NegatronCloak"
+    ],
+    "金锅铲冠冕": [
+      "TFT_Item_Spatula",
+      "TFT_Item_FryingPan"
+    ],
+    "窃贼手套": [
+      "TFT_Item_SparringGloves",
+      "TFT_Item_SparringGloves"
+    ],
+    "鬼索的狂暴之刃": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "离子火花": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_NegatronCloak"
+    ],
+    "斯特拉克的挑战护手": [
+      "TFT_Item_BFSword",
+      "TFT_Item_GiantsBelt"
+    ],
+    "巨龙之爪": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_NegatronCloak"
+    ],
+    "伏击专家纹章": [
+      "TFT_Item_SparringGloves",
+      "TFT_Item_FryingPan"
+    ],
+    "蓝发小队纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_RecurveBow"
+    ],
+    "执法官纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_ChainVest"
+    ],
+    "黑色玫瑰纹章": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_Spatula"
+    ],
+    "试验品纹章": [
+      "TFT_Item_GiantsBelt",
+      "TFT_Item_Spatula"
+    ],
+    "海克斯机械纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NegatronCloak"
+    ],
+    "炮手纹章": [
+      "TFT_Item_BFSword",
+      "TFT_Item_FryingPan"
+    ],
+    "野火帮纹章": [
+      "TFT_Item_SparringGloves",
+      "TFT_Item_Spatula"
+    ],
+    "铁血征服者纹章": [
+      "TFT_Item_BFSword",
+      "TFT_Item_Spatula"
+    ],
+    "哨兵纹章": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_FryingPan"
+    ],
+    "搏击手纹章": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_FryingPan"
+    ],
+    "先知纹章": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_FryingPan"
+    ],
+    "家人纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "强袭者的链枷": [
+      "TFT_Item_GiantsBelt",
+      "TFT_Item_SparringGloves"
+    ],
+    "法官纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NegatronCloak"
+    ],
+    "未来战士纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_RecurveBow"
+    ],
+    "新星特攻队纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_SparringGloves"
+    ],
+    "木灵族纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_ChainVest"
+    ],
+    "牧羊人纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "游侠纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_SparringGloves"
+    ],
+    "挑战者纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_RecurveBow"
+    ],
+    "暗星纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_SparringGloves"
+    ],
+    "观星者纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "狂战士纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_BFSword"
+    ],
+    "太空律动纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "旅人纹章": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "海魔人纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_GiantsBelt"
+    ],
+    "守护天使": [
+      "TFTTutorial_Item_BFSword",
+      "TFTTutorial_Item_ChainVest"
+    ],
+    "石像鬼石板甲": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_NegatronCloak"
+    ],
+    "棘刺背心": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_ChainVest"
+    ],
+    "巨人杀手": [
+      "TFT_Item_BFSword",
+      "TFT_Item_RecurveBow"
+    ],
+    "剑士纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_BFSword"
+    ],
+    "星神纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NegatronCloak"
+    ],
+    "银河战争：奥德赛纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_ChainVest"
+    ],
+    "圣盾使纹章": [
+      "TFT_Item_Spatula",
+      "TFT_Item_GiantsBelt"
+    ],
+    "日炎斗篷": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_GiantsBelt"
+    ],
+    "正义之手": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_SparringGloves"
+    ],
+    "tft_item_name_CursedBlade": [
+      "TFT_Item_CursedBlade",
+      "TFT_Item_CursedBlade"
+    ],
+    "夜之锋刃": [
+      "TFT_Item_BFSword",
+      "TFT_Item_ChainVest"
+    ],
+    "泰坦的坚决": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_RecurveBow"
+    ],
+    "海妖之怒": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_RecurveBow"
+    ],
+    "饮血剑": [
+      "TFT_Item_BFSword",
+      "TFT_Item_NegatronCloak"
+    ],
+    "大天使之杖": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "tft_item_name_HextechChestguard": [
+      "TFT_Item_HextechChestguard",
+      "TFT_Item_HextechChestguard"
+    ],
+    "朔极之矛": [
+      "TFT_Item_BFSword",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "薄暮法袍": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_GiantsBelt"
+    ],
+    "纳什之牙": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_GiantsBelt"
+    ],
+    "莫雷洛秘典": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_GiantsBelt"
+    ],
+    "红霸符": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_RecurveBow"
+    ],
+    "冕卫": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_ChainVest"
+    ],
+    "适应性头盔": [
+      "TFT_Item_NegatronCloak",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "蓝霸符": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "最后的轻语": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_SparringGloves"
+    ],
+    "珠光护手": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_SparringGloves"
+    ],
+    "坚定之心": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_SparringGloves"
+    ],
+    "金铲铲冠冕": [
+      "TFT_Item_Spatula",
+      "TFT_Item_Spatula"
+    ],
+    "水银": [
+      "TFT_Item_SparringGloves",
+      "TFT_Item_NegatronCloak"
+    ],
+    "死亡之刃": [
+      "TFT_Item_BFSword",
+      "TFT_Item_BFSword"
+    ],
+    "金锅锅冠冕": [
+      "TFT_Item_FryingPan",
+      "TFT_Item_FryingPan"
+    ],
+    "狂徒铠甲": [
+      "TFT_Item_GiantsBelt",
+      "TFT_Item_GiantsBelt"
+    ],
+    "虚空之杖": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_TearOfTheGoddess"
+    ],
+    "海克斯科技枪刃": [
+      "TFT_Item_BFSword",
+      "TFT_Item_NeedlesslyLargeRod"
+    ],
+    "tft_item_name_StarGuardianSpatulaItem": [
+      "TFT_Item_TearOfTheGoddess",
+      "TFT_Item_Spatula"
+    ],
+    "tft_item_name_UmbralGlaive": [
+      "TFT_Item_BFSword",
+      "TFT_Item_Spatula"
+    ],
+    "tft_item_name_InfiltratorSpatulaItem": [
+      "TFT_Item_RecurveBow",
+      "TFT_Item_Spatula"
+    ],
+    "tft_item_name_CelestialSpatulaItem": [
+      "TFT_Item_Spatula",
+      "TFT_Item_NegatronCloak"
+    ],
+    "圣盾使的胸甲": [
+      "TFT_Item_Spatula",
+      "TFT_Item_GiantsBelt"
+    ],
+    "tft_item_name_DarkStarSpatulaItem": [
+      "TFT_Item_SparringGloves",
+      "TFT_Item_Spatula"
+    ],
+    "tft_item_name_RebelSpatulaItem": [
+      "TFT_Item_ChainVest",
+      "TFT_Item_Spatula"
+    ],
+    "战地机甲镀板": [
+      "TFT_Item_NeedlesslyLargeRod",
+      "TFT_Item_Spatula"
+    ],
+    "幽影朔极之矛": [
+      "TFT5_Item_BFSwordShadow",
+      "TFT5_Item_TearOfTheGoddessShadow"
+    ],
+    "极暗蓝霸符": [
+      "TFT5_Item_TearOfTheGoddessShadow",
+      "TFT5_Item_TearOfTheGoddessShadow"
+    ],
+    "基克的阴森先驱": [
+      "TFT5_Item_BFSwordShadow",
+      "TFT5_Item_GiantsBeltShadow"
+    ],
+    "不朽石像鬼石板甲": [
+      "TFT5_Item_ChainVestShadow",
+      "TFT5_Item_NegatronCloakShadow"
+    ],
+    "折光棘刺背心": [
+      "TFT5_Item_ChainVestShadow",
+      "TFT5_Item_ChainVestShadow"
+    ],
+    "灭世者的腐蚀死亡之帽": [
+      "TFT5_Item_NeedlesslyLargeRodShadow",
+      "TFT5_Item_NeedlesslyLargeRodShadow"
+    ],
+    "寺塔提克电刺": [
+      "TFT5_Item_RecurveBowShadow",
+      "TFT5_Item_TearOfTheGoddessShadow"
+    ],
+    "祭仪救赎": [
+      "TFT5_Item_TearOfTheGoddessShadow",
+      "TFT5_Item_GiantsBeltShadow"
+    ],
+    "腐蚀水银": [
+      "TFT5_Item_SparringGlovesShadow",
+      "TFT5_Item_NegatronCloakShadow"
+    ],
+    "复仇之手": [
+      "TFT5_Item_TearOfTheGoddessShadow",
+      "TFT5_Item_SparringGlovesShadow"
+    ],
+    "祭仪无尽之刃": [
+      "TFT5_Item_BFSwordShadow",
+      "TFT5_Item_SparringGlovesShadow"
+    ],
+    "折光巨龙之爪": [
+      "TFT5_Item_NegatronCloakShadow",
+      "TFT5_Item_NegatronCloakShadow"
+    ],
+    "最终的轻语": [
+      "TFT5_Item_RecurveBowShadow",
+      "TFT5_Item_SparringGlovesShadow"
+    ],
+    "不朽大恶魔之杖": [
+      "TFT5_Item_NeedlesslyLargeRodShadow",
+      "TFT5_Item_TearOfTheGoddessShadow"
+    ],
+    "祭仪护手": [
+      "TFT5_Item_NeedlesslyLargeRodShadow",
+      "TFT5_Item_SparringGlovesShadow"
+    ],
+    "饮险剑": [
+      "TFT5_Item_BFSwordShadow",
+      "TFT5_Item_NegatronCloakShadow"
+    ],
+    "腐蚀死亡之刃": [
+      "TFT5_Item_BFSwordShadow",
+      "TFT5_Item_BFSwordShadow"
+    ],
+    "诡术拳套": [
+      "TFT5_Item_SparringGlovesShadow",
+      "TFT5_Item_SparringGlovesShadow"
+    ],
+    "疾射死亡火炮": [
+      "TFT5_Item_RecurveBowShadow",
+      "TFT5_Item_RecurveBowShadow"
+    ],
+    "泰坦的复仇": [
+      "TFT5_Item_ChainVestShadow",
+      "TFT5_Item_RecurveBowShadow"
+    ],
+    "冰霜黑暗之心": [
+      "TFT5_Item_TearOfTheGoddessShadow",
+      "TFT5_Item_ChainVestShadow"
+    ],
+    "离子黑暗火花": [
+      "TFT5_Item_NeedlesslyLargeRodShadow",
+      "TFT5_Item_NegatronCloakShadow"
+    ],
+    "星蚀斗篷": [
+      "TFT5_Item_ChainVestShadow",
+      "TFT5_Item_GiantsBeltShadow"
+    ],
+    "卢安娜的不驯飓风": [
+      "TFT5_Item_NegatronCloakShadow",
+      "TFT5_Item_RecurveBowShadow"
+    ],
+    "黑暗之力": [
+      "TFT5_Item_SpatulaShadow",
+      "TFT5_Item_SpatulaShadow"
+    ],
+    "堕落守护天使": [
+      "TFT5_Item_BFSwordShadow",
+      "TFT5_Item_ChainVestShadow"
+    ],
+    "幽影巨人杀手": [
+      "TFT5_Item_BFSwordShadow",
+      "TFT5_Item_RecurveBowShadow"
+    ],
+    "动荡兹若特传送门": [
+      "TFT5_Item_RecurveBowShadow",
+      "TFT5_Item_GiantsBeltShadow"
+    ],
+    "狂徒的祭仪铠甲": [
+      "TFT5_Item_GiantsBeltShadow",
+      "TFT5_Item_GiantsBeltShadow"
+    ],
+    "不朽海克斯科技枪刃": [
+      "TFT5_Item_BFSwordShadow",
+      "TFT5_Item_NeedlesslyLargeRodShadow"
+    ],
+    "女妖之爪": [
+      "TFT5_Item_GiantsBeltShadow",
+      "TFT5_Item_SparringGlovesShadow"
+    ],
+    "鬼索的祭仪狂暴之刃": [
+      "TFT5_Item_RecurveBowShadow",
+      "TFT5_Item_NeedlesslyLargeRodShadow"
+    ],
+    "莫雷洛邪典": [
+      "TFT5_Item_NeedlesslyLargeRodShadow",
+      "TFT5_Item_GiantsBeltShadow"
+    ]
+  }
+}
