@@ -1,192 +1,123 @@
-// 从 raw/tft-zh_cn.json 提取当前赛季（TFTSet17）的装备合成表
-// 用法：node scripts/build-data.mjs
-// 数据源：Community Dragon (https://raw.communitydragon.org/latest/cdragon/tft/zh_cn.json)
+/**
+ * CDragon 数据构建脚本
+ * 下载 raw/tft-zh_cn.json，提取当前赛季装备合成和英雄数据。
+ * 用法: node scripts/build-data.mjs
+ */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, resolve } from "node:path";
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, "..");
+const CDRAGON_URL = 'https://raw.communitydragon.org/latest/cdragon/tft/zh_cn.json';
+const DATA_DIR = 'src/data';
+const ITEMS_OUT = DATA_DIR + '/items.json';
+const CHAMPIONS_OUT = DATA_DIR + '/champions.json';
 
-
-// 如果 raw 数据不存在，自动从 Community Dragon 下载
-const RAW_FILE = resolve(ROOT, "raw/tft-zh_cn.json");
-const RAW_URL = "https://raw.communitydragon.org/latest/cdragon/tft/zh_cn.json";
-
-if (!existsSync(RAW_FILE)) {
-  console.log("正在下载 Community Dragon 数据（约 23MB）...");
-  console.log("  来源: " + RAW_URL);
-  mkdirSync(resolve(ROOT, "raw"), { recursive: true });
-  const res = await fetch(RAW_URL);
-  if (!res.ok) {
-    console.error("下载失败: HTTP " + res.status);
-    process.exit(1);
+async function main() {
+  console.log('Downloading CDragon data...');
+  
+  let raw;
+  try {
+    const res = await fetch(CDRAGON_URL);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    raw = await res.json();
+    console.log('Downloaded OK');
+  } catch (e) {
+    console.error('Download failed:', e.message);
+    console.log('Using built-in fallback data...');
+    buildFallback();
+    return;
   }
-  const total = parseInt(res.headers.get("content-length") || "0", 10);
-  let downloaded = 0;
-  const reader = res.body.getReader();
-  const chunks = [];
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    chunks.push(value);
-    downloaded += value.length;
-    if (total > 0) {
-      process.stdout.write("\r  下载进度: " + Math.round(downloaded / total * 100) + "%");
+
+  if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
+
+  // Extract items: raw.items is an array of { id, name, composition, ... }
+  const itemList = raw.items || [];
+  console.log('Items in CDragon: ' + itemList.length);
+
+  // Build ID -> name map
+  const idToName = {};
+  for (const item of itemList) {
+    if (item.id && item.name) idToName[item.id] = item.name;
+  }
+
+  // Build composition (recipe) table
+  const composition = {};
+  for (const item of itemList) {
+    if (item.name && item.composition && item.composition.length === 2) {
+      const compNames = item.composition.map(cid => idToName[cid] || cid);
+      composition[item.name] = compNames;
     }
   }
-  const buffer = Buffer.concat(chunks);
-  writeFileSync(RAW_FILE, buffer);
-  console.log("\r  下载完成: " + (buffer.length / 1024 / 1024).toFixed(1) + " MB");
-}
-const CURRENT_SET_MUTATOR = "TFTSet17";
-const CDRAGON_BASE = "https://raw.communitydragon.org/latest/game/";
 
-function toIconUrl(rawPath) {
-  if (!rawPath) return "";
-  return CDRAGON_BASE + rawPath.toLowerCase().replace(/\.(tex|dds)$/, ".png");
-}
+  const itemsOutput = {
+    downloaded: new Date().toISOString(),
+    source: 'CDragon',
+    totalItems: itemList.length,
+    recipes: Object.keys(composition).length,
+    composition,
+  };
+  writeFileSync(ITEMS_OUT, JSON.stringify(itemsOutput, null, 2), 'utf-8');
+  console.log('Written ' + Object.keys(composition).length + ' recipes to ' + ITEMS_OUT);
 
-function cleanDesc(s) {
-  return s
-    .replace(/<br\s*\/?>/g, "\n")
-    .replace(/<[^>]+>/g, "")
-    .replace(/@(\w+)@/g, (_, name) => `{${name}}`)
-    .replace(/%i:[\w]+%/g, "")
-    .trim();
-}
+  // Extract champions from sets
+  const sets = raw.sets || {};
+  // Find highest set number (current season)
+  const setNums = Object.keys(sets).map(Number).sort((a,b)=>b-a);
+  const currentSet = setNums[0] || 17;
+  console.log('Current set: ' + currentSet);
 
-console.log("loading raw data...");
-const raw = JSON.parse(
-  readFileSync(resolve(ROOT, "raw/tft-zh_cn.json"), "utf8")
-);
-
-const currentSet = raw.setData.find((s) => s.mutator === CURRENT_SET_MUTATOR);
-if (!currentSet) {
-  console.error("Set not found: " + CURRENT_SET_MUTATOR);
-  process.exit(1);
-}
-console.log("Set: " + currentSet.name + " number=" + currentSet.number);
-
-const BASIC_ITEM_APIS = [
-  "TFT_Item_BFSword",
-  "TFT_Item_RecurveBow",
-  "TFT_Item_NeedlesslyLargeRod",
-  "TFT_Item_TearOfTheGoddess",
-  "TFT_Item_ChainVest",
-  "TFT_Item_NegatronCloak",
-  "TFT_Item_GiantsBelt",
-  "TFT_Item_Spatula",
-  "TFT_Item_SparringGloves",
-  "TFT_Item_FryingPan",
-];
-
-const allItems = raw.items || [];
-const basicItems = BASIC_ITEM_APIS
-  .map((api) => allItems.find((it) => it.apiName === api && it.name && it.name.length > 1))
-  .filter(Boolean)
-  .map((it) => ({
-    apiName: it.apiName,
-    name: it.name,
-    desc: cleanDesc(it.desc || ""),
-    icon: toIconUrl(it.icon),
-    effects: it.effects || {},
-    unique: !!it.unique,
-  }));
-
-console.log("basic items: " + basicItems.length);
-basicItems.forEach((it) => console.log("  " + it.apiName + " -> " + it.name));
-
-const basicApiSet = new Set(BASIC_ITEM_APIS);
-basicItems.forEach((it) => basicApiSet.add(it.apiName));
-
-const completedRaw = allItems.filter((it) => {
-  if (!Array.isArray(it.composition) || it.composition.length !== 2) return false;
-  if (!it.composition.every((c) => basicApiSet.has(c))) return false;
-  if (!it.name || it.name.includes("@") || it.name.startsWith("tft_item_name_")) return false;
-  return true;
-});
-
-console.log("completed raw: " + completedRaw.length);
-
-function scoreApiName(api) {
-  if (api.startsWith("TFT_Item_") && !api.match(/^TFT\d+_/)) return 3;
-  if (api.startsWith("TFT17_")) return 2;
-  return 1;
-}
-
-const completedByKey = new Map();
-for (const it of completedRaw) {
-  const key = [...it.composition].sort().join("+");
-  const existing = completedByKey.get(key);
-  if (!existing) { completedByKey.set(key, it); continue; }
-  const itScore = scoreApiName(it.apiName);
-  const exScore = scoreApiName(existing.apiName);
-  if (itScore > exScore) completedByKey.set(key, it);
-  else if (itScore === exScore && it.apiName.length < existing.apiName.length)
-    completedByKey.set(key, it);
-}
-
-const completedItems = [...completedByKey.values()]
-  .filter((it) => !it.apiName.includes("Corrupted"))
-  .map((it) => ({
-    apiName: it.apiName,
-    name: it.name,
-    desc: cleanDesc(it.desc || ""),
-    icon: toIconUrl(it.icon),
-    composition: it.composition || [],
-    effects: it.effects || {},
-    unique: !!it.unique,
-  }))
-  .sort((a, b) => a.name.localeCompare(b.name, "zh"));
-
-console.log("completed items: " + completedItems.length);
-
-const recipeIndex = {};
-for (const item of completedItems) {
-  const key = [...item.composition].sort().join("+");
-  recipeIndex[key] = { apiName: item.apiName, name: item.name, icon: item.icon };
-}
-
-const componentToCompleted = {};
-for (const api of BASIC_ITEM_APIS) { componentToCompleted[api] = []; }
-for (const item of completedItems) {
-  for (const comp of item.composition) {
-    if (componentToCompleted[comp]) {
-      componentToCompleted[comp].push({
-        apiName: item.apiName,
-        name: item.name,
-        icon: item.icon,
-        with: item.composition.find((c) => c !== comp),
+  const setData = sets[currentSet];
+  const champList = [];
+  
+  if (setData && setData.champions) {
+    for (const champ of setData.champions) {
+      champList.push({
+        id: champ.apiName || champ.characterId || '',
+        name: champ.name || '',
+        cost: champ.cost || 0,
+        traits: (champ.traits || []).map(t => typeof t === 'string' ? t : t.name || ''),
       });
     }
   }
+
+  writeFileSync(CHAMPIONS_OUT, JSON.stringify(champList, null, 2), 'utf-8');
+  console.log('Written ' + champList.length + ' champions to ' + CHAMPIONS_OUT);
+  console.log('Done!');
 }
 
-const outDir = resolve(ROOT, "src/data");
-mkdirSync(outDir, { recursive: true });
+function buildFallback() {
+  if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
 
-const output = {
-  meta: {
-    setName: currentSet.name,
-    setNumber: currentSet.number,
-    mutator: currentSet.mutator,
-    generatedAt: new Date().toISOString(),
-  },
-  basic: basicItems,
-  completed: completedItems,
-  recipeIndex,
-  componentToCompleted,
-};
+  const basic = ['反曲弓','暴风大剑','无用大棒','女神之泪','锁子甲','负极斗篷','巨人腰带','金铲铲','拳套'];
+  const completed = [
+    ['鬼索的狂暴之刃',0,0],['无尽之刃',1,1],['巨人杀手',0,1],['最后的轻语',0,6],
+    ['蓝霸符',3,3],['朔极之矛',1,3],['珠光护手',2,8],['灭世者的死亡之帽',2,2],
+    ['大天使之杖',2,3],['狂徒铠甲',7,7],['石像鬼石板甲',4,5],['巨龙之爪',5,5],
+    ['荆棘之甲',4,4],['救赎',3,7],['莫雷洛秘典',2,7],['海克斯科技枪刃',1,2],
+    ['离子火花',2,5],['日炎斗篷',4,7],['泰坦的坚决',0,4],['饮血剑',1,5],
+    ['守护天使',1,4],['斯特拉克的挑战护手',1,7],['正义之手',3,8],['水银',3,8],
+    ['疾射火炮',0,0],['卢安娜的飓风',0,5],['窃贼手套',8,8],['红霸符',0,7],
+    ['斯塔缇克电刃',0,3],['冰霜之心',3,4],['薄暮法袍',7,8],['坚定之心',7,8],
+    ['冕卫',2,4],['夜之锋刃',1,8],['死亡之刃',1,1],
+  ];
 
-writeFileSync(
-  resolve(outDir, "items.json"),
-  JSON.stringify(output, null, 2),
-  "utf8"
-);
+  const composition = {};
+  for (const [name, a, b] of completed) {
+    composition[name] = [basic[a], basic[b]];
+  }
 
-console.log("\nDone! src/data/items.json");
-console.log("  basic: " + basicItems.length);
-console.log("  completed: " + completedItems.length);
-console.log("  recipes: " + Object.keys(recipeIndex).length);
+  writeFileSync(ITEMS_OUT, JSON.stringify({ downloaded: new Date().toISOString(), source: 'built-in fallback', recipes: Object.keys(composition).length, composition }, null, 2), 'utf-8');
+
+  const champs = [
+    {name:'金克斯',cost:4},{name:'德莱文',cost:1},{name:'德莱厄斯',cost:1},{name:'斯维因',cost:3},
+    {name:'卡特琳娜',cost:2},{name:'塔姆',cost:1},{name:'盖伦',cost:2},{name:'亚托克斯',cost:3},
+    {name:'莫德凯撒',cost:4},{name:'锐雯',cost:2},{name:'维克托',cost:4},{name:'莫甘娜',cost:4},
+    {name:'乐芙兰',cost:3},{name:'蔚',cost:3},{name:'艾克',cost:5},{name:'蕾欧娜',cost:3},
+    {name:'俄洛伊',cost:2},{name:'赛娜',cost:3},{name:'内瑟斯',cost:2},{name:'潘森',cost:1},
+    {name:'佐伊',cost:4},{name:'菲奥娜',cost:5},{name:'维迦',cost:3},{name:'拉克丝',cost:3},
+    {name:'劫',cost:2},{name:'阿卡丽',cost:3},{name:'派克',cost:1},{name:'慎',cost:3},{name:'李青',cost:5},
+  ];
+  writeFileSync(CHAMPIONS_OUT, JSON.stringify(champs, null, 2), 'utf-8');
+  console.log('Fallback data written.');
+}
+
+main().catch(e => { console.error('Fatal:', e.message); process.exit(1); });

@@ -1,0 +1,1343 @@
+[
+  {
+    "id": "state-01",
+    "category": "state_parser",
+    "input": "我3-2，反曲弓大剑锁子甲，海克斯战士之心，2星诺手1星德莱文，72血，想玩赌狗",
+    "expectedState": {
+      "round": "3-2",
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        },
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        }
+      ],
+      "augments": [
+        "战士之心"
+      ],
+      "board": [
+        {
+          "name": "德莱厄斯",
+          "star": 2
+        },
+        {
+          "name": "德莱文",
+          "star": 1
+        }
+      ],
+      "health": 72,
+      "gold": null,
+      "preference": "reroll",
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-02",
+    "category": "state_parser",
+    "input": "开局2-1了，我有反曲弓和无用大棒，想玩运营",
+    "expectedState": {
+      "round": "2-1",
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "无用大棒",
+          "type": "basic"
+        }
+      ],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": "standard",
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-03",
+    "category": "state_parser",
+    "input": "现在4-2，血量只有28了，金币还有15块，装备有巨人杀手和石像鬼石板甲",
+    "expectedState": {
+      "round": "4-2",
+      "equipment": [
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        },
+        {
+          "name": "石像鬼石板甲",
+          "type": "completed"
+        }
+      ],
+      "augments": [],
+      "board": [],
+      "health": 28,
+      "gold": 15,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-04",
+    "category": "state_parser",
+    "input": "我打到5-1了，想玩上9阵容",
+    "expectedState": {
+      "round": "5-1",
+      "equipment": [],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": "fast9",
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-05",
+    "category": "state_parser",
+    "input": "我已经拿了战士之心和装备强化两个海克斯，目标阵容是诅咒战士",
+    "expectedState": {
+      "round": null,
+      "equipment": [],
+      "augments": [
+        "战士之心",
+        "装备强化"
+      ],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": "诅咒战士"
+    }
+  },
+  {
+    "id": "state-06",
+    "category": "state_parser",
+    "input": "场上2星金克斯、2星蔚、1星艾克",
+    "expectedState": {
+      "round": null,
+      "equipment": [],
+      "augments": [],
+      "board": [
+        {
+          "name": "金克斯",
+          "star": 2
+        },
+        {
+          "name": "蔚",
+          "star": 2
+        },
+        {
+          "name": "艾克",
+          "star": 1
+        }
+      ],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-07",
+    "category": "state_parser",
+    "input": "3-2了，我诺手差一张3星，德莱文已经2星了",
+    "expectedState": {
+      "round": "3-2",
+      "equipment": [],
+      "augments": [],
+      "board": [
+        {
+          "name": "德莱厄斯",
+          "star": 2
+        },
+        {
+          "name": "德莱文",
+          "star": 2
+        }
+      ],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-08",
+    "category": "state_parser",
+    "input": "2-1海克斯有战士之心、法师之心、装备强化，选哪个？",
+    "expectedState": {
+      "round": "2-1",
+      "equipment": [],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-09",
+    "category": "state_parser",
+    "input": "我选了战士之心，现在3-2了",
+    "expectedState": {
+      "round": "3-2",
+      "equipment": [],
+      "augments": [
+        "战士之心"
+      ],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-10",
+    "category": "state_parser",
+    "input": "反曲弓大剑锁子甲女神之泪负极斗篷",
+    "expectedState": {
+      "round": null,
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        },
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        },
+        {
+          "name": "女神之泪",
+          "type": "basic"
+        },
+        {
+          "name": "负极斗篷",
+          "type": "basic"
+        }
+      ],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-11",
+    "category": "state_parser",
+    "input": "我有反曲弓、暴风大剑，还有一把羊刀和无尽，想玩随缘",
+    "expectedState": {
+      "round": null,
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        },
+        {
+          "name": "鬼索的狂暴之刃",
+          "type": "completed"
+        },
+        {
+          "name": "无尽之刃",
+          "type": "completed"
+        }
+      ],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": "any",
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-12",
+    "category": "state_parser",
+    "input": "现在第七阶段了，第三个海克斯刷了珠光莲花和窃贼手套",
+    "expectedState": {
+      "round": null,
+      "equipment": [],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-13",
+    "category": "state_parser",
+    "input": "4-1，我德莱文3星了，诺手也是3星，金币有32块",
+    "expectedState": {
+      "round": "4-1",
+      "equipment": [],
+      "augments": [],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 3
+        },
+        {
+          "name": "德莱厄斯",
+          "star": 3
+        }
+      ],
+      "health": null,
+      "gold": 32,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-14",
+    "category": "state_parser",
+    "input": "帮我看下现在什么装备强",
+    "expectedState": {
+      "round": null,
+      "equipment": [],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-15",
+    "category": "state_parser",
+    "input": "我血量100，金币50，场上什么都没有",
+    "expectedState": {
+      "round": null,
+      "equipment": [],
+      "augments": [],
+      "board": [],
+      "health": 100,
+      "gold": 50,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-16",
+    "category": "state_parser",
+    "input": "我现在有六个装备：反曲弓、大剑、锁子甲、巨人杀手、羊刀、石像鬼",
+    "expectedState": {
+      "round": null,
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        },
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        },
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        },
+        {
+          "name": "鬼索的狂暴之刃",
+          "type": "completed"
+        },
+        {
+          "name": "石像鬼石板甲",
+          "type": "completed"
+        }
+      ],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-17",
+    "category": "state_parser",
+    "input": "3-2，我德莱文差一张2星，装备有巨人杀手和暴风大剑",
+    "expectedState": {
+      "round": "3-2",
+      "equipment": [
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "augments": [],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 1
+        }
+      ],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-18",
+    "category": "state_parser",
+    "input": "打完了结束对局",
+    "expectedState": {
+      "round": null,
+      "equipment": [],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-19",
+    "category": "state_parser",
+    "input": "",
+    "expectedState": {
+      "round": null,
+      "equipment": [],
+      "augments": [],
+      "board": [],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "state-20",
+    "category": "state_parser",
+    "input": "哈哈哈哈我今天运气真好德莱文一下子就3星了",
+    "expectedState": {
+      "round": null,
+      "equipment": [],
+      "augments": [],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 3
+        }
+      ],
+      "health": null,
+      "gold": null,
+      "preference": null,
+      "targetComp": null
+    }
+  },
+  {
+    "id": "tool-01",
+    "category": "function_call",
+    "input": "反曲弓大剑，想玩赌狗",
+    "state": {
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "preference": "reroll"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_item_recipes"
+    ],
+    "forbiddenTools": [
+      "search_hero_build",
+      "search_item_tier"
+    ]
+  },
+  {
+    "id": "tool-02",
+    "category": "function_call",
+    "input": "德莱文带什么装备好",
+    "state": {
+      "equipment": [],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 2
+        }
+      ],
+      "preference": "reroll"
+    },
+    "expectedTools": [
+      "search_hero_build"
+    ],
+    "forbiddenTools": [
+      "search_comps",
+      "search_item_recipes"
+    ]
+  },
+  {
+    "id": "tool-03",
+    "category": "function_call",
+    "input": "我现在反曲弓、锁子甲、女神之泪，玩运营，海克斯已经选了战士之心",
+    "state": {
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        },
+        {
+          "name": "女神之泪",
+          "type": "basic"
+        }
+      ],
+      "augments": [
+        "战士之心"
+      ],
+      "preference": "standard"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_item_recipes"
+    ],
+    "forbiddenTools": [
+      "search_hero_build",
+      "search_item_tier"
+    ]
+  },
+  {
+    "id": "tool-04",
+    "category": "function_call",
+    "input": "什么装备强",
+    "state": {},
+    "expectedTools": [
+      "search_item_tier"
+    ],
+    "forbiddenTools": [
+      "search_comps",
+      "search_item_recipes",
+      "search_hero_build"
+    ]
+  },
+  {
+    "id": "tool-05",
+    "category": "function_call",
+    "input": "我已经锁定了诅咒战士阵容，现在我手里有反曲弓和大剑，能合什么",
+    "state": {
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "targetComp": "诅咒战士"
+    },
+    "expectedTools": [
+      "search_item_recipes"
+    ],
+    "forbiddenTools": [
+      "search_comps",
+      "search_hero_build"
+    ]
+  },
+  {
+    "id": "tool-06",
+    "category": "function_call",
+    "input": "我现在需要合成什么装备",
+    "state": {
+      "equipment": [
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        },
+        {
+          "name": "鬼索的狂暴之刃",
+          "type": "completed"
+        },
+        {
+          "name": "石像鬼石板甲",
+          "type": "completed"
+        }
+      ],
+      "targetComp": "德莱文赌狗"
+    },
+    "expectedTools": [],
+    "forbiddenTools": [
+      "search_item_recipes"
+    ]
+  },
+  {
+    "id": "tool-07",
+    "category": "function_call",
+    "input": "我没什么装备，但场上已经有2星德莱文和2星诺手了，想玩赌狗",
+    "state": {
+      "equipment": [],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 2
+        },
+        {
+          "name": "德莱厄斯",
+          "star": 2
+        }
+      ],
+      "preference": "reroll"
+    },
+    "expectedTools": [
+      "search_hero_build"
+    ],
+    "forbiddenTools": [
+      "search_comps",
+      "search_item_recipes"
+    ]
+  },
+  {
+    "id": "tool-08",
+    "category": "function_call",
+    "input": "3-2了，我海克斯选了战士之心，装备有锁子甲和负极斗篷，想玩运营",
+    "state": {
+      "round": "3-2",
+      "equipment": [
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        },
+        {
+          "name": "负极斗篷",
+          "type": "basic"
+        }
+      ],
+      "augments": [
+        "战士之心"
+      ],
+      "preference": "standard"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_item_recipes"
+    ],
+    "forbiddenTools": [
+      "search_hero_build",
+      "search_item_tier"
+    ]
+  },
+  {
+    "id": "tool-09",
+    "category": "function_call",
+    "input": "我现在有金克斯2星和蔚2星，帮我看看金克斯带什么装备",
+    "state": {
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "board": [
+        {
+          "name": "金克斯",
+          "star": 2
+        },
+        {
+          "name": "蔚",
+          "star": 2
+        }
+      ]
+    },
+    "expectedTools": [
+      "search_hero_build",
+      "search_item_recipes"
+    ],
+    "forbiddenTools": []
+  },
+  {
+    "id": "tool-10",
+    "category": "function_call",
+    "input": "我想上9，现在有金铲铲和反曲弓，来牌都是法师",
+    "state": {
+      "equipment": [
+        {
+          "name": "金铲铲",
+          "type": "basic"
+        },
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        }
+      ],
+      "preference": "fast9"
+    },
+    "expectedTools": [
+      "search_comps"
+    ],
+    "forbiddenTools": [
+      "search_hero_build"
+    ]
+  },
+  {
+    "id": "tool-11",
+    "category": "function_call",
+    "input": "我这一局打完了，第2名",
+    "state": {
+      "equipment": [
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        }
+      ],
+      "augments": [
+        "战士之心"
+      ],
+      "preference": "reroll",
+      "targetComp": "德莱文赌狗"
+    },
+    "expectedTools": [],
+    "forbiddenTools": [
+      "search_comps",
+      "search_item_recipes",
+      "search_hero_build",
+      "search_item_tier"
+    ]
+  },
+  {
+    "id": "tool-12",
+    "category": "function_call",
+    "input": "我血量24紧急了，装备有反曲弓和大剑，现在该D牌还是升人口",
+    "state": {
+      "round": "5-1",
+      "health": 24,
+      "gold": 30,
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "preference": "standard"
+    },
+    "expectedTools": [
+      "search_item_recipes"
+    ],
+    "forbiddenTools": [
+      "search_comps"
+    ]
+  },
+  {
+    "id": "tool-13",
+    "category": "function_call",
+    "input": "你说得对，我选了战士之心",
+    "state": {
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        }
+      ],
+      "augments": [
+        "战士之心"
+      ],
+      "preference": "reroll"
+    },
+    "expectedTools": [],
+    "forbiddenTools": [
+      "search_comps",
+      "search_item_recipes",
+      "search_hero_build",
+      "search_item_tier"
+    ]
+  },
+  {
+    "id": "tool-14",
+    "category": "function_call",
+    "input": "开局还没装备，想玩法术阵容，随缘吧",
+    "state": {
+      "equipment": [],
+      "preference": "any"
+    },
+    "expectedTools": [],
+    "forbiddenTools": [
+      "search_comps",
+      "search_item_recipes"
+    ]
+  },
+  {
+    "id": "tool-15",
+    "category": "function_call",
+    "input": "我现在德莱文已经2星了，装备有巨人杀手和锁子甲，下一个海克斯在4-2选，有什么推荐",
+    "state": {
+      "round": "4-1",
+      "equipment": [
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        },
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        }
+      ],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 2
+        }
+      ],
+      "preference": "reroll",
+      "targetComp": "德莱文赌狗"
+    },
+    "expectedTools": [
+      "search_hero_build",
+      "search_item_recipes"
+    ],
+    "forbiddenTools": [
+      "search_comps"
+    ]
+  },
+  {
+    "id": "e2e-01",
+    "category": "end_to_end",
+    "input": "开始新对局，我想玩赌狗",
+    "state": {
+      "preference": "reroll"
+    },
+    "expectedTools": [],
+    "checks": {
+      "hasFollowup": true,
+      "followupAboutEquipment": true
+    }
+  },
+  {
+    "id": "e2e-02",
+    "category": "end_to_end",
+    "input": "反曲弓和大剑，开局",
+    "state": {
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "preference": "reroll"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.6,
+      "hasCompDirection": true,
+      "hasEquipmentAllocation": true,
+      "hasActions": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-03",
+    "category": "end_to_end",
+    "input": "2-1了，海克斯有战士之心、法师之心、装备强化，选哪个？我有反曲弓和大剑",
+    "state": {
+      "round": "2-1",
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "preference": "reroll"
+    },
+    "expectedTools": [
+      "search_comps"
+    ],
+    "checks": {
+      "confidenceAbove": 0.6,
+      "recommendsAugment": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-04",
+    "category": "end_to_end",
+    "input": "我选了战士之心，有德莱文1星在场上",
+    "state": {
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "augments": [
+        "战士之心"
+      ],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 1
+        }
+      ],
+      "preference": "reroll"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.6,
+      "hasEquipmentAllocation": true,
+      "hasActions": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-05",
+    "category": "end_to_end",
+    "input": "现在3-2了，德莱文差2张2星，装备有巨人杀手了，金币45",
+    "state": {
+      "round": "3-2",
+      "equipment": [
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        },
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        }
+      ],
+      "augments": [
+        "战士之心"
+      ],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 1
+        }
+      ],
+      "health": 85,
+      "gold": 45,
+      "preference": "reroll",
+      "targetComp": "德莱文赌狗"
+    },
+    "expectedTools": [
+      "search_hero_build",
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.6,
+      "hasRisks": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-06",
+    "category": "end_to_end",
+    "input": "4-2了德莱文终于2星了，现在要选第二个海克斯，刷了珠光莲花、潘多拉装备、战士纹章",
+    "state": {
+      "round": "4-2",
+      "equipment": [
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        },
+        {
+          "name": "鬼索的狂暴之刃",
+          "type": "completed"
+        }
+      ],
+      "augments": [
+        "战士之心"
+      ],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 2
+        }
+      ],
+      "health": 62,
+      "gold": 32,
+      "preference": "reroll",
+      "targetComp": "德莱文赌狗"
+    },
+    "expectedTools": [
+      "search_hero_build"
+    ],
+    "checks": {
+      "confidenceAbove": 0.5,
+      "recommendsAugment": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-07",
+    "category": "end_to_end",
+    "input": "5-1决赛圈了，德莱文3星，装备满了，血量28有点紧张",
+    "state": {
+      "round": "5-1",
+      "equipment": [
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        },
+        {
+          "name": "鬼索的狂暴之刃",
+          "type": "completed"
+        },
+        {
+          "name": "无尽之刃",
+          "type": "completed"
+        }
+      ],
+      "augments": [
+        "战士之心",
+        "潘多拉装备"
+      ],
+      "board": [
+        {
+          "name": "德莱文",
+          "star": 3
+        },
+        {
+          "name": "德莱厄斯",
+          "star": 3
+        }
+      ],
+      "health": 28,
+      "gold": 18,
+      "preference": "reroll",
+      "targetComp": "德莱文赌狗"
+    },
+    "expectedTools": [],
+    "checks": {
+      "confidenceAbove": 0.5,
+      "hasRisks": true,
+      "riskMentionsLowHealth": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-08",
+    "category": "end_to_end",
+    "input": "开局2-1了，反曲弓无用大棒，想玩运营，海克斯选什么",
+    "state": {
+      "round": "2-1",
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "无用大棒",
+          "type": "basic"
+        }
+      ],
+      "preference": "standard"
+    },
+    "expectedTools": [
+      "search_comps"
+    ],
+    "checks": {
+      "confidenceAbove": 0.5,
+      "hasCompDirection": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-09",
+    "category": "end_to_end",
+    "input": "3-2运营路线，我场上2星金克斯2星蔚，装备有羊刀和巨人杀手，海克斯选了装备强化，金币30",
+    "state": {
+      "round": "3-2",
+      "equipment": [
+        {
+          "name": "鬼索的狂暴之刃",
+          "type": "completed"
+        },
+        {
+          "name": "巨人杀手",
+          "type": "completed"
+        }
+      ],
+      "augments": [
+        "装备强化"
+      ],
+      "board": [
+        {
+          "name": "金克斯",
+          "star": 2
+        },
+        {
+          "name": "蔚",
+          "star": 2
+        }
+      ],
+      "gold": 30,
+      "preference": "standard"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_hero_build"
+    ],
+    "checks": {
+      "confidenceAbove": 0.6,
+      "hasCompDirection": true,
+      "hasActions": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-10",
+    "category": "end_to_end",
+    "input": "4-1了运营路线，血量62，金币50，主C金克斯2星装备满了，下一个要找谁",
+    "state": {
+      "round": "4-1",
+      "equipment": [
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        },
+        {
+          "name": "负极斗篷",
+          "type": "basic"
+        }
+      ],
+      "augments": [
+        "装备强化"
+      ],
+      "board": [
+        {
+          "name": "金克斯",
+          "star": 2
+        },
+        {
+          "name": "蔚",
+          "star": 2
+        },
+        {
+          "name": "艾克",
+          "star": 2
+        }
+      ],
+      "health": 62,
+      "gold": 50,
+      "preference": "standard"
+    },
+    "expectedTools": [
+      "search_hero_build",
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.5,
+      "hasEquipmentAllocation": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-11",
+    "category": "end_to_end",
+    "input": "我想上9，现在3-2了，只拿了反曲弓，一直存钱没D牌，金币有78",
+    "state": {
+      "round": "3-2",
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        }
+      ],
+      "gold": 78,
+      "preference": "fast9"
+    },
+    "expectedTools": [
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.5,
+      "hasRisks": true,
+      "riskMentionsNoItems": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-12",
+    "category": "end_to_end",
+    "input": "随缘玩，现在2-1，装备有大剑和腰带，商店刷到了德莱文和诺手",
+    "state": {
+      "round": "2-1",
+      "equipment": [
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        },
+        {
+          "name": "巨人腰带",
+          "type": "basic"
+        }
+      ],
+      "preference": "any"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.5,
+      "hasCompDirection": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-13",
+    "category": "end_to_end",
+    "input": "血量只有12了，回合5-1，装备反曲弓大剑，金币还有22，我是不是要死了",
+    "state": {
+      "round": "5-1",
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "health": 12,
+      "gold": 22,
+      "preference": "any"
+    },
+    "expectedTools": [
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.5,
+      "hasRisks": true,
+      "riskMentionsLowHealth": true,
+      "hasActions": true,
+      "actionsIncludeRollOrAllIn": true
+    }
+  },
+  {
+    "id": "e2e-14",
+    "category": "end_to_end",
+    "input": "我这一局好顺，2-1拿到了战士纹章，直接走战士阵容",
+    "state": {
+      "round": "2-1",
+      "equipment": [
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        }
+      ],
+      "augments": [
+        "战士纹章"
+      ],
+      "preference": "any"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.6,
+      "hasCompDirection": true,
+      "hasActions": true,
+      "hasFollowup": true
+    }
+  },
+  {
+    "id": "e2e-15",
+    "category": "end_to_end",
+    "input": "装备有四件散件：反曲弓、大剑、锁子甲、腰带，实在不知道怎么选了，第二回合刚开始",
+    "state": {
+      "round": "2-1",
+      "equipment": [
+        {
+          "name": "反曲弓",
+          "type": "basic"
+        },
+        {
+          "name": "暴风大剑",
+          "type": "basic"
+        },
+        {
+          "name": "锁子甲",
+          "type": "basic"
+        },
+        {
+          "name": "巨人腰带",
+          "type": "basic"
+        }
+      ],
+      "preference": "any"
+    },
+    "expectedTools": [
+      "search_comps",
+      "search_item_recipes"
+    ],
+    "checks": {
+      "confidenceAbove": 0.6,
+      "hasCompDirection": true,
+      "hasEquipmentAllocation": true,
+      "hasActions": true,
+      "hasRisks": true,
+      "hasFollowup": true
+    }
+  }
+]
