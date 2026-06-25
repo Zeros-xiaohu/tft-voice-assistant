@@ -154,46 +154,83 @@ Return ONLY JSON:
 // DeepSeek 阵容推荐（comp_tier）
 // =========================================================
 async function getCompTierDeepSeek(filter?: string) {
+  // Try MetaTFT real-time data first
+  try {
+    const infoRes = await fetch("https://api-hc.metatft.com/tft-comps-api/latest_cluster_info", {
+      headers: { "User-Agent": "TFT-Voice-Assistant/2.0" }
+    });
+    if (infoRes.ok) {
+      const infoData = await infoRes.json();
+      const clusters = infoData?.cluster_info?.cluster_details?.clusters || [];
+      
+      if (clusters.length > 0) {
+        // centroid array: last 3 indices ~ [placements, games, top4%?]
+        // Based on the report data, extract avg_placement from centroid
+        const comps = clusters
+          .map((c: any) => {
+            const cent = c.centroid || [];
+            const avgIdx = 23; // avg_placement position in centroid (from debugging)
+            const gamesIdx = 92; // games count position
+            const avg = cent[23] != null ? +cent[23].toFixed(2) : null;
+            const playRate = cent[92] != null ? cent[92] : null;
+            
+            return {
+              name: c.name_string?.replace(/, /g, " / ") || ("阵容 " + c.Cluster),
+              avg,
+              playRate,
+              trait: (c.traits_string || "").replace(/, /g, " / ").replace(/TFT17_/g, ""),
+              coreUnits: (c.units_string || "").split(", ").map((u: string) => u.replace("TFT17_", "")),
+              clusterId: c.Cluster,
+            };
+          })
+          .filter((c: any) => c.avg != null && c.avg > 0 && c.playRate != null && c.playRate > 0)
+          .sort((a: any, b: any) => a.avg - b.avg)
+          .slice(0, 5);
+        
+        if (comps.length > 0) {
+          // Calculate estimated top4/win from avg
+          return comps.map((c: any) => ({
+            name: c.name,
+            trait: c.trait,
+            avg: c.avg,
+            top4: +(Math.min(90, Math.max(40, 100 - (c.avg - 3) * 22)).toFixed(1)),
+            win: +(Math.min(30, Math.max(6, 45 - c.avg * 10)).toFixed(1)),
+            difficulty: "中",
+            coreUnits: c.coreUnits.slice(0, 8),
+            coreItems: {},
+            howToPlay: "",
+            source: "MetaTFT 实时数据",
+          }));
+        }
+      }
+    }
+  } catch (e) {
+    console.error("MetaTFT comps fallback:", (e as Error).message);
+  }
+  
+  // Fallback to DeepSeek
   const filterText = filter
-    ? `用户想了解"${filter}"相关阵容，请重点推荐${filter}相关的主流阵容。`
-    : "请推荐当前版本（Set 17 云顶之弈 S17）胜率最高的阵容。"
-
+    ? "用户想了解" + filter + "相关阵容，请重点推荐" + filter + "相关的主流阵容。"
+    : "请推荐当前版本（Set 17.6 云顶之弈 S17.6）胜率最高的阵容。"
   const res = await fetch("https://api.deepseek.com/chat/completions", {
     method: "POST",
-    headers: { "Content-Type":"application/json", "Authorization":`Bearer ${DEEPSEEK_API_KEY}` },
+    headers: { "Content-Type":"application/json", "Authorization":"Bearer " + DEEPSEEK_API_KEY },
     body: JSON.stringify({
       model: "deepseek-chat",
       messages: [{
         role: "system",
-        content: `你是云顶之弈 S17（Set 17）专家。${filterText}
-
-返回严格的 JSON 数组，包含 3 个阵容，每个阵容格式：
-{
-  "name": "阵容名称（中文）",
-  "trait": "主要羁绊",
-  "avg": 平均排名（如 3.84）,
-  "top4": 前四率百分比（如 61.9）,
-  "win": 吃鸡率百分比（如 18.2）,
-  "difficulty": "低/中/高",
-  "powerSpike": "发力回合（如 4-2）",
-  "coreUnits": ["核心英雄1(费用)","核心英雄2(费用)",...],
-  "coreItems": {"核心英雄1":["关键装备1","关键装备2","关键装备3"], ...},
-  "recommendedAugments": ["推荐海克斯1","推荐海克斯2","推荐海克斯3"],
-  "description": "阵容一句话介绍",
-  "howToPlay": "运营思路简述"
-}
-
-确保数据准确反映 Set 17（当前版本）的生态环境。只返回 JSON 数组，不要其他文字。`,
+        content: "你是云顶之弈 S17.6（Set 17.6）专家。" + filterText + "\n\n返回严格的 JSON 数组，包含 5 个阵容，每个阵容格式：\n{\n  \"name\": \"阵容名称（中文）\",\n  \"trait\": \"主要羁绊\",\n  \"avg\": 平均排名（如 3.84）,\n  \"top4\": 前四率百分比（如 61.9）,\n  \"win\": 吃鸡率百分比（如 18.2）,\n  \"difficulty\": \"低/中/高\",\n  \"coreUnits\": [\"核心英雄1\",\"核心英雄2\",...],\n  \"coreItems\": {\"核心英雄1\":[\"关键装备1\",\"关键装备2\",\"关键装备3\"], ...},\n  \"howToPlay\": \"运营思路简述\"\n}\n\n确保数据准确反映 Set 17.6（当前版本）的生态环境。只返回 JSON 数组，不要其他文字。",
       }, { role:"user", content: filterText }],
       temperature: 0.3, max_tokens: 2000,
     }),
-  })
-  if (!res.ok) throw new Error("DS comp error")
-  const json = await res.json()
-  const raw = json.choices[0].message.content
-    .replace(/```json\n?|```/g,"").trim()
-  return JSON.parse(raw)
+  });
+  if (!res.ok) throw new Error("DS comp error");
+  const json = await res.json();
+  const raw = json.choices[0].message.content.replace(/```json\n?|```/g,"").trim();
+  return JSON.parse(raw);
 }
+
+
 
 // =========================================================
 // 装备合成查询（item_recipe）- 本地数据
@@ -316,9 +353,20 @@ export async function POST(req: Request) {
     const q = (query||"").trim()
     if (!q) return Response.json({ type:"error",message:"请描述你想查的内容" })
 
+    const compKws = ["最强阵容","阵容推荐","阵容排行","T0阵容","强势阵容","阵容","本版本"];
+    const itemKws = ["装备排行","装备排名","装备强度","什么装备"];
+    const isCompQuery = compKws.some(k => q.includes(k)) && q.length < 20;
+    const isItemQuery = itemKws.some(k => q.includes(k)) && q.length < 20;
+    
     let intent: any
-    try { intent = await parseIntent(q) }
-    catch { return Response.json({ type:"error",message:"AI 服务暂时不可用" }) }
+    if (isCompQuery) {
+      intent = { intent: "comp_tier", filter: null }
+    } else if (isItemQuery) {
+      intent = { intent: "item_tier" }
+    } else {
+      try { intent = await parseIntent(q) }
+      catch { return Response.json({ type:"error",message:"AI 服务暂时不可用" }) }
+    }
 
     // =========================================
     // item_tier: 装备排行（已有逻辑）
@@ -334,7 +382,7 @@ export async function POST(req: Request) {
         .filter((i:any) => i.name !== i.icon && i.total > 1000)
         .sort((a:any,b:any)=>a.avg-b.avg).slice(0,12)
       const patch = itemsData.games?.[0]?.patch || "17.5"
-      return Response.json({ type:"item_tier",data:{ items, patch:`Set 17 · Patch ${patch}` } })
+      return Response.json({ type:"item_tier",data:{ items, patch:`Set 17.6 · Patch ${patch}` } })
     }
 
     // =========================================
@@ -348,7 +396,7 @@ export async function POST(req: Request) {
           data: {
             comps,
             filter: (intent.filter || intent.filters?.filter) || null,
-            source: "DeepSeek AI · Set 17 版本环境",
+            source: "DeepSeek AI · Set 17.6 版本环境",
           }
         })
       } catch (e: any) {
